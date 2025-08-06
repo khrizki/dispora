@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transparansi;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -25,6 +26,7 @@ class ProfilController extends Controller
     }
     public function transparansi()
     {
-        return view('profil.transparansi');
+        $data = Transparansi::all();
+        return view('profil.transparansi', compact('data'));
     }
 }
