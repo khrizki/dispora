@@ -173,8 +173,8 @@
                         </span>
                         <span class="menu-title">Artikel</span>
                     </a>
-                    <a class="menu-link {{ Route::is('pages.dokumen.index') ? 'active' : '' }}"
-                        href="{{ route('pages.dokumen.index') }}">
+                    <a class="menu-link {{ Route::is('pages.sosmed.index') ? 'active' : '' }}"
+                        href="{{ route('pages.sosmed.index') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"

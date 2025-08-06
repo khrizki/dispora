@@ -40,7 +40,7 @@ $route = [
                     </a>
 
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#visi-misi">Visi & Misi</a>
+                        <a class="dropdown-item" href="{{ route('profil.visi-misi') }}">Visi & Misi</a>
                         <a class="dropdown-item" href="{{ route('profil.sejarah') }}">Sejarah</a>
                         <a class="dropdown-item" href="{{ route('profil.pejabat') }}">Struktur Organisasi</a>
                         <a class="dropdown-item" href="{{ route('profil.tupoksi') }}">Tugas & Fungsi</a>
@@ -57,7 +57,7 @@ $route = [
                         <a class="dropdown-item" href="#visi-misi">Pengumuman</a>
                         <a class="dropdown-item" href="{{ route('profil.sejarah') }}">Berita & Artikel</a>
                         <a class="dropdown-item" href="{{ route('profil.pejabat') }}">Layanan</a>
-                        <a class="dropdown-item" href="{{ route('profil.tupoksi') }}">Dokumen</a>
+                        <a class="dropdown-item" href="{{ route('profil.dokumen') }}">Dokumen</a>
                         <a class="dropdown-item" href="{{ route('profil.tupoksi') }}">Agenda</a>
                         <a class="dropdown-item" href="{{ route('profil.tupoksi') }}">Galeri Foto</a>
 

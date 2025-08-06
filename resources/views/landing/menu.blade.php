@@ -23,7 +23,8 @@
     <!-- akhir footer -->
 
     <!-- modal -->
-    <div id="modal-berita" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+    <div id="modal-berita" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -49,7 +50,8 @@
     </div>
     <!-- modal -->
 
-    <div id="modal-survey" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+    <div id="modal-survey" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -63,22 +65,22 @@
                     <div class="mb-2">
                         <div class="text-center small fw-bold">Waktu Tunggu</div>
                         <div class="text-center">
-                            <input name="" class="my-rating rating-loading"
-                                data-show-clear="false" data-step="1" required>
+                            <input name="" class="my-rating rating-loading" data-show-clear="false" data-step="1"
+                                required>
                         </div>
                     </div>
                     <div class="mb-2">
                         <div class="text-center small fw-bold">Keramahan</div>
                         <div class="text-center">
-                            <input name="" class="my-rating rating-loading"
-                                data-show-clear="false" data-step="1" required>
+                            <input name="" class="my-rating rating-loading" data-show-clear="false" data-step="1"
+                                required>
                         </div>
                     </div>
                     <div class="mb-2">
                         <div class="text-center small fw-bold">Pelayanan</div>
                         <div class="text-center">
-                            <input name="" class="my-rating rating-loading"
-                                data-show-clear="false" data-step="1" required>
+                            <input name="" class="my-rating rating-loading" data-show-clear="false" data-step="1"
+                                required>
                         </div>
                     </div>
 
@@ -165,5 +167,6 @@
     </script>
     @stack('script')
 </body>
+<script async src="//www.instagram.com/embed.js"></script>
 
 </html>

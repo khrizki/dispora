@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
 use App\Models\Transparansi;
 use Illuminate\Http\Request;
 
@@ -28,5 +29,11 @@ class ProfilController extends Controller
     {
         $data = Transparansi::all();
         return view('profil.transparansi', compact('data'));
+    }
+
+    public function dokumen()
+    {
+        $data = Dokumen::all();
+        return view('profil.dokumen', compact('data'));
     }
 }

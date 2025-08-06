@@ -121,5 +121,6 @@
     <!-- BUTTON DARI BAWAH -->
     <a href="{{ route('beranda') }}" class="btn-hal-utama">HALAMAN UTAMA</a>
 </body>
+<script async src="//www.instagram.com/embed.js"></script>
 
 </html>

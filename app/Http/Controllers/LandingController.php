@@ -7,6 +7,7 @@ use App\Models\Berita;
 use App\Models\Download;
 use App\Models\Galeri;
 use App\Models\Masyarakat;
+use App\Models\Sosmed;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class LandingController extends Controller
         $beritaTerbaru = Berita::orderBy('tanggal_berita', 'desc')->take(3)->get();
         $video = Video::orderBy('created_at', 'desc')->take(3)->get();
         $galeri = Galeri::orderBy('created_at', 'desc')->take(5)->get();
-        return view('landing.index', compact('beritaTerbaru', 'video', 'galeri'));
+        $instagram = Sosmed::latest()->take(3)->get();
+        return view('landing.index', compact('beritaTerbaru', 'video', 'galeri', 'instagram'));
     }
 
     public function landing()

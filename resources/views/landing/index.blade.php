@@ -49,6 +49,8 @@
             animation-delay: 1s;
         }
     </style>
+
+    </style>
     <!-- NAVBAR -->
     @include('landing._navbar')
 
@@ -235,6 +237,34 @@
             </div>
         </div>
     </section>
+    <!-- INSTAGRAM -->
+    <section class="store-adventeges" id="adventeges">
+        <div class="container">
+            <div class="row align-content-center">
+                <div class="col-12 mt-4 text-center"><br>
+                    <h3 class="red">Instagram</h3>
+                    <p>Post Instagram Terbaru <b>BPKAD</b> Kota Padang</p>
+                    <hr class="line">
+                </div>
+
+                @forelse ($instagram as $item)
+                <div class="col-md-4 col-sm-12 mb-4 text-center">
+                    <h5>{{ $item->judul }}</h5>
+                    <div class="instagram-embed-wrapper" style="max-width: 350px; margin: 0 auto;">
+                        {!! $item->embed_code !!}
+                    </div>
+                    <a href="{{ $item->link }}" target="_blank" class="btn btn-primary mt-2">View on Instagram</a>
+                </div>
+                @empty
+                <div class="col-12 text-center">
+                    <p>Tidak ada post Instagram tersedia.</p>
+                </div>
+                @endforelse
+            </div>
+        </div>
+    </section>
+
+
 
 
 
@@ -455,6 +485,7 @@
             setTimeout('slider()', 4000);
         }
     </script>
+    <script async src="//www.instagram.com/embed.js"></script>
 
 
     @stack('script')

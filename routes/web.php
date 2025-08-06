@@ -9,6 +9,7 @@ use App\Http\Controllers\TransparansiController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\VideoController;
 use App\Models\Dokumen;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,8 @@ Route::prefix('profil')->group(function () {
     Route::get('/pejabat-struktural', [ProfilController::class, 'pejabatStruktural'])->name('profil.pejabat');
 });
 Route::get('/transparansi-index', [ProfilController::class, 'transparansi'])->name('profil.transparansi');
+Route::get('/dokumen-index', [ProfilController::class, 'dokumen'])->name('profil.dokumen');
+
 
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 
@@ -77,5 +80,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/video', [VideoController::class, 'index'])->name('pages.video.index');
         Route::get('/video-create', [VideoController::class, 'create'])->name('pages.video.create');
         Route::post('/video/store', [VideoController::class, 'store'])->name('pages.video.store');
+
+        //sosmed
+        Route::get('/sosmed', [SosmedController::class, 'index'])->name('pages.sosmed.index');
     });
 });
