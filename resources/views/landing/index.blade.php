@@ -253,7 +253,7 @@
                     <div class="instagram-embed-wrapper" style="max-width: 350px; margin: 0 auto;">
                         {!! $item->embed_code !!}
                     </div>
-                    <a href="{{ $item->link }}" target="_blank" class="btn btn-primary mt-2">View on Instagram</a>
+
                 </div>
                 @empty
                 <div class="col-12 text-center">
