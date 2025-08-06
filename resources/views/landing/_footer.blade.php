@@ -9,9 +9,9 @@
                     <h6 class="text-uppercase fw-bold mb-2 text-left"> BPKAD KOTA PADANG </h6>
                     <p class="text-left text-white">{{ $setting['alamat'] ?? '' }}</p>
                     <p class="text-left text-white"><i class="bi bi-telephone-forward-fill"></i>
-                        {{ $setting['nohp'] ?? '' }}
+                        0751-32374
                     </p>
-                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> {{ $setting['email'] ?? '' }}
+                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> bpka.padang@gmail.com
                     </p>
                     <h6 class="text-uppercase fw-bold mb-2 text-left">media sosial: </h6>
                     <h5 class="text-left">
@@ -27,8 +27,9 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase text-left fw-bold mb-4"> Layanan & Aplikasi </h6>
-                    <a href="http://" target="_blank" rel="noopener noreferrer" class="">
-                        <p class="text-left text-white">BSTT</p>
+                    <a href="https://bstt.padang.go.id/login" target="_blank" rel="noopener noreferrer" class="">
+                        <p class="text-left text-white">BSTT (Bantuan Sosial Tidak Terencana)
+                        </p>
                     </a>
                 </div> <!-- Grid column -->
                 <!-- Grid column -->
