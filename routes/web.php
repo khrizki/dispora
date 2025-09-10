@@ -8,6 +8,8 @@ use App\Http\Controllers\Transparansi;
 use App\Http\Controllers\TransparansiController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\InfoBergambarController;
+use App\Http\Controllers\PejabatController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\VideoController;
@@ -38,8 +40,10 @@ Route::get('/dokumen-index', [ProfilController::class, 'dokumen'])->name('profil
 
 
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+Route::get('/berita-list', [LandingController::class, 'list'])->name('profil.list');
+Route::get('/galeri-list', [LandingController::class, 'listGaleri'])->name('profil.galeriList');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->group(function () {
 
@@ -49,18 +53,27 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transparansi', [TransparansiController::class, 'index'])->name('pages.transparansi.index');
         Route::get('/transparansi-create', [TransparansiController::class, 'create'])->name('pages.transparansi.create');
         Route::post('/transparansi-store', [TransparansiController::class, 'store'])->name('pages.transparansi.store');
+        Route::delete('/transparansi-destroy/{id}', [TransparansiController::class, 'destroy'])->name('pages.transparansi.destroy');
+        Route::get('/transparansi/{id}/edit', [TransparansiController::class, 'edit'])->name('pages.transparansi.edit');
+        Route::put('/transparansi/{id}', [TransparansiController::class, 'update'])->name('pages.transparansi.update');
 
 
         //Dokumen Anggaran
         Route::get('/dokumen', [DokumenController::class, 'index'])->name('pages.dokumen.index');
         Route::get('/dokumen-create', [DokumenController::class, 'create'])->name('pages.dokumen.create');
         Route::post('/dokumen-store', [DokumenController::class, 'store'])->name('pages.dokumen.store');
+        Route::delete('/dokumen-delete/{id}', [DokumenController::class, 'destroy'])->name('pages.dokumen.destroy');
+        Route::get('/dokumen/{id}/edit', [DokumenController::class, 'edit'])->name('pages.dokumen.edit');
+        Route::put('/dokumen/{id}', [DokumenController::class, 'update'])->name('pages.dokumen.update');
 
 
         //Galeri
         Route::get('/galeri', [GaleriController::class, 'index'])->name('pages.galeri.index');
         Route::get('/create-galery', [GaleriController::class, 'create'])->name('pages.galeri.create');
         Route::post('/store-galery', [GaleriController::class, 'store'])->name('pages.galeri.store');
+        Route::delete('/destroy-galeri/{id}', [GaleriController::class, 'destroy'])->name('pages.galeri.destroy');
+        Route::get('/galeri/{id}/edit', [GaleriController::class, 'edit'])->name('pages.galeri.edit');
+        Route::put('/galeri/{id}', [GaleriController::class, 'update'])->name('pages.galeri.update');
 
         //Berita
         Route::get('/berita', [BeritaController::class, 'index'])->name('pages.berita.index');
@@ -69,19 +82,44 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/berita/store', [BeritaController::class, 'store'])->name('pages.berita.store');
         Route::get('/berita/{id}/edit', [BeritaController::class, 'edit'])->name('pages.berita.edit');
         Route::put('/berita/{id}', [BeritaController::class, 'update'])->name('pages.berita.update');
+        Route::delete('/berita-destroy/{id}', [BeritaController::class, 'destroy'])->name('pages.berita.destroy');
 
         //pengumuman
         Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pages.pengumuman.index');
         Route::get('/pengumuman-create', [PengumumanController::class, 'create'])->name('pages.pengumuman.create');
         Route::post('/pengumuman/store', [PengumumanController::class, 'store'])->name('pages.pengumuman.store');
+        Route::delete('/pengumuman-destroy/{id}', [PengumumanController::class, 'destroy'])->name('pages.pengumuman.destroy');
+        Route::get('/pengumuman/{id}/edit', [PengumumanController::class, 'edit'])->name('pages.pengumuman.edit');
+        Route::put('/pengumuman/{id}', [PengumumanController::class, 'update'])->name('pages.pengumuman.update');
+
 
 
         //Video
         Route::get('/video', [VideoController::class, 'index'])->name('pages.video.index');
         Route::get('/video-create', [VideoController::class, 'create'])->name('pages.video.create');
         Route::post('/video/store', [VideoController::class, 'store'])->name('pages.video.store');
+        Route::delete('/delete-video/{id}', [VideoController::class, 'destroy'])->name('pages.video.destroy');
+        Route::get('/video/{id}/eedit', [VideoController::class, 'edit'])->name('pages.video.edit');
+        Route::put('/video/{id}', [VideoController::class, 'update'])->name('pages.video.update');
+
+
+        //info bergambar
+        Route::get('/info-bergambar', [InfoBergambarController::class, 'index'])->name('pages.info.index');
+        Route::get('/info-create', [InfoBergambarController::class, 'create'])->name('pages.info.create');
+        Route::post('/info-store', [InfoBergambarController::class, 'store'])->name('pages.info.store');
+        Route::get('/info-edit/{id}', [InfoBergambarController::class, 'edit'])->name('pages.info.edit');
+        Route::put('/info-update/{id}', [InfoBergambarController::class, 'update'])->name('pages.info.update');
+        Route::delete('/delete-info/{id}', [InfoBergambarController::class, 'destroy'])->name('pages.info.destroy');
 
         //sosmed
         Route::get('/sosmed', [SosmedController::class, 'index'])->name('pages.sosmed.index');
+
+        //pejabat struktural 
+        Route::get('/pejabat-struktural', [PejabatController::class, 'index'])->name('pages.struktural.index');
+        Route::get('/pejabat-struktural-create', [PejabatController::class, 'create'])->name('pages.struktural.create');
+        Route::post('/pejabat-struktural-store', [PejabatController::class, 'store'])->name('pages.struktural.store');
+        Route::get('/struktural-edit/{id}', [PejabatController::class, 'edit'])->name('pages.struktural.edit');
+        Route::put('/struktural/{id}', [PejabatController::class, 'update'])->name('pages.struktural.update');
+        Route::delete('/delete-struktural/{id}', [PejabatController::class, 'destroy'])->name('pages.struktural.destroy');
     });
 });

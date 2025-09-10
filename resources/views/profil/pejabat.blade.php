@@ -19,50 +19,26 @@
                         </div>
 
                         <div class="row text-center">
-                            <!-- Kepala BPKAD -->
-                            <div class="col-md-4 mb-4">
-                                <div class="position-relative">
-                                    <img src="{{ asset('assets/img/kaban-bpkad.jpg') }}" class="img-fluid rounded w-100"
-                                        style="height: 300px; object-fit: cover;" alt="Kepala BPKAD">
+                            @foreach ($pejabat as $item)
+                                <div class="col-md-4 mb-4">
+                                    <div class="position-relative">
+                                        <img src="{{ asset('storage/' . $item->foto) }}" class="img-fluid rounded w-100"
+                                            style="height: 300px; object-fit: cover;" alt="{{ $item->jabatan }}">
 
-                                    <div class="fw-bold text-uppercase bottom-0 w-100 text-white py-2 px-3"
-                                        style="background-color: rgba(0, 0, 0, 0.5);">
-                                        RAJU MINROPA, S.STP, M.Si</div>
-                                </div>
-                                <div>
-                                    <div class="mt-2 fw-bold text-danger"><strong>KEPALA BPKAD</strong></div>
-                                </div>
-
-                            </div>
-
-                            <!-- Sekretaris -->
-                            <div class="col-md-4 mb-4">
-                                <div class="position-relative">
-                                    <img src="{{ asset('assets/img/sekretaris.jpg') }}" class="img-fluid rounded w-100"
-                                        style="height: 300px; object-fit: cover;" alt="Sekretaris">
-                                    <div class="fw-bold text-uppercase bottom-0 w-100 text-white py-2 px-3"
-                                        style="background-color: rgba(0, 0, 0, 0.5);">
-                                        ELVIRA, SE, Akt, M.Si</div>
-                                </div>
-                                <div>
-                                    <div class="mt-2 fw-bold text-danger"><strong>SEKRETARIS</strong></div>
-                                </div>
-
-                            </div>
-
-                            <!-- Kabid Anggaran -->
-                            <div class="col-md-4 mb-4">
-                                <div class="position-relative">
-                                    <img src="{{ asset('assets/img/kabid-anggaran.jpg') }}" class="img-fluid rounded"
-                                        alt="Kabid Anggaran BPKAD">
-                                    <div class="position-absolute bottom-0 w-100 text-white py-2 px-3"
-                                        style="background-color: rgba(0, 0, 0, 0.5);">
-                                        <div class="fw-bold text-uppercase">AFIRDAL, SE</div>
+                                        <div class="fw-bold text-uppercase bottom-0 w-100 text-white py-2 px-3"
+                                            style="background-color: rgba(0, 0, 0, 0.5);">
+                                            {{ $item->nama }}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="mt-2 fw-bold text-danger">
+                                            <strong>{{ $item->jabatan }}</strong>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mt-2 fw-bold text-danger">KEPALA BIDANG ANGGARAN</div>
-                            </div>
+                            @endforeach
                         </div>
+
 
 
 

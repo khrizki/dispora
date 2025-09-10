@@ -11,7 +11,7 @@
                     <p class="text-left text-white"><i class="bi bi-telephone-forward-fill"></i>
                         0751-32374
                     </p>
-                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> bpka.padang@gmail.com
+                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> bpka@padang.go.id
                     </p>
                     <h6 class="text-uppercase fw-bold mb-2 text-left">media sosial: </h6>
                     <h5 class="text-left">
@@ -58,7 +58,34 @@
 
     <div class="text-center p-2"> &copy; Copyright {{ date('Y') }}
         <a href="http://" target="_blank" rel="noopener noreferrer" class="text-white">DISKOMINFO KOTA
-            PADANG. V.1.2</a>
-        All Rights Reserved.
+            PADANG</a>
     </div> <!-- Copyright -->
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <script>
+        // Back to top button untuk semua halaman
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+
+                backToTopButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
 </footer>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
+use App\Models\Pejabat;
 use App\Models\Transparansi;
 use Illuminate\Http\Request;
 
@@ -23,17 +24,31 @@ class ProfilController extends Controller
 
     public function pejabatStruktural()
     {
-        return view('profil.pejabat');
+        $pejabat = Pejabat::all();
+        return view('profil.pejabat', compact('pejabat'));
     }
     public function transparansi()
     {
-        $data = Transparansi::all();
+        $data = Transparansi::orderBy('id', 'desc')->get();
         return view('profil.transparansi', compact('data'));
     }
 
-    public function dokumen()
+    public function dokumen(Request $request)
     {
-        $data = Dokumen::all();
+        $query = Dokumen::query();
+
+        // Filter judul
+        if ($request->filled('judul')) {
+            $query->where('judul', 'like', '%' . $request->judul . '%');
+        }
+
+        // Filter tahun (kalau pakai created_at)
+        if ($request->filled('tanggal')) {
+            $query->whereYear('tanggal', $request->tanggal);
+        }
+
+        $data = $query->orderBy('id', 'desc')->paginate(10);
+
         return view('profil.dokumen', compact('data'));
     }
 }

@@ -15,7 +15,8 @@
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
             data-kt-toggle-name="app-sidebar-minimize">
             <span class="svg-icon svg-icon-2 rotate-180">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.5"
                         d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z"
                         fill="currentColor" />
@@ -40,10 +41,14 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
@@ -59,10 +64,14 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
@@ -74,10 +83,14 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
@@ -89,14 +102,18 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">Transparansi Anggaran</span>
+                        <span class="menu-title">Transparansi Keuangan Daerah</span>
                     </a>
                     <a class="menu-link {{ Route::is('pages.dokumen.index') ? 'active' : '' }}"
                         href="{{ route('pages.dokumen.index') }}">
@@ -104,14 +121,18 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">Dokumen Anggaran</span>
+                        <span class="menu-title">Regulasi / Peraturan</span>
                     </a>
                     <a class="menu-link {{ Route::is('pages.galeri.index') ? 'active' : '' }}"
                         href="{{ route('pages.galeri.index') }}">
@@ -119,10 +140,14 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
@@ -134,46 +159,77 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
                         <span class="menu-title">Galeri Video</span>
                     </a>
-                    <a class="menu-link {{ Route::is('pages.dokumen.index') ? 'active' : '' }}"
-                        href="{{ route('pages.dokumen.index') }}">
+                    <a class="menu-link {{ Route::is('pages.info.index') ? 'active' : '' }}"
+                        href="{{ route('pages.info.index') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">Info Bergambar</span>
+                    </a>
+                    <a class="menu-link {{ Route::is('pages.struktural.index') ? 'active' : '' }}"
+                        href="{{ route('pages.struktural.index') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
                         <span class="menu-title">Pejabat Struktural</span>
                     </a>
-                    <a class="menu-link {{ Route::is('pages.dokumen.index') ? 'active' : '' }}"
+                    {{-- <a class="menu-link {{ Route::is('pages.dokumen.index') ? 'active' : '' }}"
                         href="{{ route('pages.dokumen.index') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect x="2" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor" />
                                 </svg>
                             </span>
                         </span>
                         <span class="menu-title">Artikel</span>
-                    </a>
-                    <a class="menu-link {{ Route::is('pages.sosmed.index') ? 'active' : '' }}"
+                    </a> --}}
+                    {{-- <a class="menu-link {{ Route::is('pages.sosmed.index') ? 'active' : '' }}"
                         href="{{ route('pages.sosmed.index') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -187,7 +243,7 @@
                             </span>
                         </span>
                         <span class="menu-title">Sosmed</span>
-                    </a>
+                    </a> --}}
                 </div>
 
 

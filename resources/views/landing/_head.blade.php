@@ -137,6 +137,73 @@
             font-size: 14px;
             color: #666;
         }
-    </style>
 
+        .custom-table tbody tr:nth-child(odd) {
+            background-color: #f8f9fa;
+            /* abu muda */
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #e9ecef;
+            /* abu agak gelap */
+        }
+
+        /* Hover effect */
+        .custom-table tbody tr:hover {
+            background-color: #cce5ff !important;
+            /* biru muda saat hover */
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Judul tabel */
+        .custom-table thead {
+            background-color: #004085;
+            color: #fff;
+        }
+
+        /* Border tabel lebih halus */
+        .custom-table th,
+        .custom-table td {
+            border: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+    </style>
+    <!-- Font Awesome untuk icon panah -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #1a2b6f;
+            color: white;
+            border-radius: 50%;
+            display: none;
+            /* Awalnya disembunyikan */
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background-color: #0f1a4b;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            display: flex;
+            /* Muncul saat aktif */
+        }
+    </style>
 </head>

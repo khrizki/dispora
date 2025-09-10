@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class BeritaController extends Controller
 {
@@ -98,12 +99,29 @@ class BeritaController extends Controller
             'foto' => $path,
             'isi_berita' => $request->isi_berita,
         ]);
-        return redirect()->route('pages.berita.index')->with('success, Data Berhasil diupdate');
+        return redirect()->route('pages.berita.index')->with('success', 'Data Berhasil diupdate');
     }
 
     public function show($id)
     {
         $berita = Berita::findOrFail($id);
         return view('pages.berita.show', compact('berita'));
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $berita = Berita::find($id);
+            $berita->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Data Berhasil Dihapus'
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 }

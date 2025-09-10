@@ -7,7 +7,10 @@
         <div class="row justify-content-center">
             <div class="container">
                 <h2 class="mb-3">{{ $berita->judul_berita }}</h2>
-                <p class="text-muted">{{ \Carbon\Carbon::parse($berita->tanggal_berita)->translatedFormat('d F, Y') }}
+                <img src="{{ asset('storage/' . $berita->foto) }}" alt="..." class="card-img-top mx-auto d-block"
+                    style="max-width: 400px; height: auto;" />
+                <p class="text-muted">
+                    {{ \Carbon\Carbon::parse($berita->tanggal_berita)->translatedFormat('d F, Y') }}
                 </p>
 
                 <div>

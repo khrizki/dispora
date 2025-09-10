@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class DokumenController extends Controller
 {
@@ -20,7 +21,7 @@ class DokumenController extends Controller
 
     public function dataTable()
     {
-        $builder = Dokumen::query();
+        $builder = Dokumen::orderBy('id', 'desc');
         return DataTables::of($builder)
             ->addIndexColumn()
             ->editColumn('tahun', function ($row) {
@@ -28,7 +29,7 @@ class DokumenController extends Controller
             })
             ->addColumn('file', function ($row) {
                 if ($row->file) {
-                    $url = asset('storage/' . $row->file);
+                    $url = asset('storage/dokumen/dokumen-anggaran/' . $row->file);
                     return '<a href="' . $url . '" target="_blank" class="btn btn-sm btn-primary">Lihat File</a>';
                 } else {
                     return '<span class="text-muted">Tidak ada file</span>';
@@ -66,7 +67,8 @@ class DokumenController extends Controller
             }
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
-                $fileDokumen = $file->store('dokumen/dokumen-anggaran', 'public');
+                $path = $file->store('dokumen/dokumen-anggaran', 'public');
+                $fileDokumen = basename($path);
             }
 
             Dokumen::create([
@@ -77,6 +79,51 @@ class DokumenController extends Controller
 
             return redirect()->route('pages.dokumen.index')->with('success', 'Data Berhasil Ditambahkan');
         } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function edit($id)
+    {
+        $dokumenEdit = Dokumen::findOrFail($id);
+        // dd($dokumenEdit);
+        return view('pages.dokumen.edit', compact('dokumenEdit'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'file' => 'nullable|mimes:pdf,word',
+            'tanggal' => 'required',
+        ]);
+        $dokumen = Dokumen::findOrFail($id);
+        $fileDokumen = $dokumen->file;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $path = $file->store('dokumen/dokumen-anggaran', 'public');
+            $fileDokumen = basename($path);
+        }
+        $dokumen->update([
+            'judul' => $request->judul,
+            'file' => $fileDokumen,
+            'tanggal' => $request->tanggal,
+        ]);
+        return redirect()->route('pages.dokumen.index')->with('success', 'Data Berhasil Diupdate');
+    }
+    public function destroy($id)
+    {
+        try {
+            $dokumen = Dokumen::find($id);
+            $dokumen->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Data Behasil Dihapus'
+            ]);
+        } catch (ValidationException $e) {
             return response()->json([
                 'success' => false,
                 'message' => $e->getMessage()

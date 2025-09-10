@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Carbon;
@@ -20,7 +21,7 @@ class GaleriController extends Controller
 
     public function dataTable()
     {
-        $builder = Galeri::query();
+        $builder = Galeri::orderBy('id', 'desc');
         return DataTables::of($builder)
             ->addIndexColumn()
             ->addColumn('foto_galery', function ($row) {
@@ -71,6 +72,46 @@ class GaleriController extends Controller
 
             return redirect()->route('pages.galeri.index')->with('success', 'Data Berhasil Ditambahkan');
         } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+    public function edit($id)
+    {
+        $galeriEdit = Galeri::findOrFail($id);
+        return view('pages.galeri.edit', compact('galeriEdit'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul_galery' => 'required',
+            'foto_galery' => 'nullable|mimes:png,jpg,jpeg',
+        ]);
+        $galeri = Galeri::findOrFail($id);
+        $fotoGalery = $galeri->foto_galery;
+        if ($request->hasFile('foto_galery')) {
+            $foto_galery = $request->file('foto_galery');
+            $fotoGalery = $foto_galery->store('galery', 'public');
+        }
+        $galeri->update([
+            'judul_galery' => $request->judul_galery,
+            'foto_galery' => $fotoGalery,
+        ]);
+        return redirect()->route('pages.galeri.index')->with('success', 'Data Berhasil Diupdate');
+    }
+    public function destroy($id)
+    {
+        try {
+            $galeri = Galeri::find($id);
+            $galeri->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Data Galeri Berhasil di Hapus'
+            ]);
+        } catch (ValidationException $e) {
             return response()->json([
                 'success' => false,
                 'message' => $e->getMessage()

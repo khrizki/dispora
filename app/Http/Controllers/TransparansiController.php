@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
 use App\Models\Transparansi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Carbon;
+use Illuminate\Validation\ValidationException;
 
 class TransparansiController extends Controller
 {
@@ -41,6 +43,33 @@ class TransparansiController extends Controller
     public function create()
     {
         return view('pages.transparansi.create');
+    }
+
+    public function edit($id)
+    {
+        $transparansiEdit = Transparansi::findOrFail($id);
+        return view('pages.transparansi.edit', compact('transparansiEdit'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'file' => 'nullable|mimes:pdf,word',
+            'tahun' => 'required',
+        ]);
+        $transparansi = Transparansi::findOrFail($id);
+        $fileTransparansi = $transparansi->file;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileTransparansi = $file->store('dokumen/transparansi', 'public');
+        }
+        $transparansi->update([
+            'judul' => $request->judul,
+            'file' => $fileTransparansi,
+            'tahun' => $request->tahun,
+        ]);
+        return redirect()->route('pages.transparansi.index')->with('success', 'Data Berhasil Diupdate');
     }
     public function store(Request $request)
     {
@@ -77,6 +106,23 @@ class TransparansiController extends Controller
 
             return redirect()->route('pages.transparansi.index')->with('success', 'Data Berhasil Ditambahkan');
         } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $transparansi = Transparansi::find($id);
+            $transparansi->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Data Berhasil Dihapus'
+            ]);
+        } catch (ValidationException $e) {
             return response()->json([
                 'success' => false,
                 'message' => $e->getMessage()
