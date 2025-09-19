@@ -10,7 +10,7 @@
                     <div class="card-body p-4">
 
                         <!-- Judul -->
-                        <h2 class="fw-bold mb-3">Data Regulasi / Peraturan BPKAD Kota Padang</h2>
+                        <h2 class="fw-bold mb-3">Data Regulasi / Peraturan PERKIM Kota Padang</h2>
                         <hr class="my-3">
 
                         <!-- Form Filter -->

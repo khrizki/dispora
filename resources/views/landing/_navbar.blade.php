@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item {{ Route::is('beranda') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('beranda') }}">Beranda</a>
+                    <a class="nav-link" href="{{ route('beranda') }}">Home</a>
                 </li>
 
                 <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
@@ -46,7 +46,7 @@
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profil.visi-misi') }}">Visi & Misi</a>
                         <a class="dropdown-item" href="{{ route('profil.sejarah') }}">Sejarah</a>
-                        <a class="dropdown-item" href="{{ route('profil.pejabat') }}">Struktur Organisasi</a>
+                        <a class="dropdown-item" href="{{ route('profil.pejabat') }}">Pejabat Struktural </a>
                         <a class="dropdown-item" href="{{ route('profil.tupoksi') }}">Tugas & Fungsi</a>
                     </div>
 
@@ -54,25 +54,47 @@
                 <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Publikasi
+                        Produk
+                    </a>
+
+                    <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
+                        <a class="dropdown-item" href="#">SIKASPER</a>
+                        <a class="dropdown-item" href="#">SI RUMAH KITA</a>
+                        <a class="dropdown-item" href="#">Peningkatan Prasarana, Sarana, dan Utilitas Umum</a>
+                        <a class="dropdown-item" href="#">Peningkatan Kualitas Perumahan Kumuh dan Pemukiman Kumuh</a>
+                        <a class="dropdown-item" href="#">Sanitasi Rumah</a>
+                        <a class="dropdown-item" href="#">Air Minum Perumahan</a>
+
+                    </div>
+
+                </li>
+                <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Informasi Publik
                     </a>
 
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Pengumuman</a>
                         <a class="dropdown-item" href="{{ route('profil.list') }}">Berita & Artikel</a>
-                        <a class="dropdown-item" href="{{ route('profil.dokumen') }}">Regulasi / Peraturan</a>
+                        {{-- <a class="dropdown-item" href="{{ route('profil.dokumen') }}">Regulasi / Peraturan</a>
+                        HAPUS OOP DOKUMEN --}}
+                        <a class="dropdown-item" href="#">Lowongan</a>
                         <a class="dropdown-item" href="{{ route('profil.galeriList') }}">Galeri Foto</a>
 
                     </div>
 
                 </li>
-                <li class="nav-item {{ Route::is('landing.konsultasi') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('profil.transparansi') }}">Transparansi Keuangan Daerah</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://dashboard.padang.go.id/dashboard/pbj/e-purchasing">
-                        <i class="fas fa-external-link-alt"></i> E-Purchasing
+                <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Galeri
                     </a>
+                    <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('profil.galeriList') }}">Galeri Foto & Video</a>
+                    </div>
+
                 </li>
 
 

@@ -6,7 +6,7 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-1">
                     <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-2 text-left"> BPKAD KOTA PADANG </h6>
+                    <h6 class="text-uppercase fw-bold mb-2 text-left"> PERKIM KOTA PADANG </h6>
                     <p class="text-left text-white">{{ $setting['alamat'] ?? '' }}</p>
                     <p class="text-left text-white"><i class="bi bi-telephone-forward-fill"></i>
                         0751-32374

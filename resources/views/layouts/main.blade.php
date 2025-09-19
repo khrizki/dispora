@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>BPKAD KOTA PADANG</title>
+    <title>PERKIM KOTA PADANG</title>
     <meta charset="utf-8" />
     <meta name="description" content="Bantuan Sosial Tidak Terencana" />
     <meta name="keywords" content="boiler, plate, boilerplate" />

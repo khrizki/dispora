@@ -348,7 +348,7 @@
             <div class="row align-content-center">
                 <div class="col-12 mt-4 text-center"><br>
                     <h3 class="red" style="color: #212e60;">Instagram</h3>
-                    <p>Post Instagram Terbaru <b>BPKAD</b> Kota Padang</p>
+                    <p>Post Instagram Terbaru <b>PERKIM</b> Kota Padang</p>
                     <hr class="line">
                 </div>
 
@@ -376,7 +376,7 @@
             <div class="row align-content-center">
                 <div class="col-12 mt-4 text-center"><br>
                     <h3 class="red" style="color: #212e60;">Video Terbaru</h3>
-                    <p>Video Terbaru <b>BPKAD</b> Kota Padang </p>
+                    <p>Video Terbaru <b>PERKIM</b> Kota Padang </p>
                     <hr class="line">
                 </div>
                 @php
@@ -416,7 +416,7 @@
             <div class="row text-center">
                 <div class="col-12 mt-5">
                     <h3 class="red" style="color: #212e60;">Galeri dan Dokumentasi</h3>
-                    <p>Galeri dan Dokumentasi Kegiatan <span class="badge bg-warning text-dark">BPKAD</span> Kota
+                    <p>Galeri dan Dokumentasi Kegiatan <span class="badge bg-warning text-dark">PERKIM</span> Kota
                         Padang
                     </p>
                     <hr class="line">
@@ -442,7 +442,7 @@
                 <div class="col-12 mt-5">
                     <h3 class="red" style="color: #212e60;">Jumlah Pengunjung</h3>
                     <p>Jumlah Pengunjung Website
-                        <span class="badge bg-warning text-dark">BPKAD</span> Kota Padang
+                        <span class="badge bg-warning text-dark">PERKIM</span> Kota Padang
                     </p>
                     <hr class="line">
                 </div>
@@ -458,6 +458,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Card Bulan Ini -->
                 <div class="col-md-3 col-sm-6 mb-3">
                     <div class="card shadow-sm border-0">
@@ -467,7 +468,28 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Card Bulan Lalu -->
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted">Bulan Lalu</h5>
+                            <h2 class="fw-bold text-secondary">{{ $lastMonthVisitors }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Total Pengunjung -->
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted">Total Pengunjung</h5>
+                            <h2 class="fw-bold text-danger">{{ $totalVisitors }}</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -479,7 +501,7 @@
             <div class="row text-center">
                 <div class="col-12"><br>
                     <h3 style="color:#212e60;"> Kontak Kami</h3>
-                    <h6>bpka@padang.go.id</h6>
+                    <h6>perkim@padang.go.id</h6>
                     <hr class="line">
                 </div>
             </div>
@@ -498,7 +520,7 @@
 
 
                                     <iframe class="iframe-maps"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.3293020282383!2d100.36135714989892!3d-0.950922487903041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b98a5d0c2c4b%3A0xe17da72ba314994f!2sBadan%20Pengelolaan%20Keuangan%20dan%20Aset%20Daerah%20Kota%20Padang!5e0!3m2!1sid!2sid!4v1751943541611!5m2!1sid!2sid"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.33083371316044!2d100.36362534708348!3d-0.9294747522404935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b92708346ea9%3A0xa676f8ae7633e2d5!2sDinas%20Perumahan%20Rakyat%2C%20Kawasan%20Permukiman%20Dan%20Pertanahan%20Prov.%20Sumbar!5e0!3m2!1sid!2sid!4v1758077140609!5m2!1sid!2sid"
                                         allowfullscreen="" loading="lazy"></iframe>
                                 </div>
                             </div>

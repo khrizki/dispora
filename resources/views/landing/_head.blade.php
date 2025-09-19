@@ -7,7 +7,7 @@
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
 
     <!-- Title -->
-    <title>BPKAD KOTA PADANG</title>
+    <title>PERKIM KOTA PADANG</title>
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />

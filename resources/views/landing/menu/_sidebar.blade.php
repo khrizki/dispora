@@ -6,7 +6,7 @@
 
             <div style="display: flex; align-items: center; gap: 8px;">
                 <img src="{{ asset('assets/media/logos/logo.png') }}" alt="Logo" style="height: 35px;">
-                <span>BPKAD KOTA PADANG</span>
+                <span>PERKIM KOTA PADANG</span>
             </div>
 
         </a>

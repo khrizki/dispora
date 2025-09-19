@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/icon type">
-    <title>Sign In | BPKAD Kota Padang</title>
+    <title>Sign In | PERKIM Kota Padang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -40,7 +40,7 @@
                     <div class="col-lg-7 text-end">
                         <!-- <div class="typewriter"> -->
                         <h1 class="text-right text-stroke animate__animated animate__backInDown"
-                            style="margin-bottom:-8px;color: #FFFFFF;">BPKAD</h1>
+                            style="margin-bottom:-8px;color: #FFFFFF;">PERKIM</h1>
                         <h3 class="text-right animate__animated animate__backInDown"
                             style="margin-bottom:-8px;color: #FFFFFF;">Kota Padang
                         </h3>

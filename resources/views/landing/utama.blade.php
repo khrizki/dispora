@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
-    <title>BPKAD Kota Padang</title>
+    <title>PERKIM Kota Padang</title>
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <style>
         body {
@@ -110,8 +110,8 @@
     <div class="header">
         <img src="{{ asset('assets/img/logo.png') }}" alt="Logo BPKAD">
         <div class="text-logo">
-            <div class="title">bpkad.padang.go.id</div>
-            <div class="subtitle">PORTAL RESMI BPKAD KOTA PADANG</div>
+            <div class="title">perkim.padang.go.id</div>
+            <div class="subtitle">PORTAL RESMI PERKIM KOTA PADANG</div>
         </div>
     </div>
 

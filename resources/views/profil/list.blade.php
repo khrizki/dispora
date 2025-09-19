@@ -17,7 +17,7 @@
         box-shadow:0px 4px 6px rgba(0,0,0,0.1);
         margin:20px auto;
     ">
-                Semua Berita BPKAD Kota Padang
+                Semua Berita PERKIM Kota Padang
             </h3>
         </div>
         <div class="row">

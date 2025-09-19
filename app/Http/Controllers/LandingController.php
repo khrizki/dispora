@@ -18,23 +18,62 @@ use Illuminate\Support\Facades\DB;
 
 class LandingController extends Controller
 {
+    // public function index()
+    // {
+
+    //     $beritaTerbaru = Berita::orderBy('created_at', 'desc')->take(3)->get();
+    //     $video = Video::orderBy('created_at', 'desc')->take(3)->get();
+    //     $galeri = Galeri::orderBy('created_at', 'desc')->take(5)->get();
+    //     $instagram = Sosmed::orderBy('id', 'desc')->take(3)->get();
+    //     $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
+    //     $monthVisitors = Visitor::whereMonth('created_at', Carbon::now()->month)
+    //         ->whereYear('created_at', Carbon::now()->year)
+    //         ->count();
+    //     $infoBergambar = DB::table('info_bergambar')->orderBy('created_at', 'desc')->get();
+    //     $pejabat = Pejabat::where('jabatan', 'KEPALA BPKAD Kota Padang')->first();
+
+
+    //     return view('landing.index', compact('beritaTerbaru', 'video', 'galeri', 'instagram', 'todayVisitors', 'monthVisitors', 'infoBergambar', 'pejabat'));
+    // }
     public function index()
     {
-
         $beritaTerbaru = Berita::orderBy('created_at', 'desc')->take(3)->get();
         $video = Video::orderBy('created_at', 'desc')->take(3)->get();
         $galeri = Galeri::orderBy('created_at', 'desc')->take(5)->get();
         $instagram = Sosmed::orderBy('id', 'desc')->take(3)->get();
+
         $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
+
         $monthVisitors = Visitor::whereMonth('created_at', Carbon::now()->month)
             ->whereYear('created_at', Carbon::now()->year)
             ->count();
+
+        $lastMonth = Carbon::now()->subMonth();
+
+        $lastMonthVisitors = Visitor::whereMonth('created_at', $lastMonth->month)
+            ->whereYear('created_at', $lastMonth->year)
+            ->count();
+
+        $totalVisitors = Visitor::count();
+
         $infoBergambar = DB::table('info_bergambar')->orderBy('created_at', 'desc')->get();
+
         $pejabat = Pejabat::where('jabatan', 'KEPALA BPKAD Kota Padang')->first();
 
-
-        return view('landing.index', compact('beritaTerbaru', 'video', 'galeri', 'instagram', 'todayVisitors', 'monthVisitors', 'infoBergambar', 'pejabat'));
+        return view('landing.index', compact(
+            'beritaTerbaru',
+            'video',
+            'galeri',
+            'instagram',
+            'todayVisitors',
+            'monthVisitors',
+            'lastMonthVisitors',
+            'totalVisitors',
+            'infoBergambar',
+            'pejabat'
+        ));
     }
+
 
     public function landing()
     {

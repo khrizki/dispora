@@ -16,7 +16,7 @@
         box-shadow:0px 4px 6px rgba(0,0,0,0.1);
         margin:20px auto;
     ">
-                Semua Galeri BPKAD Kota Padang
+                Semua Galeri PERKIM Kota Padang
             </h3>
         </div>
         <div class="row">
