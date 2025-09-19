@@ -11,14 +11,14 @@
                     <p class="text-left text-white"><i class="bi bi-telephone-forward-fill"></i>
                         0751-32374
                     </p>
-                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> bpka@padang.go.id
+                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> perkim@padang.go.id
                     </p>
                     <h6 class="text-uppercase fw-bold mb-2 text-left">media sosial: </h6>
                     <h5 class="text-left">
                         <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-facebook"></i> </a>
                         <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-twitter"></i> </a>
                         <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-google"></i></a>
-                        <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-instagram"></i> </a>
+                        <a href="https://www.instagram.com/dinas_perkim_kotapadang/" class="me-4 pl-1 text-white"> <i class="bi bi-instagram"></i> </a>
                         <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-linkedin"></i> </a>
                         <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-whatsapp"></i> </a>
                     </h5>
