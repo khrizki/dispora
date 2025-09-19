@@ -468,26 +468,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Card Bulan Lalu -->
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-muted">Bulan Lalu</h5>
-                            <h2 class="fw-bold text-secondary">{{ $lastMonthVisitors }}</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Total Pengunjung -->
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-muted">Total Pengunjung</h5>
-                            <h2 class="fw-bold text-danger">{{ $totalVisitors }}</h2>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
