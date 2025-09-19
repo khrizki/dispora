@@ -468,6 +468,26 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Card Bulan Lalu -->
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted">Bulan Lalu</h5>
+                            <h2 class="fw-bold text-secondary">{{ $lastMonthVisitors }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Total Pengunjung -->
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-muted">Total Pengunjung</h5>
+                            <h2 class="fw-bold text-danger">{{ $totalVisitors }}</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -500,7 +520,7 @@
 
 
                                     <iframe class="iframe-maps"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.33083371316044!2d100.36362534708348!3d-0.9294747522404935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b92708346ea9%3A0xa676f8ae7633e2d5!2sDinas%20Perumahan%20Rakyat%2C%20Kawasan%20Permukiman%20Dan%20Pertanahan%20Prov.%20Sumbar!5e0!3m2!1sid!2sid!4v1758077140609!5m2!1sid!2sid"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1232.5863090840842!2d100.36281818197402!3d-0.9294804460660874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b92708346ea9%3A0xa676f8ae7633e2d5!2sDinas%20Perumahan%20Rakyat%2C%20Kawasan%20Permukiman%20Dan%20Pertanahan%20Prov.%20Sumbar!5e0!3m2!1sid!2sid!4v1758242998956!5m2!1sid!2sid"
                                         allowfullscreen="" loading="lazy"></iframe>
                                 </div>
                             </div>
