@@ -149,10 +149,29 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block bg-100" src="{{ asset('assets/img/Intersect.png') }}" id="slideImg"
+                            <img class="d-block bg-100" src="{{ asset('assets/img/intersect.png') }}" id="slideImg"
                                 alt="First slide">
+
+                            <div class="carousel-caption d-flex flex-column justify-content-center align-items-start text-start"
+                                style="top: 0; bottom: 0; left: 10%; right: auto; padding: 20px; text-align: left !important;">
+                                <h6 class="text-white fw-bold">PERKIM Kota Padang</h6>
+                                <h1 class="text-white fw-bold mb-3" style="font-size: 2rem; line-height: 1.3;">
+                                    Dinas Perumahan Rakyat dan<br>
+                                    Kawasan Permukiman <br>
+                                    Kota Padang
+                                </h1>
+                                <p class="text-white mb-3" style="max-width: 500px;">
+                                    Mewujudkan Perumahan Rakyat dan Kawasan <br> 
+                                    Permukiman Kota Padang yang layak huni <br>
+                                    terjangkau, aman, terpadu, dan berkelanjutan
+                                </p>
+                                <a href="{{ route('profil.rusunawa') }}" class="btn btn-success px-3 py-1">
+                                    Cari Rusunawa
+                                </a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="landing-page-container">
@@ -612,8 +631,8 @@
     <script>
         var slideImg = document.getElementById("slideImg");
         var images = new Array(
-            "{{ asset('assets/img/Intersect.png') }}",
-            "{{ asset('assets/img/balai_kota_lama.png') }}"
+            "{{ asset('assets/img/intersect.png') }}",
+            "{{ asset('assets/img/kotapadang.jpg') }}"
         );
 
         var len = images.length;

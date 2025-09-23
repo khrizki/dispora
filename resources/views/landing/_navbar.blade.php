@@ -58,12 +58,12 @@
                     </a>
 
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
+                        <a class="dropdown-item" href="https://sikasper.padang.go.id/map">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
                         <a class="dropdown-item" href="https://sikasper.padang.go.id/">SIKASPER</a>
                         <a class="dropdown-item" href="https://sirumahkita.padang.go.id/">SI RUMAH KITA</a>
                         <a class="dropdown-item" href="#">Peningkatan Prasarana, Sarana, dan Utilitas Umum</a>
-                        <a class="dropdown-item" href="#">Peningkatan Kualitas Perumahan Kumuh dan Pemukiman Kumuh</a>
-                        <a class="dropdown-item" href="#">Sanitasi Rumah</a>
+                        <a class="dropdown-item" href="https://sirumahkita.padang.go.id/catalogue/#/map/90">Peningkatan Kualitas Perumahan Kumuh dan Pemukiman Kumuh</a>
+                        <a class="dropdown-item" href="https://sikasper.padang.go.id/map/sanitasi/7/62/">Sanitasi Rumah</a>
                         <a class="dropdown-item" href="#">Air Minum Perumahan</a>
 
                     </div>
@@ -95,6 +95,12 @@
                     </div>
 
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">
+                        <i class="fas fa-external-link-alt"></i> Login
+                    </a>
+                </li>
+
 
 
             </ul>

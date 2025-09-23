@@ -9,7 +9,7 @@
                     <h6 class="text-uppercase fw-bold mb-2 text-left"> PERKIM KOTA PADANG </h6>
                     <p class="text-left text-white">{{ $setting['alamat'] ?? '' }}</p>
                     <p class="text-left text-white"><i class="bi bi-telephone-forward-fill"></i>
-                        0751-32374
+                        0751-890757, 26633
                     </p>
                     <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> perkim@padang.go.id
                     </p>
