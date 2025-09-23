@@ -15,6 +15,10 @@ use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\VideoController;
 use App\Models\Dokumen;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NavbarItemController;
+use App\Http\Controllers\RusunawaController;
+use App\Http\Controllers\AreaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,12 +47,25 @@ Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show
 Route::get('/berita-list', [LandingController::class, 'list'])->name('profil.list');
 Route::get('/galeri-list', [LandingController::class, 'listGaleri'])->name('profil.galeriList');
 
+Route::get('/carirusunawa', [RusunawaController::class, 'show'])->name('profil.rusunawa');
+
+
+
 Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('menu')->group(function () {
+        
+        // Navbar
+        Route::get('/navbar', [NavbarItemController::class, 'index'])->name('pages.navbar.index');
+        Route::get('/navbar-create', [NavbarItemController::class, 'create'])->name('pages.navbar.create');
+        Route::post('/navbar-store', [NavbarItemController::class, 'store'])->name('pages.navbar.store');
+        Route::get('/navbar/{id}/edit', [NavbarItemController::class, 'edit'])->name('pages.navbar.edit');
+        Route::put('/navbar/{id}', [NavbarItemController::class, 'update'])->name('pages.navbar.update');
+        Route::delete('/navbar-destroy/{id}', [NavbarItemController::class, 'destroy'])->name('pages.navbar.destroy');
+
         //Transparansi Anggaran
         Route::get('/transparansi', [TransparansiController::class, 'index'])->name('pages.transparansi.index');
         Route::get('/transparansi-create', [TransparansiController::class, 'create'])->name('pages.transparansi.create');
@@ -56,6 +73,24 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/transparansi-destroy/{id}', [TransparansiController::class, 'destroy'])->name('pages.transparansi.destroy');
         Route::get('/transparansi/{id}/edit', [TransparansiController::class, 'edit'])->name('pages.transparansi.edit');
         Route::put('/transparansi/{id}', [TransparansiController::class, 'update'])->name('pages.transparansi.update');
+
+        //Rusunawa
+        Route::get('/rusunawa', [RusunawaController::class, 'index'])->name('pages.rusunawa.index');
+        Route::get('/rusunawa-create', [RusunawaController::class, 'create'])->name('pages.rusunawa.create');
+        Route::post('/rusunawa-store', [RusunawaController::class, 'store'])->name('pages.rusunawa.store');
+        Route::get('/rusunawa/{rusunawa}/edit', [RusunawaController::class, 'edit'])->name('pages.rusunawa.edit');
+        Route::put('/rusunawa/{rusunawa}', [RusunawaController::class, 'update'])->name('pages.rusunawa.update');
+        Route::delete('/rusunawa-destroy/{rusunawa}', [RusunawaController::class, 'destroy'])->name('pages.rusunawa.destroy');
+        
+       // Area
+        Route::get('/areas', [AreaController::class, 'index'])->name('pages.areas.index');
+        Route::get('/areas-create', [AreaController::class, 'create'])->name('pages.areas.create');
+        Route::post('/areas-store', [AreaController::class, 'store'])->name('pages.areas.store');
+        Route::get('/areas/{area}/edit', [AreaController::class, 'edit'])->name('pages.areas.edit');
+        Route::put('/areas/{area}', [AreaController::class, 'update'])->name('pages.areas.update');
+        Route::delete('/areas-destroy/{area}', [AreaController::class, 'destroy'])->name('pages.areas.destroy');
+
+
 
 
         //Dokumen Anggaran
@@ -121,5 +156,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/struktural-edit/{id}', [PejabatController::class, 'edit'])->name('pages.struktural.edit');
         Route::put('/struktural/{id}', [PejabatController::class, 'update'])->name('pages.struktural.update');
         Route::delete('/delete-struktural/{id}', [PejabatController::class, 'destroy'])->name('pages.struktural.destroy');
+
+        //Rusunawa
+        Route::get('/rusunawa', [RusunawaController::class, 'index'])->name('pages.rusunawa.index');
+        Route::get('/rusunawa-create', [RusunawaController::class, 'create'])->name('pages.rusunawa.create');
+        Route::post('/rusunawa-store', [RusunawaController::class, 'store'])->name('pages.rusunawa.store');
+        Route::get('/rusunawa/{id}/edit', [RusunawaController::class, 'edit'])->name('pages.rusunawa.edit');
+        Route::put('/rusunawa/{id}', [RusunawaController::class, 'update'])->name('pages.rusunawa.update');
+        Route::delete('/rusunawa-destroy/{id}', [RusunawaController::class, 'destroy'])->name('pages.rusunawa.destroy');
+
     });
 });

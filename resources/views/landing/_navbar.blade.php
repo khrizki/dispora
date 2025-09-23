@@ -81,7 +81,6 @@
                         {{-- <a class="dropdown-item" href="{{ route('profil.dokumen') }}">Regulasi / Peraturan</a>
                         HAPUS OOP DOKUMEN --}}
                         <a class="dropdown-item" href="#">Lowongan</a>
-                        <a class="dropdown-item" href="{{ route('profil.galeriList') }}">Galeri Foto</a>
 
                     </div>
 

@@ -18,7 +18,7 @@
                     </h1>
                 </div>
                 <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <a href="{{ route('pages.info.index') }}" class="btn btn-sm btn-light">
+                    <a href="{{ route('pages.struktural.index') }}" class="btn btn-sm btn-light">
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
                 </div>
