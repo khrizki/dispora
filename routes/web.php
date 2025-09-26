@@ -41,15 +41,13 @@ Route::prefix('profil')->group(function () {
 });
 Route::get('/transparansi-index', [ProfilController::class, 'transparansi'])->name('profil.transparansi');
 Route::get('/dokumen-index', [ProfilController::class, 'dokumen'])->name('profil.dokumen');
-
+Route::get('/caripengumuman', [PengumumanController::class, 'show'])->name('profil.pengumuman');
 
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 Route::get('/berita-list', [LandingController::class, 'list'])->name('profil.list');
 Route::get('/galeri-list', [LandingController::class, 'listGaleri'])->name('profil.galeriList');
 
 Route::get('/carirusunawa', [RusunawaController::class, 'show'])->name('profil.rusunawa');
-
-
 
 Auth::routes(['register' => false]);
 
@@ -90,9 +88,6 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/areas/{area}', [AreaController::class, 'update'])->name('pages.areas.update');
         Route::delete('/areas-destroy/{area}', [AreaController::class, 'destroy'])->name('pages.areas.destroy');
 
-
-
-
         //Dokumen Anggaran
         Route::get('/dokumen', [DokumenController::class, 'index'])->name('pages.dokumen.index');
         Route::get('/dokumen-create', [DokumenController::class, 'create'])->name('pages.dokumen.create');
@@ -126,8 +121,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/pengumuman-destroy/{id}', [PengumumanController::class, 'destroy'])->name('pages.pengumuman.destroy');
         Route::get('/pengumuman/{id}/edit', [PengumumanController::class, 'edit'])->name('pages.pengumuman.edit');
         Route::put('/pengumuman/{id}', [PengumumanController::class, 'update'])->name('pages.pengumuman.update');
-
-
 
         //Video
         Route::get('/video', [VideoController::class, 'index'])->name('pages.video.index');

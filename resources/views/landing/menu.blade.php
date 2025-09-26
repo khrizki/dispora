@@ -7,7 +7,7 @@
 
     <div class="preloader" style="background-color: rgb(199, 192, 192)">
         <div class="loading">
-            <img src="assets/img/logo-head.png" width="600px">
+            <img src="assets/img/logo-head1.png" width="600px">
         </div>
     </div>
     <!-- NAVBAR -->

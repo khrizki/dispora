@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('judul_pengumuman');
             $table->text('isi_pengumuman');
             $table->date('tanggal');
-            $table->date('jam');
+            $table->time('jam');
+            $table->time('jam_selesai');
             $table->timestamps();
         });
     }

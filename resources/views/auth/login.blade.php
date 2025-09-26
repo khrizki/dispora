@@ -49,7 +49,7 @@
                     <div class="col-lg-5">
                         <div class="card-login">
                             <a href="{{ route('landing') }}">
-                                <img src="{{ asset('assets/img/logo-head.png') }}" class="w-100 mb-5" alt="">
+                                <img src="{{ asset('assets/img/logo-head1.png') }}" class="w-100 mb-5" alt="">
                             </a>
 
 

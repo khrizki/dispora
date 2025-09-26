@@ -116,4 +116,22 @@ class PengumumanController extends Controller
             ]);
         }
     }
+
+   public function show()
+{
+    $query = Pengumuman::query();
+
+    if (request('judul')) {
+        $query->where('judul_pengumuman', 'like', '%' . request('judul') . '%');
+    }
+
+    if (request('tanggal')) {
+        $query->whereDate('tanggal', request('tanggal'));
+    }
+
+    $pengumuman = $query->orderBy('tanggal', 'desc')->paginate(10);
+
+    return view('profil.pengumuman', compact('pengumuman'));
+}
+
 }

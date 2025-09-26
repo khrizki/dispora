@@ -49,7 +49,7 @@
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                     <th>#</th>
                                     <th>Judul Pengumuman</th>
-                                    <th>Lokasi</th>
+                                    <th>Isi Pengumuman</th>
                                     <th>Tanggal</th>
                                     <th>Jam Mulai</th>
                                     <th>Jam Selesai</th>

@@ -125,10 +125,10 @@
                                     <td style="white-space: nowrap;">Nomor Hotline</td>
                                     <td>: {{ $row->nomor_hotline ?? '-' }}</td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <td style="white-space: nowrap;">Area</td>
                                     <td>: {{ $row->area->nama ?? '-' }}</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
 

@@ -6,7 +6,7 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="{{ route('dashboard') }}">
-                <img src="{{ asset('assets/img/logo-head.png') }}" width="110" height="32"
+                <img src="{{ asset('assets/img/logo-head1.png') }}" width="110" height="32"
                     alt="PERKIM Kota Padang" class="navbar-brand-image">
             </a>
         </h1>

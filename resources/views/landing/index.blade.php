@@ -8,7 +8,7 @@
 
     <div class="preloader" style="background-color: rgb(199, 192, 192)">
         <div class="loading">
-            <img src="{{ asset('assets/img/logo-head.png') }}" class="img-fluid" alt="Logo BPKAD" width="600">
+            <img src="{{ asset('assets/img/logo-head1.png') }}" class="img-fluid" alt="Logo BPKAD" width="600">
 
         </div>
     </div>
