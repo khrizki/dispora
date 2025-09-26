@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Models\Visitor;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Models\HeroSection; 
 
 class LandingController extends Controller
 {
@@ -43,6 +44,9 @@ class LandingController extends Controller
 
         $pejabat = Pejabat::where('jabatan', 'Sekretariat Daerah Kominfo')->first();
 
+
+        $hero = HeroSection::orderBy('created_at', 'desc')->get();
+
         return view('landing.index', compact(
             'beritaTerbaru',
             'video',
@@ -53,7 +57,8 @@ class LandingController extends Controller
             'lastMonthVisitors',
             'totalVisitors',
             'infoBergambar',
-            'pejabat'
+            'pejabat',
+            'hero'
         ));
     }
 

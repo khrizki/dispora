@@ -146,7 +146,7 @@
 
                 <!-- Settings -->
                 <div class="menu-item menu-accordion 
-                    {{ Route::is('pages.navbar.index') || Route::is('pages.footer.index') ? 'here show' : '' }}"
+                    {{ Route::is('pages.navbar.index') || Route::is('pages.footer.index') || Route::is('pages.herosection.index') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-gear fs-4"></i></span>
@@ -161,15 +161,23 @@
                                 <span class="menu-title">Navbar</span>
                             </a>
                         </div>
-                        {{-- <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.footer.index') ? 'active' : '' }}"
-                                href="{{ route('pages.footer.index') }}">
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.navbar.index') ? 'active' : '' }}"
+                                href="{{ route('pages.navbar.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-window"></i></span>
                                 <span class="menu-title">Footer</span>
                             </a>
-                        </div> --}}
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.herosection.index') ? 'active' : '' }}"
+                                href="{{ route('pages.herosection.index') }}">
+                                <span class="menu-bullet"><i class="bi bi-layout-text-window-reverse"></i></span>
+                                <span class="menu-title">Hero Section</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
 
             </div>
         </div>

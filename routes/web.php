@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\NavbarItemController;
 use App\Http\Controllers\RusunawaController;
 use App\Http\Controllers\AreaController;
-
+use App\Http\Controllers\HeroSectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +63,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/navbar/{id}/edit', [NavbarItemController::class, 'edit'])->name('pages.navbar.edit');
         Route::put('/navbar/{id}', [NavbarItemController::class, 'update'])->name('pages.navbar.update');
         Route::delete('/navbar-destroy/{id}', [NavbarItemController::class, 'destroy'])->name('pages.navbar.destroy');
+
+        //Hero Section
+        Route::get('/herosection', [HeroSectionController::class, 'index'])->name('pages.herosection.index');
+        Route::get('/herosection-create', [HeroSectionController::class, 'create'])->name('pages.herosection.create');
+        Route::post('/herosection-store', [HeroSectionController::class, 'store'])->name('pages.herosection.store');
+        Route::delete('/herosection-destroy/{id}', [HeroSectionController::class, 'destroy'])->name('pages.herosection.destroy');
+        Route::get('/herosection/{id}/edit', [HeroSectionController::class, 'edit'])->name('pages.herosection.edit');
+        Route::put('/herosection/{id}', [HeroSectionController::class, 'update'])->name('pages.herosection.update');
+
 
         //Transparansi Anggaran
         Route::get('/transparansi', [TransparansiController::class, 'index'])->name('pages.transparansi.index');

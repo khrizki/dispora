@@ -399,8 +399,8 @@
                     <hr class="line">
                 </div>
                 @php
-                    function getYoutubeId($url)
-                    {
+                if (!function_exists('getYoutubeId')) {
+                    function getYoutubeId($url) {
                         preg_match(
                             '/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([^\?&"\'<> #]+)/',
                             $url,
@@ -408,7 +408,9 @@
                         );
                         return $matches[1] ?? null;
                     }
+                }
                 @endphp
+
                 @forelse ($video as $item)
                     <div class="col-md-4 col-sm-12 mb-4 text-center">
                         <h5 class="video-title mb-2" title="{{ $item->judul_video }}">{{ $item->judul_video }}</h5>
@@ -628,12 +630,14 @@
             });
         });
     </script>
-    <script>
+   <script>
         var slideImg = document.getElementById("slideImg");
-        var images = new Array(
-            "{{ asset('assets/img/intersect.png') }}",
-            "{{ asset('assets/img/kotapadang.jpg') }}"
-        );
+        var images = [
+            "{{ asset('assets/img/intersect.png') }}", // default image
+            @foreach($hero as $h)
+                "{{ asset('storage/'.$h->image) }}",
+            @endforeach
+        ];
 
         var len = images.length;
         var i = 0;
@@ -644,9 +648,14 @@
             }
             slideImg.src = images[i];
             i++;
-            setTimeout('slider()', 4000);
+            setTimeout(slider, 6000);
         }
+
+        // start langsung
+        slider();
     </script>
+
+
     <script async src="//www.instagram.com/embed.js"></script>
 
 

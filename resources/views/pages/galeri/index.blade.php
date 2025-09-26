@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Dokumen Anggaran')
+@section('title', 'Galeri')
 
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
