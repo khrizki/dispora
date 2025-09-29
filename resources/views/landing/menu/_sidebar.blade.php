@@ -83,8 +83,22 @@
                         <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.struktural.index') ? 'active' : '' }}"
                                 href="{{ route('pages.struktural.index') }}">
+                                <span class="menu-bullet"><i class="bi bi-journal-text"></i></span>
+                                <span class="menu-title">Sejarah</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.struktural.index') ? 'active' : '' }}"
+                                href="{{ route('pages.struktural.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-people"></i></span>
                                 <span class="menu-title">Pejabat Struktural</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.transparansi.index') ? 'active' : '' }}"
+                                href="{{ route('pages.transparansi.index') }}">
+                                <span class="menu-bullet"><i class="bi bi-folder2-open"></i></span>
+                                <span class="menu-title">Tugas & Fungsi</span>
                             </a>
                         </div>
                     </div>
@@ -112,6 +126,13 @@
                                 href="{{ route('pages.berita.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-newspaper"></i></span>
                                 <span class="menu-title">Berita</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.berita.index') ? 'active' : '' }}"
+                                href="{{ route('pages.berita.index') }}">
+                                <span class="menu-bullet"><i class="bi bi-briefcase"></i></span>
+                                <span class="menu-title">Lowongan</span>
                             </a>
                         </div>
                     </div>
