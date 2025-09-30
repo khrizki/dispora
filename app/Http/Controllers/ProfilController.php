@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dokumen;
 use App\Models\Pejabat;
 use App\Models\Transparansi;
+use App\Models\tupoksi;
 use App\Models\visimisi;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,10 @@ class ProfilController extends Controller
     }
     public function tupoksi()
     {
-        return view('profil.tupoksi');
+        $tupoksi = tupoksi::orderBy('urutan', 'asc')->get();
+        return view('profil.tupoksi', compact('tupoksi'));
     }
+
 
     public function pejabatStruktural()
     {

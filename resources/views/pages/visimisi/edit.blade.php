@@ -1,76 +1,77 @@
 @extends('layouts.main')
 
-@section('title', 'Visi & Misi')
+@section('title', 'Edit Visi & Misi')
 
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
+        <!-- Toolbar -->
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
             <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        Visi & Misi
+                        Edit Visi & Misi
                     </h1>
+                </div>
+                <div class="d-flex align-items-center gap-2 gap-lg-3">
+                    <a href="{{ route('pages.visimisi.index') }}" class="btn btn-sm btn-light">
+                        <i class="fa fa-arrow-left"></i> Kembali
+                    </a>
                 </div>
             </div>
         </div>
 
+        <!-- Content -->
         <div id="kt_app_content" class="app-content flex-column-fluid">
             <div id="kt_app_content_container" class="app-container container-xxl">
-                <div class="row">
-                    <!-- Form -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header pt-2">
-                                <h3 class="card-title">Edit Visi & Misi</h3>
-                            </div>
-                            <div class="card-body">
-                                <form action="{{ isset($visimisi) ? route('pages.visimisi.update', $visimisi->id) : route('pages.visimisi.store') }}" method="POST">
-                                    @csrf
-                                    @if(isset($visimisi))
-                                        @method('PUT')
-                                    @endif
+                <div class="card">
+                    <div class="card-body py-4">
+                        <form action="{{ route('pages.visimisi.update', $visimisi->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Visi</label>
-                                        <<textarea id="visi" name="visi" class="form-control" rows="4">{{ old('visi', $visimisi->visi ?? '') }}</textarea>
+                            <div class="card shadow-sm mb-5">
+                                <div class="row g-5">
+                                    <!-- Visi -->
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold">Visi</label>
+                                        <textarea id="visi" name="visi" class="form-control form-control-solid" rows="4" required>{{ old('visi', $visimisi->visi) }}</textarea>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Misi (pisahkan dengan baris baru)</label>
-                                        <textarea id="misi" name="misi" class="form-control" rows="6">{{ old('misi', $visimisi->misi ?? '') }}</textarea>
-
+                                    <!-- Misi -->
+                                    <div class="col-md-12">
+                                        <label class="form-label fw-semibold">Misi (pisahkan dengan baris baru)</label>
+                                        <textarea id="misi" name="misi" class="form-control form-control-solid" rows="6">{{ old('misi', $visimisi->misi) }}</textarea>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </form>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-save"></i> Simpan
+                                </button>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Preview -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header pt-2">
-                                <h3 class="card-title">Preview</h3>
-                            </div>
-                            <div class="card-body" id="previewBox">
-                                <h4 class="text-primary">VISI</h4>
-                               <p id="previewVisi">{{ old('visi', $visimisi->visi ?? '-') }}</p>
-                                <h4 class="text-primary mt-4">MISI</h4>
-                                <ol id="previewMisi">
-                                    @if(isset($visimisi))
-                                        @foreach(explode("\n", trim(old('misi', $visimisi->misi ?? ''))) as $m)
-                                            <li>{{ $m }}</li>
-                                        @endforeach
-                                    @else
-                                        <li>-</li>
-                                    @endif
-                                </ol>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
+                <!-- Preview -->
+                <div class="card mt-5">
+                    <div class="card-header pt-2">
+                        <h3 class="card-title">Preview</h3>
+                    </div>
+                    <div class="card-body" id="previewBox">
+                        <h4 class="text-primary">VISI</h4>
+                        <p id="previewVisi">{{ old('visi', $visimisi->visi) }}</p>
+                        <h4 class="text-primary mt-4">MISI</h4>
+                        <ol id="previewMisi">
+                            @foreach(explode("\n", trim(old('misi', $visimisi->misi))) as $m)
+                                @if(!empty($m))
+                                    <li>{{ $m }}</li>
+                                @endif
+                            @endforeach
+                        </ol>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

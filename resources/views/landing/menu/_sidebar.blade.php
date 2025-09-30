@@ -9,13 +9,6 @@
             <img src="{{ asset('assets/media/logos/logo.png') }}" alt="Logo" class="h-35px" />
             <span class="fw-bold fs-5 text-uppercase">PERKIM PADANG</span>
         </a>
-        {{-- <!-- Toggle button -->
-        <div id="kt_app_sidebar_toggle"
-            class="app-sidebar-toggle btn btn-icon btn-sm btn-light position-relative"
-            data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
-            data-kt-toggle-name="app-sidebar-minimize">
-            <i class="bi bi-chevron-double-left fs-5"></i>
-        </div> --}}
     </div>
 
     <!-- Menu -->
@@ -38,7 +31,7 @@
 
                 <!-- Progul -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.rusunawa.index') || Route::is('pages.areas.index') ? 'here show' : '' }}"
+                    {{ Route::is('pages.rusunawa.*') || Route::is('pages.areas.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-building fs-4"></i></span>
@@ -47,14 +40,14 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.rusunawa.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.rusunawa.*') ? 'active' : '' }}"
                                 href="{{ route('pages.rusunawa.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-house-door"></i></span>
                                 <span class="menu-title">Rusunawa</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.areas.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.areas.*') ? 'active' : '' }}"
                                 href="{{ route('pages.areas.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-geo-alt"></i></span>
                                 <span class="menu-title">Area</span>
@@ -65,8 +58,8 @@
 
                 <!-- Profil -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('profil.visi-misi') || Route::is('pages.struktural.index') ? 'here show' : '' }}"
-                    data-kt-menu-trigger="click">
+                {{ Route::is('pages.visimisi.*') || Route::is('pages.struktural.*') || Route::is('pages.tupoksi.*') ? 'here show' : '' }}"
+                data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-person-badge fs-4"></i></span>
                         <span class="menu-title fw-semibold">Profil</span>
@@ -74,29 +67,29 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.visimisi.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.visimisi.*') ? 'active' : '' }}"
                                 href="{{ route('pages.visimisi.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-lightbulb"></i></span>
                                 <span class="menu-title">Visi Misi</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.navbar.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.navbar.*') ? 'active' : '' }}"
                                 href="{{ route('pages.navbar.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-journal-text"></i></span>
                                 <span class="menu-title">Sejarah</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.struktural.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.struktural.*') ? 'active' : '' }}"
                                 href="{{ route('pages.struktural.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-people"></i></span>
                                 <span class="menu-title">Pejabat Struktural</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.transparansi.index') ? 'active' : '' }}"
-                                href="{{ route('pages.transparansi.index') }}">
+                            <a class="menu-link {{ Route::is('pages.tupoksi.*') ? 'active' : '' }}"
+                                href="{{ route('pages.tupoksi.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-folder2-open"></i></span>
                                 <span class="menu-title">Tugas & Fungsi</span>
                             </a>
@@ -106,7 +99,7 @@
 
                 <!-- Informasi Publik -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.pengumuman.index') || Route::is('pages.berita.index') ? 'here show' : '' }}"
+                    {{ Route::is('pages.pengumuman.*') || Route::is('pages.berita.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-megaphone fs-4"></i></span>
@@ -115,22 +108,22 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.pengumuman.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.pengumuman.*') ? 'active' : '' }}"
                                 href="{{ route('pages.pengumuman.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-bell"></i></span>
                                 <span class="menu-title">Pengumuman</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.berita.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.berita.*') ? 'active' : '' }}"
                                 href="{{ route('pages.berita.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-newspaper"></i></span>
                                 <span class="menu-title">Berita</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.navbar.index') ? 'active' : '' }}"
-                                href="{{ route('pages.navbar.index') }}">
+                            <a class="menu-link {{ Route::is('pages.lowongan.*') ? 'active' : '' }}"
+                                href="#">
                                 <span class="menu-bullet"><i class="bi bi-briefcase"></i></span>
                                 <span class="menu-title">Lowongan</span>
                             </a>
@@ -140,7 +133,7 @@
 
                 <!-- Galeri -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.galeri.index') || Route::is('pages.video.index') ? 'here show' : '' }}"
+                    {{ Route::is('pages.galeri.*') || Route::is('pages.video.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-images fs-4"></i></span>
@@ -149,14 +142,14 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.galeri.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.galeri.*') ? 'active' : '' }}"
                                 href="{{ route('pages.galeri.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-image"></i></span>
                                 <span class="menu-title">Galeri Foto</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.video.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.video.*') ? 'active' : '' }}"
                                 href="{{ route('pages.video.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-camera-reels"></i></span>
                                 <span class="menu-title">Galeri Video</span>
@@ -167,7 +160,7 @@
 
                 <!-- Settings -->
                 <div class="menu-item menu-accordion 
-                    {{ Route::is('pages.navbar.index') || Route::is('pages.footer.index') || Route::is('pages.herosection.index') ? 'here show' : '' }}"
+                    {{ Route::is('pages.navbar.*') || Route::is('pages.footer.*') || Route::is('pages.herosection.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-gear fs-4"></i></span>
@@ -176,21 +169,21 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.navbar.index') ? 'active' : '' }}"
-                                href="{{ route('pages.navbar.index') }}">
+                            <a class="menu-link {{ Route::is('pages.navbar.*') ? 'active' : '' }}"
+                                href="#">
                                 <span class="menu-bullet"><i class="bi bi-menu-button-wide"></i></span>
                                 <span class="menu-title">Navbar</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.navbar.index') ? 'active' : '' }}"
-                                href="{{ route('pages.navbar.index') }}">
+                            <a class="menu-link {{ Route::is('pages.footer.*') ? 'active' : '' }}"
+                                href="#">
                                 <span class="menu-bullet"><i class="bi bi-window"></i></span>
                                 <span class="menu-title">Footer</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.herosection.index') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.herosection.*') ? 'active' : '' }}"
                                 href="{{ route('pages.herosection.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-layout-text-window-reverse"></i></span>
                                 <span class="menu-title">Hero Section</span>
@@ -198,7 +191,6 @@
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </div>

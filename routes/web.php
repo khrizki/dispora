@@ -19,6 +19,7 @@ use App\Http\Controllers\NavbarItemController;
 use App\Http\Controllers\RusunawaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\HeroSectionController;
+use App\Http\Controllers\TupoksiController;
 use App\Http\Controllers\VisiMisiController;
 
 /*
@@ -105,6 +106,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/visimisi/{visimisi}/edit', [VisiMisiController::class, 'edit'])->name('pages.visimisi.edit'); // form edit
         Route::put('/visimisi/{visimisi}', [VisiMisiController::class, 'update'])->name('pages.visimisi.update'); // update
         Route::delete('/visimisi-destroy/{visimisi}', [VisiMisiController::class, 'destroy'])->name('pages.visimisi.destroy'); // delete
+
+        //tupoksi
+        Route::get('/tupoksi', [TupoksiController::class, 'index'])->name('pages.tupoksi.index');
+        Route::get('/tupoksi/create', [TupoksiController::class, 'create'])->name('pages.tupoksi.create');
+        Route::post('/tupoksi/store', [TupoksiController::class, 'store'])->name('pages.tupoksi.store');
+        Route::get('/tupoksi/{tupoksi}/edit', [TupoksiController::class, 'edit'])->name('pages.tupoksi.edit');
+        Route::put('/tupoksi/{tupoksi}', [TupoksiController::class, 'update'])->name('pages.tupoksi.update');
+        Route::delete('/tupoksi/{tupoksi}', [TupoksiController::class, 'destroy'])->name('pages.tupoksi.destroy');
+
 
         //Dokumen Anggaran
         Route::get('/dokumen', [DokumenController::class, 'index'])->name('pages.dokumen.index');
