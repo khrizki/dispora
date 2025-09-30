@@ -8,7 +8,7 @@
 
     <div class="preloader" style="background-color: rgb(199, 192, 192)">
         <div class="loading">
-            <img src="{{ asset('assets/img/logo-head1.png') }}" class="img-fluid" alt="Logo BPKAD" width="600">
+            <img src="{{ asset('assets/img/logo-head-PERKIM.png') }}" class="img-fluid" alt="Logo PERKIM" width="600">
 
         </div>
     </div>
@@ -311,7 +311,7 @@
         <div class="container">
             <div class="text-center mt-5">
                 <h3 class="red" style="color: #212e60;">Berita Terbaru</h3>
-                <p>Berita dan Artikel <b>BPKAD</b> Kota Padang</p>
+                <p>Berita dan Artikel <b>PERKIM</b> Kota Padang</p>
                 <hr class="line">
             </div>
             <div class="row g-4">

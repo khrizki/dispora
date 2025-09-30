@@ -81,8 +81,8 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.struktural.index') ? 'active' : '' }}"
-                                href="{{ route('pages.struktural.index') }}">
+                            <a class="menu-link {{ Route::is('pages.navbar.index') ? 'active' : '' }}"
+                                href="{{ route('pages.navbar.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-journal-text"></i></span>
                                 <span class="menu-title">Sejarah</span>
                             </a>
@@ -129,8 +129,8 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.berita.index') ? 'active' : '' }}"
-                                href="{{ route('pages.berita.index') }}">
+                            <a class="menu-link {{ Route::is('pages.navbar.index') ? 'active' : '' }}"
+                                href="{{ route('pages.navbar.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-briefcase"></i></span>
                                 <span class="menu-title">Lowongan</span>
                             </a>

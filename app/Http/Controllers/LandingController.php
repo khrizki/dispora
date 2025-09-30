@@ -42,7 +42,7 @@ class LandingController extends Controller
 
         $infoBergambar = DB::table('info_bergambar')->orderBy('created_at', 'desc')->get();
 
-        $pejabat = Pejabat::where('jabatan', 'Sekretariat Daerah Kominfo')->first();
+        $pejabat = Pejabat::where('jabatan', 'Kepala Dinas Perumahan dan Kawasan Permukiman Kota Padang')->first();
 
 
         $hero = HeroSection::orderBy('created_at', 'desc')->get();
