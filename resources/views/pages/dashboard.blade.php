@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
+            {{-- <!-- Card 3 -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
@@ -34,14 +34,14 @@
                         <h3 class="fw-bold text-warning">{{ $dokumenDashboard ?? 0 }}</h3>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Card 4 -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
-                        <h6 class="card-title text-muted">Data Transparansi</h6>
-                        <h3 class="fw-bold text-danger">{{ $transparansiDashboard ?? 0 }}</h3>
+                        <h6 class="card-title text-muted">Rusunawa</h6>
+                        <h3 class="fw-bold text-danger">{{ $rusunawa ?? 0 }}</h3>
                     </div>
                 </div>
             </div>
@@ -58,6 +58,14 @@
                     <div class="card-body">
                         <h6 class="card-title text-muted">Total Galeri Video</h6>
                         <h3 class="fw-bold text-danger">{{ $videoDashboard ?? 0 }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h6 class="card-title text-muted">Area</h6>
+                        <h3 class="fw-bold text-danger">{{ $area ?? 0 }}</h3>
                     </div>
                 </div>
             </div>

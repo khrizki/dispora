@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\Berita;
 use App\Models\Dokumen;
 use App\Models\Galeri;
 use App\Models\Pengumuman;
+use App\Models\Rusunawa;
 use App\Models\SurveyUser;
 use Illuminate\Http\Request;
 use App\Models\SurveyPertanyaan;
@@ -26,7 +28,9 @@ class DashboardController extends Controller
         $transparansiDashboard = Transparansi::count();
         $galeriDashboard = Galeri::count();
         $videoDashboard = Video::count();
+        $rusunawa = Rusunawa::count();
+        $area = Area::count();
 
-        return view('pages.dashboard', compact('berita', 'pengumumanDashboard', 'dokumenDashboard', 'transparansiDashboard', 'galeriDashboard', 'videoDashboard'));
+        return view('pages.dashboard', compact('berita', 'pengumumanDashboard', 'dokumenDashboard', 'transparansiDashboard', 'galeriDashboard', 'videoDashboard', 'rusunawa','area'));
     }
 }
