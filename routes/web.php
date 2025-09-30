@@ -19,6 +19,7 @@ use App\Http\Controllers\NavbarItemController;
 use App\Http\Controllers\RusunawaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\HeroSectionController;
+use App\Http\Controllers\VisiMisiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/areas/{area}/edit', [AreaController::class, 'edit'])->name('pages.areas.edit');
         Route::put('/areas/{area}', [AreaController::class, 'update'])->name('pages.areas.update');
         Route::delete('/areas-destroy/{area}', [AreaController::class, 'destroy'])->name('pages.areas.destroy');
+
+       // Visi & Misi (ikut format Rusunawa)
+        Route::get('/visimisi', [VisiMisiController::class, 'index'])->name('pages.visimisi.index'); // list (kalau kosong tombol tambah, kalau ada tombol edit)
+        Route::get('/visimisi-create', [VisiMisiController::class, 'create'])->name('pages.visimisi.create'); // form tambah
+        Route::post('/visimisi-store', [VisiMisiController::class, 'store'])->name('pages.visimisi.store'); // simpan baru
+        Route::get('/visimisi/{visimisi}/edit', [VisiMisiController::class, 'edit'])->name('pages.visimisi.edit'); // form edit
+        Route::put('/visimisi/{visimisi}', [VisiMisiController::class, 'update'])->name('pages.visimisi.update'); // update
+        Route::delete('/visimisi-destroy/{visimisi}', [VisiMisiController::class, 'destroy'])->name('pages.visimisi.destroy'); // delete
 
         //Dokumen Anggaran
         Route::get('/dokumen', [DokumenController::class, 'index'])->name('pages.dokumen.index');

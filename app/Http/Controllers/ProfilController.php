@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Dokumen;
 use App\Models\Pejabat;
 use App\Models\Transparansi;
+use App\Models\visimisi;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
 {
     public function visiMisi()
     {
-        return view('profil.visi-misi');
+        $data = visimisi::first(); // ambil 1 record (single)
+        return view('profil.visi-misi', compact('data')); // kirim $data ke blade
     }
     public function sejarah()
     {

@@ -74,8 +74,8 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('profil.visi-misi') ? 'active' : '' }}"
-                                href="{{ route('profil.visi-misi') }}">
+                            <a class="menu-link {{ Route::is('pages.visimisi.index') ? 'active' : '' }}"
+                                href="{{ route('pages.visimisi.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-lightbulb"></i></span>
                                 <span class="menu-title">Visi Misi</span>
                             </a>
