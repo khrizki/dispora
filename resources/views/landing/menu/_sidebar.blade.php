@@ -58,7 +58,7 @@
 
                 <!-- Profil -->
                 <div class="menu-item menu-accordion mb-2 
-                {{ Route::is('pages.visimisi.*') || Route::is('pages.struktural.*') || Route::is('pages.tupoksi.*') ? 'here show' : '' }}"
+                {{ Route::is('pages.visimisi.*') || Route::is('pages.struktural.*') || Route::is('pages.sejarah.*') || Route::is('pages.tupoksi.*') ? 'here show' : '' }}"
                 data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-person-badge fs-4"></i></span>
@@ -74,8 +74,8 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.navbar.*') ? 'active' : '' }}"
-                                href="{{ route('pages.navbar.index') }}">
+                            <a class="menu-link {{ Route::is('pages.sejarah.*') ? 'active' : '' }}"
+                                href="{{ route('pages.sejarah.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-journal-text"></i></span>
                                 <span class="menu-title">Sejarah</span>
                             </a>

@@ -75,6 +75,9 @@ class LandingController extends Controller
     public function listGaleri()
     {
         $galeriList = Galeri::orderBy('id', 'desc')->paginate(10);
-        return view('profil.galeri-list', compact('galeriList'));
+        $videoList = Video::orderBy('id', 'desc')->paginate(10); 
+
+        return view('profil.galeri-list', compact('galeriList', 'videoList'));
     }
+
 }

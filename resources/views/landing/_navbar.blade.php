@@ -77,7 +77,7 @@
                     </a>
 
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://sikasper.padang.go.id/map">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
+                        <a class="dropdown-item" href="https://sikasper.padang.go.id/map/kelayakan/5/Tidak%20Layak%20Huni">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
                         <a class="dropdown-item" href="https://sikasper.padang.go.id/">SIKASPER</a>
                         <a class="dropdown-item" href="https://sirumahkita.padang.go.id/">SI RUMAH KITA</a>
                         <a class="dropdown-item" href="#">Peningkatan Prasarana, Sarana, dan Utilitas Umum</a>

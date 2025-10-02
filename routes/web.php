@@ -19,6 +19,7 @@ use App\Http\Controllers\NavbarItemController;
 use App\Http\Controllers\RusunawaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\HeroSectionController;
+use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\TupoksiController;
 use App\Http\Controllers\VisiMisiController;
 
@@ -114,6 +115,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tupoksi/{tupoksi}/edit', [TupoksiController::class, 'edit'])->name('pages.tupoksi.edit');
         Route::put('/tupoksi/{tupoksi}', [TupoksiController::class, 'update'])->name('pages.tupoksi.update');
         Route::delete('/tupoksi/{tupoksi}', [TupoksiController::class, 'destroy'])->name('pages.tupoksi.destroy');
+        
+        /// sejarah
+        Route::get('/sejarah', [SejarahController::class, 'index'])->name('pages.sejarah.index');
+        Route::get('/sejarah/create', [SejarahController::class, 'create'])->name('pages.sejarah.create');
+        Route::post('/sejarah/store', [SejarahController::class, 'store'])->name('pages.sejarah.store');
+        Route::get('/sejarah/{sejarah}/edit', [SejarahController::class, 'edit'])->name('pages.sejarah.edit');
+        Route::put('/sejarah/{sejarah}', [SejarahController::class, 'update'])->name('pages.sejarah.update');
+        Route::delete('/sejarah/{sejarah}', [SejarahController::class, 'destroy'])->name('pages.sejarah.destroy');
+
 
 
         //Dokumen Anggaran

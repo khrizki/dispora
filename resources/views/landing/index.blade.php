@@ -134,6 +134,12 @@
             object-fit: cover;
             /* biar tetap proporsional */
         }
+        .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: translateY(-5px);
+            }
     </style>
 
     </style>
@@ -305,6 +311,37 @@
     </div>
     </div>
     </section>
+
+    <!-- PROGRAM UNGGULAN -->
+        <section class="my-5">
+            <div class="container text-center">
+                <h3 style="color:#212e60;">Program Unggulan</h3>
+                <p>Pilihan Layanan Unggulan <b>PERKIM</b> Kota Padang</p>
+                <hr class="line">
+
+                <div class="row justify-content-center mt-4">
+                    <!-- Progul 1 -->
+                    <div class="col-md-3 col-6 mb-3">
+                        <a href="https://sikasper.padang.go.id/" class="text-decoration-none">
+                            <div class="card shadow-sm border-0 p-3 hover-scale">
+                                <img src="{{ asset('assets/img/logo.png') }}" class="img-fluid mb-2" alt="Bedah Rumah">
+                                <h6 class="text-dark">SIKASPER</h6>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Progul 2 -->
+                    <div class="col-md-3 col-6 mb-3">
+                        <a href="https://sirumahkita.padang.go.id/" class="text-decoration-none">
+                            <div class="card shadow-sm border-0 p-3 hover-scale">
+                                <img src="{{ asset('assets/img/logo.png') }}" class="img-fluid mb-2" alt="Rusunawa">
+                                <h6 class="text-dark">SIRUMAHKITA</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     <!-- ARTIKEL -->
     <section class="my-5">

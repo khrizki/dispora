@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
 use App\Models\Pejabat;
+use App\Models\sejarah;
 use App\Models\Transparansi;
 use App\Models\tupoksi;
 use App\Models\visimisi;
@@ -18,7 +19,9 @@ class ProfilController extends Controller
     }
     public function sejarah()
     {
-        return view('profil.sejarah');
+        $sejarah = sejarah::first();
+        return view('profil.sejarah', compact('sejarah'));
+
     }
     public function tupoksi()
     {
