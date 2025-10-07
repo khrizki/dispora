@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Tambah Sejarah')
+@section('title', isset($sejarah) ? 'Edit Sejarah' : 'Tambah Sejarah')
 
 @section('content')
 <div class="d-flex flex-column flex-column-fluid">
@@ -8,7 +8,7 @@
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Tambah Sejarah
+                    {{ isset($sejarah) ? 'Edit Sejarah' : 'Tambah Sejarah' }}
                 </h1>
             </div>
             <div class="d-flex align-items-center gap-2 gap-lg-3">
@@ -24,34 +24,39 @@
 
             <div class="card">
                 <div class="card-body py-4">
-                    <form action="{{ route('pages.sejarah.store') }}" method="POST">
+                    <form action="{{ isset($sejarah) ? route('pages.sejarah.update', $sejarah->id) : route('pages.sejarah.store') }}" method="POST">
                         @csrf
+                        @if(isset($sejarah))
+                            @method('PUT')
+                        @endif
+
                         <div class="card shadow-sm mb-5">
                             <div class="row g-5">
                                 <!-- Judul -->
                                 <div class="col-md-12">
                                     <label class="form-label fw-semibold">Judul</label>
-                                    <input type="text" name="judul" class="form-control form-control-solid" value="{{ old('judul') }}" placeholder="Tulis judul..." required>
+                                    <input type="text" name="judul" class="form-control form-control-solid" 
+                                        value="{{ old('judul', $sejarah->judul ?? '') }}" placeholder="Tulis judul..." required>
                                 </div>
 
-                                 <!-- Deskripsi -->
+                                <!-- Deskripsi -->
                                 <div class="col-md-12">
                                     <label class="form-label fw-semibold">Deskripsi</label>
-                                    <textarea name="konten" class="form-control form-control-solid" rows="6" placeholder="Tulis deskripsi...">{{ old('konten') }}</textarea>
+                                    <textarea name="konten" class="form-control form-control-solid" rows="6" placeholder="Tulis deskripsi...">{{ old('konten', $sejarah->konten ?? '') }}</textarea>
                                 </div>
                                 
                                 <!-- Label -->
                                 <div class="col-md-12">
                                     <label class="form-label fw-semibold">Label</label>
-                                    <input type="text" name="label" class="form-control form-control-solid" value="{{ old('label') }}">
-                                    {{-- <textarea name="label" class="form-control form-control-solid" placeholder="misal : profil">{{ old('label') }}</textarea> --}}
+                                    <input type="text" name="label" class="form-control form-control-solid" 
+                                        value="{{ old('label', $sejarah->label ?? '') }}">
                                 </div>
                             </div>
                         </div>
 
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-save"></i> Simpan
+                                <i class="fa fa-save"></i> {{ isset($sejarah) ? 'Update' : 'Simpan' }}
                             </button>
                         </div>
                     </form>

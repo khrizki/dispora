@@ -13,12 +13,11 @@ use App\Http\Controllers\PejabatController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\VideoController;
-use App\Models\Dokumen;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\NavbarItemController;
 use App\Http\Controllers\RusunawaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\HeroSectionController;
+use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\TupoksiController;
 use App\Http\Controllers\VisiMisiController;
@@ -41,6 +40,7 @@ Route::prefix('profil')->group(function () {
     Route::get('/sejarah', [ProfilController::class, 'sejarah'])->name('profil.sejarah');
     Route::get('/tupoksi', [ProfilController::class, 'tupoksi'])->name('profil.tupoksi');
     Route::get('/pejabat-struktural', [ProfilController::class, 'pejabatStruktural'])->name('profil.pejabat');
+    Route::get('/lowongan', [ProfilController::class, 'lowongan'])->name('profil.lowongan');
 });
 Route::get('/transparansi-index', [ProfilController::class, 'transparansi'])->name('profil.transparansi');
 Route::get('/dokumen-index', [ProfilController::class, 'dokumen'])->name('profil.dokumen');
@@ -59,14 +59,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('menu')->group(function () {
         
-        // Navbar
-        Route::get('/navbar', [NavbarItemController::class, 'index'])->name('pages.navbar.index');
-        Route::get('/navbar-create', [NavbarItemController::class, 'create'])->name('pages.navbar.create');
-        Route::post('/navbar-store', [NavbarItemController::class, 'store'])->name('pages.navbar.store');
-        Route::get('/navbar/{id}/edit', [NavbarItemController::class, 'edit'])->name('pages.navbar.edit');
-        Route::put('/navbar/{id}', [NavbarItemController::class, 'update'])->name('pages.navbar.update');
-        Route::delete('/navbar-destroy/{id}', [NavbarItemController::class, 'destroy'])->name('pages.navbar.destroy');
-
         //Hero Section
         Route::get('/herosection', [HeroSectionController::class, 'index'])->name('pages.herosection.index');
         Route::get('/herosection-create', [HeroSectionController::class, 'create'])->name('pages.herosection.create');
@@ -123,6 +115,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/sejarah/{sejarah}/edit', [SejarahController::class, 'edit'])->name('pages.sejarah.edit');
         Route::put('/sejarah/{sejarah}', [SejarahController::class, 'update'])->name('pages.sejarah.update');
         Route::delete('/sejarah/{sejarah}', [SejarahController::class, 'destroy'])->name('pages.sejarah.destroy');
+        
+        /// lowongan
+        Route::get('/lowongan', [LowonganController::class, 'index'])->name('pages.lowongan.index');
+        Route::get('/lowongan/create', [LowonganController::class, 'create'])->name('pages.lowongan.create');
+        Route::post('/lowongan/store', [LowonganController::class, 'store'])->name('pages.lowongan.store');
+        Route::get('/lowongan/{lowongan}/edit', [LowonganController::class, 'edit'])->name('pages.lowongan.edit');
+        Route::put('/lowongan/{lowongan}', [LowonganController::class, 'update'])->name('pages.lowongan.update');
+        Route::delete('/lowongan/{lowongan}', [LowonganController::class, 'destroy'])->name('pages.lowongan.destroy');
 
 
 

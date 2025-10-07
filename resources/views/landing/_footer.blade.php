@@ -15,12 +15,12 @@
                     </p>
                     <h6 class="text-uppercase fw-bold mb-2 text-left">media sosial: </h6>
                     <h5 class="text-left">
-                        <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-facebook"></i> </a>
-                        <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-twitter"></i> </a>
-                        <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-google"></i></a>
+                        <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-facebook"></i> </a>
+                        <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-twitter"></i> </a>
+                        <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-google"></i></a>
                         <a href="https://www.instagram.com/dinas_perkim_kotapadang/" class="me-4 pl-1 text-white"> <i class="bi bi-instagram"></i> </a>
-                        <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-linkedin"></i> </a>
-                        <a href="" class="me-4 pl-1 text-white"> <i class="bi bi-whatsapp"></i> </a>
+                        <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-linkedin"></i> </a>
+                        <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-whatsapp"></i> </a>
                     </h5>
                 </div> <!-- Grid column -->
                 <!-- Grid column -->
@@ -36,8 +36,8 @@
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
 
-                    <h6 class="text-uppercase text-left fw-bold mb-4"> Link Terkait </h6>
-                    <a href="http://" target="_blank" rel="noopener noreferrer" class="">
+                    <h6 class="text-uppercase text-left fw-bbold mb-4"> Link Terkait </h6>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="">
                         <p class="text-left text-white">Lapor ! </p>
                     </a>
 
@@ -57,8 +57,7 @@
     <!-- Copyright -->
 
     <div class="text-center p-2"> &copy; Copyright {{ date('Y') }}
-        <a href="http://" target="_blank" rel="noopener noreferrer" class="text-white">DISKOMINFO KOTA
-            PADANG</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="text-white">DISKOMINFO KOTA PADANG</a>
     </div> <!-- Copyright -->
 
     <a href="#" class="back-to-top" id="backToTop">
@@ -89,3 +88,5 @@
         });
     </script>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

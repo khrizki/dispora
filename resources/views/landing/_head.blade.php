@@ -35,7 +35,7 @@
 
 
     <!-- jQuery & jCarousel Scripts -->
-    <script src="{{ asset('assets/vendor/jquery/jquery.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/jquery/jquery.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/jquery/jquery.jcarousel.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery/jcarousel.responsive.js') }}"></script>
 

@@ -99,7 +99,7 @@
 
                 <!-- Informasi Publik -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.pengumuman.*') || Route::is('pages.berita.*') ? 'here show' : '' }}"
+                    {{ Route::is('pages.pengumuman.*') || Route::is('pages.lowongan.*') || Route::is('pages.berita.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-megaphone fs-4"></i></span>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.lowongan.*') ? 'active' : '' }}"
-                                href="#">
+                                href="{{ route('pages.lowongan.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-briefcase"></i></span>
                                 <span class="menu-title">Lowongan</span>
                             </a>

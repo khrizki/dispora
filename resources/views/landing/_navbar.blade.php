@@ -9,7 +9,7 @@
         'profil.*',
     ];
 @endphp
-{{-- <div class="info-banner">
+<div class="info-banner">
     @if (isset($pengumuman))
         <marquee behavior="scroll" direction="left" scrollamount="5">
             🔴 Sedang berlangsung: {{ $pengumuman->judul_pengumuman }}
@@ -18,7 +18,7 @@
             {{ \Carbon\Carbon::parse($pengumuman->jam_selesai)->format('H.i') }} WIB
         </marquee>
     @endif
-</div> --}}
+</div>
 {{-- <nav
     class="navbar navbar-expand-lg navbar-light {{ Route::is($route) ? 'navbar-store-download' : 'navbar-store' }} fixed-top navbar-fixed-top ">
 
@@ -99,7 +99,7 @@
                         <a class="dropdown-item" href="{{ route('profil.list') }}">Berita & Artikel</a>
                         {{-- <a class="dropdown-item" href="{{ route('profil.dokumen') }}">Regulasi / Peraturan</a>
                         HAPUS OOP DOKUMEN --}}
-                        <a class="dropdown-item" href="#">Lowongan</a>
+                        <a class="dropdown-item" href="{{ route('profil.lowongan') }}">Lowongan</a>
 
                     </div>
 

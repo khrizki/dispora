@@ -7,6 +7,7 @@ use App\Models\Pejabat;
 use App\Models\sejarah;
 use App\Models\Transparansi;
 use App\Models\tupoksi;
+use App\Models\lowongan;
 use App\Models\visimisi;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,12 @@ class ProfilController extends Controller
     {
         $data = Transparansi::orderBy('id', 'desc')->get();
         return view('profil.transparansi', compact('data'));
+    }
+
+    public function lowongan()
+    {
+        $lowonganList = lowongan::orderBy('id','desc')->get(); 
+        return view('profil.lowongan', compact('lowonganList'));
     }
 
     public function dokumen(Request $request)
