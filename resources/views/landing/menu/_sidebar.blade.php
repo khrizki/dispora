@@ -31,7 +31,7 @@
 
                 <!-- Progul -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.rusunawa.*') || Route::is('pages.areas.*') ? 'here show' : '' }}"
+                    {{ Route::is('pages.rusunawa.*') || Route::is('pages.areas.*') || Route::is('pages.rtlh.*') || Route::is('pages.psu.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-building fs-4"></i></span>
@@ -53,12 +53,33 @@
                                 <span class="menu-title">Area</span>
                             </a>
                         </div>
+                        {{-- <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.rtlh.*') ? 'active' : '' }}"
+                                href="#">
+                                <span class="menu-bullet"><i class="bi bi-house"></i></span>
+                                <span class="menu-title">Perbaikan RTLH</span>
+                            </a>
+                        </div> --}}
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.psu.*') ? 'active' : '' }}"
+                                href="#">
+                                <span class="menu-bullet"><i class="bi bi-signpost"></i></span>
+                                <span class="menu-title">Peningkatan PSU</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.psu.*') ? 'active' : '' }}"
+                                href="#">
+                                <span class="menu-bullet"><i class="bi bi-droplet"></i></span>
+                                <span class="menu-title">Air Minum Perumahan</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Profil -->
                 <div class="menu-item menu-accordion mb-2 
-                {{ Route::is('pages.visimisi.*') || Route::is('pages.struktural.*') || Route::is('pages.sejarah.*') || Route::is('pages.tupoksi.*') ? 'here show' : '' }}"
+                {{ Route::is('pages.visimisi.*') || Route::is('pages.struktural.*') || Route::is('pages.info.*') || Route::is('pages.sejarah.*') || Route::is('pages.tupoksi.*') ? 'here show' : '' }}"
                 data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-person-badge fs-4"></i></span>
@@ -92,6 +113,13 @@
                                 href="{{ route('pages.tupoksi.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-folder2-open"></i></span>
                                 <span class="menu-title">Tugas & Fungsi</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.info.*') ? 'active' : '' }}"
+                                href="{{ route('pages.info.index') }}">
+                                <span class="menu-bullet"><i class="bi bi-info-circle"></i></span>
+                                <span class="menu-title">Info Bergambar</span>
                             </a>
                         </div>
                     </div>
@@ -168,7 +196,7 @@
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
+                        {{-- <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.navbar.*') ? 'active' : '' }}"
                                 href="#">
                                 <span class="menu-bullet"><i class="bi bi-menu-button-wide"></i></span>
@@ -181,12 +209,12 @@
                                 <span class="menu-bullet"><i class="bi bi-window"></i></span>
                                 <span class="menu-title">Footer</span>
                             </a>
-                        </div>
+                        </div> --}}
                         <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.herosection.*') ? 'active' : '' }}"
                                 href="{{ route('pages.herosection.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-layout-text-window-reverse"></i></span>
-                                <span class="menu-title">Hero Section</span>
+                                <span class="menu-title">Background Landing</span>
                             </a>
                         </div>
                     </div>

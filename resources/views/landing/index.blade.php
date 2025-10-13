@@ -4,6 +4,7 @@
 @include('landing._head')
 
 
+
 <body onload="slider()">
 
     <div class="preloader" style="background-color: rgb(199, 192, 192)">

@@ -9,9 +9,9 @@
                     <h6 class="text-uppercase fw-bold mb-2 text-left"> PERKIM KOTA PADANG </h6>
                     <p class="text-left text-white">{{ $setting['alamat'] ?? '' }}</p>
                     <p class="text-left text-white"><i class="bi bi-telephone-forward-fill"></i>
-                        0751-890757, 26633
+                        (0751)890757
                     </p>
-                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> perkim@padang.go.id
+                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> disprkpp@padang.go.id
                     </p>
                     <h6 class="text-uppercase fw-bold mb-2 text-left">media sosial: </h6>
                     <h5 class="text-left">
@@ -26,9 +26,17 @@
                 <!-- Grid column -->
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
-                    <h6 class="text-uppercase text-left fw-bold mb-4"> Layanan & Aplikasi </h6>
-                    <a href="https://bstt.padang.go.id/login" target="_blank" rel="noopener noreferrer" class="">
-                        <p class="text-left text-white">BSTT (Bantuan Sosial Tidak Terencana)
+                    <h6 class="text-uppercase text-left fw-bold mb-4">Useful Links</h6>
+                    <a href="https://perkim.padang.go.id" target="_blank" rel="noopener noreferrer" class="">
+                        <p class="text-left text-white">Website Dinas PERKIM Padang
+                        </p>
+                    </a>
+                    <a href="https://sirumahkita.padang.go.id/geoportal/" target="_blank" rel="noopener noreferrer" class="">
+                        <p class="text-left text-white">Geoportal
+                        </p>
+                    </a>
+                    <a href="https://sirumahkita.padang.go.id/pelaporan/buatlaporan/" target="_blank" rel="noopener noreferrer" class="">
+                        <p class="text-left text-white">Pelaporan
                         </p>
                     </a>
                 </div> <!-- Grid column -->
@@ -36,9 +44,12 @@
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
 
-                    <h6 class="text-uppercase text-left fw-bbold mb-4"> Link Terkait </h6>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="">
-                        <p class="text-left text-white">Lapor ! </p>
+                    <h6 class="text-uppercase text-left fw-bbold mb-4"> Other Website </h6>
+                    <a href="https://sirumahkita.padang.go.id" target="_blank" rel="noopener noreferrer" class="">
+                        <p class="text-left text-white">SIRUMAH KITA </p>
+                    </a>
+                    <a href="https://sikasper.padang.go.id/" target="_blank" rel="noopener noreferrer" class="">
+                        <p class="text-left text-white">SIKASPER </p>
                     </a>
 
                 </div> <!-- Grid column -->

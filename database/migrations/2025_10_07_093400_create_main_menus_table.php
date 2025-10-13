@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('navbar_items', function (Blueprint $table) {
+        Schema::create('main_menus', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('link')->nullable();       // bisa kosong untuk dropdown parent
-            $table->unsignedBigInteger('parent_id')->nullable(); // null = item utama
-            $table->integer('order')->default(0);
+            $table->string('name');
+            $table->string('location')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
-
     }
 
     /**
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('navbar_items');
+        Schema::dropIfExists('main_menus');
     }
 };
