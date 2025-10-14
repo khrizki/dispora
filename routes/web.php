@@ -51,6 +51,7 @@ Route::get('/berita-list', [LandingController::class, 'list'])->name('profil.lis
 Route::get('/galeri-list', [LandingController::class, 'listGaleri'])->name('profil.galeriList');
 
 Route::get('/carirusunawa', [RusunawaController::class, 'show'])->name('profil.rusunawa');
+Route::get('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'showDetail'])->name('rusunawa.detail');
 
 Auth::routes(['register' => false]);
 
@@ -58,6 +59,20 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('menu')->group(function () {
+        
+        //Rusunawa
+        Route::get('/rusunawa', [RusunawaController::class, 'index'])->name('pages.rusunawa.index');
+        Route::get('/rusunawa-create', [RusunawaController::class, 'create'])->name('pages.rusunawa.create');
+        Route::post('/rusunawa-store', [RusunawaController::class, 'store'])->name('pages.rusunawa.store');
+        Route::get('/rusunawa/{rusunawa}/edit', [RusunawaController::class, 'edit'])->name('pages.rusunawa.edit');
+        Route::put('/rusunawa/{rusunawa}', [RusunawaController::class, 'update'])->name('pages.rusunawa.update');
+        Route::delete('/rusunawa-destroy/{rusunawa}', [RusunawaController::class, 'destroy'])->name('pages.rusunawa.destroy');
+
+        // Rusunawa Detail
+        Route::get('/rusunawa/{rusunawa_id}/detail/create', [RusunawaController::class, 'createDetail'])->name('pages.rusunawa.detail.create');
+        Route::post('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'storeDetail'])->name('pages.rusunawa.detail.store');
+        Route::get('/rusunawa/{rusunawa_id}/detail/edit', [RusunawaController::class, 'editDetail'])->name('pages.rusunawa.detail.edit');
+        Route::put('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'updateDetail'])->name('pages.rusunawa.detail.update');
         
         //Hero Section
         Route::get('/herosection', [HeroSectionController::class, 'index'])->name('pages.herosection.index');
@@ -76,13 +91,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transparansi/{id}/edit', [TransparansiController::class, 'edit'])->name('pages.transparansi.edit');
         Route::put('/transparansi/{id}', [TransparansiController::class, 'update'])->name('pages.transparansi.update');
 
-        //Rusunawa
-        Route::get('/rusunawa', [RusunawaController::class, 'index'])->name('pages.rusunawa.index');
-        Route::get('/rusunawa-create', [RusunawaController::class, 'create'])->name('pages.rusunawa.create');
-        Route::post('/rusunawa-store', [RusunawaController::class, 'store'])->name('pages.rusunawa.store');
-        Route::get('/rusunawa/{rusunawa}/edit', [RusunawaController::class, 'edit'])->name('pages.rusunawa.edit');
-        Route::put('/rusunawa/{rusunawa}', [RusunawaController::class, 'update'])->name('pages.rusunawa.update');
-        Route::delete('/rusunawa-destroy/{rusunawa}', [RusunawaController::class, 'destroy'])->name('pages.rusunawa.destroy');
         
        // Area
         Route::get('/areas', [AreaController::class, 'index'])->name('pages.areas.index');

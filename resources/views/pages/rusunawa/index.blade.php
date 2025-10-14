@@ -48,6 +48,7 @@
                                     <th>Hotline</th>
                                     <th>Area</th>
                                     <th>Gambar</th>
+                                    <th>Status Detail</th>
                                     <th class="text-end min-w-100px">Actions</th>
                                 </tr>
                             </thead>
@@ -87,7 +88,13 @@
                         {
                             data: 'gambar',
                             name: 'gambar',
-                             orderable: false,
+                            orderable: false,
+                            searchable: false
+                        },
+                        {
+                            data: 'has_detail',
+                            name: 'has_detail',
+                            orderable: false,
                             searchable: false
                         },
                         { data: null }
@@ -101,15 +108,34 @@
                         render: function(data, type, row) {
                             let editRoute = "{{ route('pages.rusunawa.edit', ':id') }}".replace(':id', row.id);
                             let deleteUrl = "{{ route('pages.rusunawa.destroy', ':id') }}".replace(':id', row.id);
+                            let detailCreateRoute = "{{ route('pages.rusunawa.detail.create', ':id') }}".replace(':id', row.id);
+                            let detailEditRoute = "{{ route('pages.rusunawa.detail.edit', ':id') }}".replace(':id', row.id);
+
+                            // Cek apakah sudah ada detail
+                            let detailAction = '';
+                            if (row.detail) {
+                                detailAction = `
+                                    <div class="menu-item px-3">
+                                        <a href="${detailEditRoute}" class="menu-link px-3">Edit Detail</a>
+                                    </div>
+                                `;
+                            } else {
+                                detailAction = `
+                                    <div class="menu-item px-3">
+                                        <a href="${detailCreateRoute}" class="menu-link px-3">Tambah Detail</a>
+                                    </div>
+                                `;
+                            }
 
                             return `
                                 <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                                     Actions
                                 </a>
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
+                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-150px py-4" data-kt-menu="true">
                                     <div class="menu-item px-3">
                                         <a href="${editRoute}" class="menu-link px-3">Edit</a>
                                     </div>
+                                    ${detailAction}
                                     <div class="menu-item px-3">
                                         <a href="${deleteUrl}" class="menu-link px-3" data-kt-docs-table-filter="delete_row">Delete</a>
                                     </div>

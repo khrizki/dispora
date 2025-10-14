@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rusunawa;
+use App\Models\RusunawaDetail;
 use App\Models\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class RusunawaController extends Controller
@@ -41,15 +43,30 @@ class RusunawaController extends Controller
                     return '<span class="text-muted">Tidak ada gambar</span>';
                 }
             })
+            ->addColumn('has_detail', function ($row) {
+                if ($row->detail) {
+                    return '<span class="badge badge-success">Ada Detail</span>';
+                } else {
+                    return '<span class="badge badge-secondary">Belum Ada Detail</span>';
+                }
+            })
             ->addColumn('action', function ($row) {
                 $btn = '<a href="'.route('pages.rusunawa.edit', $row->id).'" class="btn btn-warning btn-sm">Edit</a>';
+                
+                // Tombol Detail
+                if ($row->detail) {
+                    $btn .= ' <a href="'.route('pages.rusunawa.detail.edit', $row->id).'" class="btn btn-info btn-sm">Edit Detail</a>';
+                } else {
+                    $btn .= ' <a href="'.route('pages.rusunawa.detail.create', $row->id).'" class="btn btn-primary btn-sm">Tambah Detail</a>';
+                }
+                
                 $btn .= ' <form action="'.route('pages.rusunawa.destroy', $row->id).'" method="POST" style="display:inline;">
                             '.csrf_field().method_field("DELETE").'
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                           </form>';
                 return $btn;
             })
-            ->rawColumns(['gambar', 'action'])
+            ->rawColumns(['gambar', 'has_detail', 'action'])
             ->make(true);
     }
 
@@ -144,8 +161,6 @@ class RusunawaController extends Controller
         return view('profil.rusunawa', compact('rusunawa', 'areas'));
     }
 
-
-
     public function destroy(Rusunawa $rusunawa)
     {
         if ($rusunawa->gambar && Storage::disk('public')->exists($rusunawa->gambar)) {
@@ -158,5 +173,238 @@ class RusunawaController extends Controller
             'success' => true,
             'message' => 'Data berhasil dihapus.'
         ]);
+    }
+
+    // ==========================================
+    // DETAIL RUSUNAWA METHODS
+    // ==========================================
+
+    /**
+     * Show form untuk create detail rusunawa
+     */
+    public function createDetail($rusunawa_id)
+    {
+        $rusunawa = Rusunawa::findOrFail($rusunawa_id);
+        
+        // Cek apakah sudah ada detail
+        if ($rusunawa->detail) {
+            return redirect()->route('pages.rusunawa.detail.edit', $rusunawa_id)
+                           ->with('info', 'Detail sudah ada, silakan edit.');
+        }
+
+        return view('pages.rusunawa.detail-create', compact('rusunawa'));
+    }
+
+    /**
+     * Store detail rusunawa
+     */
+    public function storeDetail(Request $request, $rusunawa_id)
+    {
+        $rusunawa = Rusunawa::findOrFail($rusunawa_id);
+
+        $request->validate([
+            'kode' => 'nullable|string|max:50',
+            'uprs' => 'nullable|string|max:100',
+            'kepala_uprs' => 'nullable|string|max:255',
+            'luas_area_m2' => 'nullable|numeric',
+            'nomor_imb' => 'nullable|string|max:100',
+            'nomor_slf' => 'nullable|string|max:100',
+            'dana_pembangunan' => 'nullable|numeric',
+            'status_serah_terima' => 'nullable|in:Belum,Sudah',
+            'tahun_pembuatan' => 'nullable|string|max:50',
+            'tarif_unit_terprogram' => 'nullable|numeric',
+            'tarif_unit_umum' => 'nullable|numeric',
+            'batas_maksimum_gaji' => 'nullable|numeric',
+            'alamat' => 'nullable|string',
+            'kelurahan' => 'nullable|string|max:100',
+            'kecamatan' => 'nullable|string|max:100',
+            'kota_kabupaten' => 'nullable|string|max:100',
+            'embed_gmaps_url' => 'nullable|string',
+            'fasilitas' => 'nullable|array',
+            'fasilitas.*.nama' => 'required_with:fasilitas|string',
+            'fasilitas.*.jumlah' => 'nullable|integer',
+            'galeri_foto.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'deskripsi' => 'nullable|string',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            // Handle galeri foto
+            $galeriData = [];
+            if ($request->hasFile('galeri_foto')) {
+                foreach ($request->file('galeri_foto') as $index => $file) {
+                    $path = $file->store('rusunawa/detail', 'public');
+                    $galeriData[] = [
+                        'path' => $path,
+                        'caption' => $request->input("galeri_caption.$index", ''),
+                    ];
+                }
+            }
+
+            RusunawaDetail::create([
+                'rusunawa_id' => $rusunawa_id,
+                'kode' => $request->kode,
+                'uprs' => $request->uprs,
+                'kepala_uprs' => $request->kepala_uprs,
+                'luas_area_m2' => $request->luas_area_m2,
+                'nomor_imb' => $request->nomor_imb,
+                'nomor_slf' => $request->nomor_slf,
+                'dana_pembangunan' => $request->dana_pembangunan,
+                'status_serah_terima' => $request->status_serah_terima,
+                'tahun_pembuatan' => $request->tahun_pembuatan,
+                'tarif_unit_terprogram' => $request->tarif_unit_terprogram,
+                'tarif_unit_umum' => $request->tarif_unit_umum,
+                'batas_maksimum_gaji' => $request->batas_maksimum_gaji,
+                'alamat' => $request->alamat,
+                'kelurahan' => $request->kelurahan,
+                'kecamatan' => $request->kecamatan,
+                'kota_kabupaten' => $request->kota_kabupaten,
+                'embed_gmaps_url' => $request->embed_gmaps_url,
+                'fasilitas' => $request->fasilitas,
+                'galeri_foto' => $galeriData,
+                'deskripsi' => $request->deskripsi,
+            ]);
+
+            DB::commit();
+
+            return redirect()->route('pages.rusunawa.index')
+                           ->with('success', 'Detail Rusunawa berhasil ditambahkan.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage())->withInput();
+        }
+    }
+
+    /**
+     * Show form edit detail rusunawa
+     */
+    public function editDetail($rusunawa_id)
+    {
+        $rusunawa = Rusunawa::with('detail')->findOrFail($rusunawa_id);
+        
+        if (!$rusunawa->detail) {
+            return redirect()->route('pages.rusunawa.detail.create', $rusunawa_id)
+                           ->with('info', 'Detail belum ada, silakan tambahkan.');
+        }
+
+        $detail = $rusunawa->detail;
+
+        return view('pages.rusunawa.detail-edit', compact('rusunawa', 'detail'));
+    }
+
+    /**
+     * Update detail rusunawa
+     */
+    public function updateDetail(Request $request, $rusunawa_id)
+    {
+        $rusunawa = Rusunawa::with('detail')->findOrFail($rusunawa_id);
+        $detail = $rusunawa->detail;
+
+        if (!$detail) {
+            return redirect()->route('pages.rusunawa.detail.create', $rusunawa_id)
+                           ->with('error', 'Detail tidak ditemukan.');
+        }
+
+        $request->validate([
+            'kode' => 'nullable|string|max:50',
+            'uprs' => 'nullable|string|max:100',
+            'kepala_uprs' => 'nullable|string|max:255',
+            'luas_area_m2' => 'nullable|numeric',
+            'nomor_imb' => 'nullable|string|max:100',
+            'nomor_slf' => 'nullable|string|max:100',
+            'dana_pembangunan' => 'nullable|numeric',
+            'status_serah_terima' => 'nullable|in:Belum,Sudah',
+            'tahun_pembuatan' => 'nullable|string|max:50',
+            'tarif_unit_terprogram' => 'nullable|numeric',
+            'tarif_unit_umum' => 'nullable|numeric',
+            'batas_maksimum_gaji' => 'nullable|numeric',
+            'alamat' => 'nullable|string',
+            'kelurahan' => 'nullable|string|max:100',
+            'kecamatan' => 'nullable|string|max:100',
+            'kota_kabupaten' => 'nullable|string|max:100',
+            'embed_gmaps_url' => 'nullable|string',
+            'fasilitas' => 'nullable|array',
+            'fasilitas.*.nama' => 'required_with:fasilitas|string',
+            'fasilitas.*.jumlah' => 'nullable|integer',
+            'galeri_foto.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'hapus_foto' => 'nullable|array',
+            'deskripsi' => 'nullable|string',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            // Handle galeri foto existing
+            $galeriData = $detail->galeri_foto ?? [];
+
+            // Hapus foto yang dipilih
+            if ($request->filled('hapus_foto')) {
+                foreach ($request->hapus_foto as $index) {
+                    if (isset($galeriData[$index])) {
+                        $path = $galeriData[$index]['path'];
+                        if (Storage::disk('public')->exists($path)) {
+                            Storage::disk('public')->delete($path);
+                        }
+                        unset($galeriData[$index]);
+                    }
+                }
+                $galeriData = array_values($galeriData); // Re-index array
+            }
+
+            // Upload foto baru
+            if ($request->hasFile('galeri_foto')) {
+                foreach ($request->file('galeri_foto') as $index => $file) {
+                    $path = $file->store('rusunawa/detail', 'public');
+                    $galeriData[] = [
+                        'path' => $path,
+                        'caption' => $request->input("galeri_caption.$index", ''),
+                    ];
+                }
+            }
+
+            $detail->update([
+                'kode' => $request->kode,
+                'uprs' => $request->uprs,
+                'kepala_uprs' => $request->kepala_uprs,
+                'luas_area_m2' => $request->luas_area_m2,
+                'nomor_imb' => $request->nomor_imb,
+                'nomor_slf' => $request->nomor_slf,
+                'dana_pembangunan' => $request->dana_pembangunan,
+                'status_serah_terima' => $request->status_serah_terima,
+                'tahun_pembuatan' => $request->tahun_pembuatan,
+                'tarif_unit_terprogram' => $request->tarif_unit_terprogram,
+                'tarif_unit_umum' => $request->tarif_unit_umum,
+                'batas_maksimum_gaji' => $request->batas_maksimum_gaji,
+                'alamat' => $request->alamat,
+                'kelurahan' => $request->kelurahan,
+                'kecamatan' => $request->kecamatan,
+                'kota_kabupaten' => $request->kota_kabupaten,
+                'embed_gmaps_url' => $request->embed_gmaps_url,
+                'fasilitas' => $request->fasilitas,
+                'galeri_foto' => $galeriData,
+                'deskripsi' => $request->deskripsi,
+            ]);
+
+            DB::commit();
+
+            return redirect()->route('pages.rusunawa.index')
+                           ->with('success', 'Detail Rusunawa berhasil diperbarui.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage())->withInput();
+        }
+    }
+
+    /**
+     * Show detail rusunawa di frontend
+     */
+    public function showDetail($rusunawa_id)
+    {
+        $rusunawa = Rusunawa::with(['detail', 'area'])->findOrFail($rusunawa_id);
+
+        if (!$rusunawa->detail) {
+            abort(404, 'Detail rusunawa tidak ditemukan.');
+        }
+
+        return view('profil.rusunawa-detail', compact('rusunawa'));
     }
 }

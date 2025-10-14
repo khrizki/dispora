@@ -19,6 +19,11 @@ class Rusunawa extends Model
         'gambar',
     ];
 
+    public function detail()
+    {
+        return $this->hasOne(RusunawaDetail::class);
+    }
+
     public function area()
     {
         return $this->belongsTo(Area::class);
