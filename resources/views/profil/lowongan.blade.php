@@ -1,6 +1,45 @@
 @include('landing._head')
 @include('landing._navbar')
 
+<style>
+    .job-card {
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+    
+    .job-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12) !important;
+    }
+    
+    .job-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 6px 14px;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        z-index: 2;
+    }
+    
+    .job-badge.magang {
+        background-color: #28a745;
+        color: white;
+    }
+    
+    .job-badge.fulltime {
+        background-color: #1a2b6f;
+        color: white;
+    }
+    
+    .job-card-body {
+        padding-top: 45px;
+    }
+</style>
+
 <section class="py-5 mt-5" style="margin-top: 80px !important;">
     <div class="container">
 
@@ -24,15 +63,14 @@
         <div class="row">
             @forelse ($lowonganList as $item)
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card shadow-sm position-relative h-100">
+                    <div class="card shadow-sm position-relative job-card">
 
                         {{-- Badge Tipe --}}
-                        <span class="position-absolute top-0 start-0 m-2 px-3 py-1 text-white rounded"
-                            style="background-color: {{ $item->tipe == 'magang' ? '#28a745' : '#1a2b6f' }};">
+                        <span class="job-badge {{ $item->tipe }}">
                             {{ ucfirst($item->tipe) }}
                         </span>
 
-                        <div class="card-body d-flex flex-column">
+                        <div class="card-body job-card-body d-flex flex-column">
                             <h5 class="card-title">{{ $item->judul }}</h5>
                             <p class="text-muted mb-1"><i class="fas fa-briefcase me-1"></i> {{ $item->posisi ?? '-' }}</p>
                             <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i> {{ $item->lokasi ?? '-' }}</p>
@@ -67,9 +105,9 @@
                                 <p><strong>Tipe:</strong> {{ ucfirst($item->tipe) }}</p>
                                 <hr>
                                 {!! $item->deskripsi !!}
-                            </div>~
+                            </div>
                             <div class="modal-footer">
-                                <a href="perkim@padang.go.id" class="btn btn-success">Kirim Lamaran via Email</a>
+                                <a href="mailto:perkim@padang.go.id?subject=Lamaran {{ $item->judul }}" class="btn btn-success">Kirim Lamaran via Email</a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                             </div>
                         </div>

@@ -53,13 +53,26 @@
                                 <span class="menu-title">Area</span>
                             </a>
                         </div>
-                        {{-- <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.rtlh.*') ? 'active' : '' }}"
-                                href="#">
+                    </div>
+                </div>
+
+                <!-- Produk -->
+                <div class="menu-item menu-accordion mb-2 
+                    {{ Route::is('pages.rtlh-contents.*') || Route::is('pages.sanitasi.*') || Route::is('pages.kumuh.*') || Route::is('pages.airminum.*') || Route::is('pages.psu.*') ? 'here show' : '' }}"
+                    data-kt-menu-trigger="click">
+                    <span class="menu-link">
+                        <span class="menu-icon"><i class="bi bi-briefcase-fill"></i></span>
+                        <span class="menu-title fw-semibold">Produk</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion">
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.rtlh-contents.*') ? 'active' : '' }}"
+                                href="{{ route('pages.rtlh-contents.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-house"></i></span>
                                 <span class="menu-title">Perbaikan RTLH</span>
                             </a>
-                        </div> --}}
+                        </div>
                         <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.psu.*') ? 'active' : '' }}"
                                 href="#">
@@ -68,7 +81,21 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.psu.*') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('pages.kumuh.*') ? 'active' : '' }}"
+                                href="#">
+                                <span class="menu-bullet"><i class="bi bi-funnel"></i></span>
+                                <span class="menu-title">Peningkatan Kualitas Pemukiman Rumah Kumuh</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.sanitasi.*') ? 'active' : '' }}"
+                                href="#">
+                                <span class="menu-bullet"><i class="bi bi-badge-wc"></i></span>
+                                <span class="menu-title">Sanitasi Rumah</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ Route::is('pages.airminum.*') ? 'active' : '' }}"
                                 href="#">
                                 <span class="menu-bullet"><i class="bi bi-droplet"></i></span>
                                 <span class="menu-title">Air Minum Perumahan</span>
@@ -76,6 +103,8 @@
                         </div>
                     </div>
                 </div>
+
+                    
 
                 <!-- Profil -->
                 <div class="menu-item menu-accordion mb-2 
