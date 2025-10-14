@@ -18,6 +18,7 @@ use App\Http\Controllers\RusunawaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\LowonganController;
+use App\Http\Controllers\RtlhContentController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\TupoksiController;
 use App\Http\Controllers\VisiMisiController;
@@ -41,6 +42,7 @@ Route::prefix('profil')->group(function () {
     Route::get('/tupoksi', [ProfilController::class, 'tupoksi'])->name('profil.tupoksi');
     Route::get('/pejabat-struktural', [ProfilController::class, 'pejabatStruktural'])->name('profil.pejabat');
     Route::get('/lowongan', [ProfilController::class, 'lowongan'])->name('profil.lowongan');
+    Route::get('/rtlh', [ProfilController::class, 'rtlh'])->name('profil.rtlh'); // ← Tambahkan ini
 });
 Route::get('/transparansi-index', [ProfilController::class, 'transparansi'])->name('profil.transparansi');
 Route::get('/dokumen-index', [ProfilController::class, 'dokumen'])->name('profil.dokumen');
@@ -73,6 +75,14 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'storeDetail'])->name('pages.rusunawa.detail.store');
         Route::get('/rusunawa/{rusunawa_id}/detail/edit', [RusunawaController::class, 'editDetail'])->name('pages.rusunawa.detail.edit');
         Route::put('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'updateDetail'])->name('pages.rusunawa.detail.update');
+
+         // RTLH Contents
+        Route::get('/rtlh-contents', [RtlhContentController::class, 'index'])->name('pages.rtlh-contents.index');
+        Route::get('/rtlh-contents-create', [RtlhContentController::class, 'create'])->name('pages.rtlh-contents.create');
+        Route::post('/rtlh-contents-store', [RtlhContentController::class, 'store'])->name('pages.rtlh-contents.store');
+        Route::get('/rtlh-contents/{rtlhContent}/edit', [RtlhContentController::class, 'edit'])->name('pages.rtlh-contents.edit');
+        Route::put('/rtlh-contents/{rtlhContent}', [RtlhContentController::class, 'update'])->name('pages.rtlh-contents.update');
+        Route::delete('/rtlh-contents-destroy/{rtlhContent}', [RtlhContentController::class, 'destroy'])->name('pages.rtlh-contents.destroy');
         
         //Hero Section
         Route::get('/herosection', [HeroSectionController::class, 'index'])->name('pages.herosection.index');
@@ -101,7 +111,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/areas-destroy/{area}', [AreaController::class, 'destroy'])->name('pages.areas.destroy');
 
        // Visi & Misi (ikut format Rusunawa)
-        Route::get('/visimisi', [VisiMisiController::class, 'index'])->name('pages.visimisi.index'); // list (kalau kosong tombol tambah, kalau ada tombol edit)
+        Route::get('/visimisi', [VisiMisiController::class, 'index'])->name('pages.visimisi.index'); 
         Route::get('/visimisi-create', [VisiMisiController::class, 'create'])->name('pages.visimisi.create'); // form tambah
         Route::post('/visimisi-store', [VisiMisiController::class, 'store'])->name('pages.visimisi.store'); // simpan baru
         Route::get('/visimisi/{visimisi}/edit', [VisiMisiController::class, 'edit'])->name('pages.visimisi.edit'); // form edit

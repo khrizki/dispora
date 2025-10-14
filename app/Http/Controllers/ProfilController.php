@@ -8,6 +8,7 @@ use App\Models\sejarah;
 use App\Models\Transparansi;
 use App\Models\tupoksi;
 use App\Models\lowongan;
+use App\Models\RtlhContent;
 use App\Models\visimisi;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,12 @@ class ProfilController extends Controller
         $lowonganList = lowongan::orderBy('id','desc')->get(); 
         return view('profil.lowongan', compact('lowonganList'));
     }
+
+    public function rtlh()
+{
+    $contents = RtlhContent::active()->ordered()->get();
+    return view('profil.rtlhcontent', compact('contents'));
+}
 
     public function dokumen(Request $request)
     {
