@@ -44,6 +44,8 @@ Route::prefix('profil')->group(function () {
     Route::get('/lowongan', [ProfilController::class, 'lowongan'])->name('profil.lowongan');
     Route::get('/rtlh', [ProfilController::class, 'rtlh'])->name('profil.rtlh'); // ← Tambahkan ini
 });
+
+Route::get('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'showDetail'])->name('rusunawa.detail');
 Route::get('/transparansi-index', [ProfilController::class, 'transparansi'])->name('profil.transparansi');
 Route::get('/dokumen-index', [ProfilController::class, 'dokumen'])->name('profil.dokumen');
 Route::get('/caripengumuman', [PengumumanController::class, 'show'])->name('profil.pengumuman');

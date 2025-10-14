@@ -123,14 +123,26 @@
                                 </tr>
                                 <tr>
                                     <td style="white-space: nowrap;">Nomor Hotline</td>
-                                    <td>: {{ $row->nomor_hotline ?? '-' }}</td>
+                                    <td style="white-space: nowrap;">: {{ $row->nomor_hotline ?? '-' }}</td>
                                 </tr>
-                                {{-- <tr>
+                                                             {{-- <tr>
                                     <td style="white-space: nowrap;">Area</td>
                                     <td>: {{ $row->area->nama ?? '-' }}</td>
                                 </tr> --}}
                             </tbody>
                         </table>
+
+                        @if($row->detail)
+                            <a href="{{ route('rusunawa.detail', $row->id) }}" class="btn btn-primary w-100">
+                                Lihat Detail
+                            </a>
+                        @else
+                            <button class="btn btn-secondary w-100" disabled>
+                                Belum Ada Detail
+                            </button>
+                        @endif
+
+
 
                     </div>
                 </div>
