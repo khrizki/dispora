@@ -2,26 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sosmed;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
-
 
 class SosmedController extends Controller
 {
-    public function index()
+    public function instagramFeed()
     {
-        if (request()->ajax()) {
-            return $this->dataTable();
-        }
-        return view('pages.sosmed.index');
-    }
+        $accessToken = env('INSTAGRAM_TOKEN'); // Simpan di .env
+        $userId = env('INSTAGRAM_USER_ID');
 
-    public function dataTable()
-    {
-        $builder = Sosmed::query();
-        return DataTables::of($builder)
-            ->addIndexColumn()
-            ->make(true);
+        $response = Http::get("https://graph.instagram.com/{$userId}/media", [
+            'fields' => 'id,caption,media_type,media_url,permalink,timestamp',
+            'access_token' => $accessToken,
+        ]);
+
+        $posts = $response->json()['data'] ?? [];
+
+        return view('pages.sosmed.instagram', compact('posts'));
     }
 }

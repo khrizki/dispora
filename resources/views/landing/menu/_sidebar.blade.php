@@ -58,7 +58,7 @@
 
                 <!-- Produk -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.rtlh-contents.*') || Route::is('pages.sanitasi.*') || Route::is('pages.kumuh.*') || Route::is('pages.airminum.*') || Route::is('pages.psu.*') ? 'here show' : '' }}"
+                    {{ Route::is('pages.rtlh-contents.*') || Route::is('pages.sanitasi.*') || Route::is('pages.kumuh.*') || Route::is('pages.airminum.*') || Route::is('pages.psu-contents.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
                         <span class="menu-icon"><i class="bi bi-briefcase-fill"></i></span>
@@ -74,8 +74,8 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.psu.*') ? 'active' : '' }}"
-                                href="#">
+                            <a class="menu-link {{ Route::is('pages.psu-contents.*') ? 'active' : '' }}"
+                                href="{{ route('pages.psu-contents.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-signpost"></i></span>
                                 <span class="menu-title">Peningkatan PSU</span>
                             </a>

@@ -1,7 +1,7 @@
 @include('landing._head')
 @include('landing._navbar')
 
-{{-- Konten Visi & Misi --}}
+{{-- Konten Berita --}}
 <section class="py-5 mt-5" style="margin-top: 80px !important;">
     <div class="container">
         <div style="text-align:center;">
@@ -20,26 +20,28 @@
                 Semua Berita PERKIM Kota Padang
             </h3>
         </div>
-        <div class="row">
+        <div class="row g-4">
             @foreach ($beritaList as $item)
                 <div class="col-lg-4 col-md-6">
-                    <div class="card shadow-sm position-relative h-100">
-                        <span class="card-date-badge">
-                            {{ \Carbon\Carbon::parse($item->tanggal_berita)->translatedFormat('d F, Y') }}
-                        </span>
-                        <img src="{{ asset('storage/' . $item->foto) }}" alt="..." class="card-img-top"
-                            style="height: 200px; object-fit: cover;" />
-
-                        <div class="card-body d-flex flex-column">
-                            <div class="card-category"><i class="fas fa-tag me-1"></i> Kegiatan</div>
-                            <h5 class="card-title">{{ $item->judul_berita }}</h5>
-                            <p class="card-text mt-2">{!! Str::limit(strip_tags($item->isi_berita), 100) !!}</p>
-
-                            <div class="mt-auto">
-                                <a href="{{ route('berita.show', $item->id) }}" class="btn btn-primary btn-sm mt-2">
-                                    Lihat Selengkapnya
-                                </a>
+                    <div class="news-card">
+                        <div class="news-card-image">
+                            <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->judul_berita }}" />
+                            <div class="news-card-overlay"></div>
+                            <span class="news-card-date">
+                                <i class="far fa-calendar-alt"></i>
+                                {{ \Carbon\Carbon::parse($item->tanggal_berita)->translatedFormat('d M Y') }}
+                            </span>
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-card-category">
+                                <i class="fas fa-tag"></i> Kegiatan
                             </div>
+                            <h5 class="news-card-title">{{ $item->judul_berita }}</h5>
+                            <p class="news-card-text">{!! Str::limit(strip_tags($item->isi_berita), 100) !!}</p>
+                            <a href="{{ route('berita.show', $item->id) }}" class="news-card-button">
+                                Selengkapnya
+                                <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -47,11 +49,154 @@
         </div>
 
         <style>
-            /* ==== UPDATED PAGINATION STYLE ==== */
+            /* ==== NEWS CARD STYLES ==== */
+            .news-card {
+                background: #fff;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .news-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(26, 43, 111, 0.15);
+            }
+
+            .news-card-image {
+                position: relative;
+                width: 100%;
+                height: 240px;
+                overflow: hidden;
+            }
+
+            .news-card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .news-card:hover .news-card-image img {
+                transform: scale(1.08);
+            }
+
+            .news-card-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .news-card:hover .news-card-overlay {
+                opacity: 1;
+            }
+
+            .news-card-date {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 500;
+                color: #1a2b6f;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .news-card-content {
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+
+            .news-card-category {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: linear-gradient(135deg, #1a2b6f 0%, #2d4a9e 100%);
+                color: white;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                width: fit-content;
+                margin-bottom: 16px;
+            }
+
+            .news-card-title {
+                font-family: 'Poppins', sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                color: #1a1a1a;
+                margin-bottom: 12px;
+                line-height: 1.4;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .news-card-text {
+                font-size: 14px;
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                flex-grow: 1;
+            }
+
+            .news-card-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                background: linear-gradient(135deg, #1a2b6f 0%, #2d4a9e 100%);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                width: 100%;
+                text-align: center;
+            }
+
+            .news-card-button:hover {
+                background: linear-gradient(135deg, #152354 0%, #1a2b6f 100%);
+                color: white;
+                transform: translateX(4px);
+                box-shadow: 0 4px 12px rgba(26, 43, 111, 0.3);
+            }
+
+            .news-card-button i {
+                transition: transform 0.3s ease;
+            }
+
+            .news-card-button:hover i {
+                transform: translateX(4px);
+            }
+
+            /* ==== PAGINATION STYLE ==== */
             .custom-pagination {
                 display: flex;
                 justify-content: center;
-                margin-top: 30px;
+                margin-top: 50px;
                 font-family: 'Poppins', sans-serif;
             }
 
@@ -73,34 +218,39 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                min-width: 36px;
-                height: 36px;
+                min-width: 40px;
+                height: 40px;
                 padding: 0 12px;
-                border: 1px solid #ddd;
-                border-radius: 6px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
                 background-color: #fff;
                 color: #333;
                 font-size: 14px;
+                font-weight: 500;
                 text-decoration: none;
-                transition: all 0.2s ease;
+                transition: all 0.3s ease;
             }
 
             .custom-pagination .pagination-link:hover {
-                background-color: #1a2b6f;
+                background: linear-gradient(135deg, #1a2b6f 0%, #2d4a9e 100%);
                 color: white;
                 border-color: #1a2b6f;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(26, 43, 111, 0.2);
             }
 
             .custom-pagination .pagination-link.active {
-                background-color: #1a2b6f;
+                background: linear-gradient(135deg, #1a2b6f 0%, #2d4a9e 100%);
                 color: white;
                 border-color: #1a2b6f;
+                box-shadow: 0 4px 12px rgba(26, 43, 111, 0.3);
             }
 
             .custom-pagination .pagination-link.disabled {
                 color: #aaa;
                 pointer-events: none;
                 background-color: #f8f9fa;
+                border-color: #e0e0e0;
             }
 
             .custom-pagination .pagination-ellipsis {
@@ -109,7 +259,20 @@
                 pointer-events: none;
             }
 
-            /* Card badge style */
+            /* Responsive */
+            @media (max-width: 768px) {
+                .news-card-image {
+                    height: 200px;
+                }
+
+                .news-card-title {
+                    font-size: 16px;
+                }
+
+                .news-card-text {
+                    font-size: 13px;
+                }
+            }
         </style>
 
         <div class="custom-pagination">

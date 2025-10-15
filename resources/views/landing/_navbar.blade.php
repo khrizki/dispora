@@ -78,10 +78,11 @@
 
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profil.rusunawa') }}">RUSUNAWA (Rumah Susun Sederhana Sewa)</a>
+                        <a class="dropdown-item" href="#">RUSUS (Rumah Khusus)</a>
                         <a class="dropdown-item" href="{{ route('profil.rtlh') }}">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
                         <a class="dropdown-item" href="https://sikasper.padang.go.id/">SIKASPER</a>
                         <a class="dropdown-item" href="https://sirumahkita.padang.go.id/">SI RUMAH KITA</a>
-                        <a class="dropdown-item" href="#">Peningkatan Prasarana, Sarana, dan Utilitas Umum</a>
+                        <a class="dropdown-item" href="{{ route('profil.psu') }}">Peningkatan Prasarana, Sarana, dan Utilitas Umum</a>
                         <a class="dropdown-item" href="https://sirumahkita.padang.go.id/catalogue/#/map/90">Peningkatan Kualitas Perumahan Kumuh dan Pemukiman Kumuh</a>
                         <a class="dropdown-item" href="https://sikasper.padang.go.id/map/sanitasi/7/62/">Sanitasi Rumah</a>
                         <a class="dropdown-item" href="#">Air Minum Perumahan</a>

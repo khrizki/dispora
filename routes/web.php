@@ -18,6 +18,7 @@ use App\Http\Controllers\RusunawaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\LowonganController;
+use App\Http\Controllers\PsuContentController;
 use App\Http\Controllers\RtlhContentController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\TupoksiController;
@@ -42,7 +43,8 @@ Route::prefix('profil')->group(function () {
     Route::get('/tupoksi', [ProfilController::class, 'tupoksi'])->name('profil.tupoksi');
     Route::get('/pejabat-struktural', [ProfilController::class, 'pejabatStruktural'])->name('profil.pejabat');
     Route::get('/lowongan', [ProfilController::class, 'lowongan'])->name('profil.lowongan');
-    Route::get('/rtlh', [ProfilController::class, 'rtlh'])->name('profil.rtlh'); // ← Tambahkan ini
+    Route::get('/rtlh', [ProfilController::class, 'rtlh'])->name('profil.rtlh'); 
+    Route::get('/psu', [ProfilController::class, 'psu'])->name('profil.psu'); 
 });
 
 Route::get('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'showDetail'])->name('rusunawa.detail');
@@ -78,13 +80,21 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/rusunawa/{rusunawa_id}/detail/edit', [RusunawaController::class, 'editDetail'])->name('pages.rusunawa.detail.edit');
         Route::put('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'updateDetail'])->name('pages.rusunawa.detail.update');
 
-         // RTLH Contents
+        // RTLH Contents
         Route::get('/rtlh-contents', [RtlhContentController::class, 'index'])->name('pages.rtlh-contents.index');
         Route::get('/rtlh-contents-create', [RtlhContentController::class, 'create'])->name('pages.rtlh-contents.create');
         Route::post('/rtlh-contents-store', [RtlhContentController::class, 'store'])->name('pages.rtlh-contents.store');
         Route::get('/rtlh-contents/{rtlhContent}/edit', [RtlhContentController::class, 'edit'])->name('pages.rtlh-contents.edit');
         Route::put('/rtlh-contents/{rtlhContent}', [RtlhContentController::class, 'update'])->name('pages.rtlh-contents.update');
         Route::delete('/rtlh-contents-destroy/{rtlhContent}', [RtlhContentController::class, 'destroy'])->name('pages.rtlh-contents.destroy');
+        
+        // PSU Contents
+        Route::get('/psu-contents', [PsuContentController::class, 'index'])->name('pages.psu-contents.index');
+        Route::get('/psu-contents-create', [PsuContentController::class, 'create'])->name('pages.psu-contents.create');
+        Route::post('/psu-contents-store', [PsuContentController::class, 'store'])->name('pages.psu-contents.store');
+        Route::get('/psu-contents/{psuContent}/edit', [PsuContentController::class, 'edit'])->name('pages.psu-contents.edit');
+        Route::put('/psu-contents/{psuContent}', [PsuContentController::class, 'update'])->name('pages.psu-contents.update');
+        Route::delete('/psu-contents-destroy/{psuContent}', [PsuContentController::class, 'destroy'])->name('pages.psu-contents.destroy');
         
         //Hero Section
         Route::get('/herosection', [HeroSectionController::class, 'index'])->name('pages.herosection.index');

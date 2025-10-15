@@ -8,6 +8,7 @@ use App\Models\sejarah;
 use App\Models\Transparansi;
 use App\Models\tupoksi;
 use App\Models\lowongan;
+use App\Models\PsuContent;
 use App\Models\RtlhContent;
 use App\Models\visimisi;
 use Illuminate\Http\Request;
@@ -53,6 +54,12 @@ class ProfilController extends Controller
 {
     $contents = RtlhContent::active()->ordered()->get();
     return view('profil.rtlhcontent', compact('contents'));
+}
+
+    public function psu()
+{
+    $contents = PsuContent::active()->ordered()->get();
+    return view('profil.psucontent', compact('contents'));
 }
 
     public function dokumen(Request $request)
