@@ -118,8 +118,8 @@
     <div class="header">
         <img src="{{ asset('assets/img/logo.png') }}" alt="Logo BPKAD">
         <div class="text-logo">
-            <div class="title">perkim.padang.go.id</div>
-            <div class="subtitle">PORTAL RESMI PERKIM KOTA PADANG</div>
+            <div class="title">dispora.padang.go.id</div>
+            <div class="subtitle">PORTAL RESMI DISPORA KOTA PADANG</div>
         </div>
     </div>
 

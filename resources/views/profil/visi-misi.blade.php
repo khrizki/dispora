@@ -11,7 +11,7 @@
 
                         <span class="badge rounded-pill border border-danger text-danger px-3 py-1 mb-3">PROFIL</span>
 
-                        <h2 class="fw-bold">Visi dan Misi PERKIM Kota Padang</h2>
+                        <h2 class="fw-bold">Visi dan Misi Dispora Kota Padang</h2>
                         <hr class="my-3">
 
                         @if($data)

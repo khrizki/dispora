@@ -9,7 +9,7 @@
 
     <div class="preloader" style="background-color: rgb(199, 192, 192)">
         <div class="loading">
-            <img src="{{ asset('assets/img/logo-head-PERKIM.png') }}" class="img-fluid" alt="Logo PERKIM" width="600">
+            <img src="{{ asset('assets/img/logo-head-DISPORA.png') }}" class="img-fluid" alt="Logo DISPORA" width="600">
 
         </div>
     </div>
@@ -141,6 +141,40 @@
             .hover-scale:hover {
                 transform: translateY(-5px);
             }
+
+    .map-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 900px;
+        aspect-ratio: 16 / 9;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        background: #f9f9f9;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .map-container:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .map-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+    }
+
+    /* Responsif untuk layar kecil */
+    @media (max-width: 768px) {
+        .map-container {
+            max-width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 10px;
+        }
+    }
     </style>
 
     </style>
@@ -156,25 +190,24 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block bg-100" src="{{ asset('assets/img/intersect.png') }}" id="slideImg"
+                            <img class="d-block bg-100" src="{{ asset('assets/img/kolam.png') }}" id="slideImg"
                                 alt="First slide">
 
                             <div class="carousel-caption d-flex flex-column justify-content-center align-items-start text-start"
                                 style="top: 0; bottom: 0; left: 10%; right: auto; padding: 20px; text-align: left !important;">
-                                <h6 class="text-white fw-bold">PERKIM Kota Padang</h6>
+                                <h6 class="text-white fw-bold">DISPORA Kota Padang</h6>
                                 <h1 class="text-white fw-bold mb-3" style="font-size: 2rem; line-height: 1.3;">
-                                    Dinas Perumahan Rakyat dan<br>
-                                    Kawasan Permukiman <br>
+                                    Dinas Pemuda dan Olahraga<br>
                                     Kota Padang
                                 </h1>
                                 <p class="text-white mb-3" style="max-width: 500px;">
-                                    Mewujudkan Perumahan Rakyat dan Kawasan <br> 
-                                    Permukiman Kota Padang yang layak huni <br>
-                                    terjangkau, aman, terpadu, dan berkelanjutan
+                                    Mewujudkan Pemuda yang Berkarakter, Kreatif, dan Mandiri <br>
+                                    serta Masyarakat yang Gemar Berolahraga <br>
+                                    menuju Kota Padang yang Sehat dan Berprestasi
                                 </p>
-                                <a href="{{ route('profil.rusunawa') }}" class="btn btn-success px-3 py-1">
+                                <!-- <a href="{{ route('profil.rusunawa') }}" class="btn btn-success px-3 py-1">
                                     Cari Rusunawa
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>
@@ -208,7 +241,7 @@
                     <div class="col-12">
                         <h2 style="font-weight: bold;">PROFIL</h2>
                         <div style="width: 80px; height: 3px; background-color: #212e60; margin: 10px auto;"></div>
-                        <p>Selayang pandang tentang Badan Pengelolaan Keuangan dan Aset Daerah</p>
+                        <p>Sekilas tentang Dinas Pemuda dan Olahraga Kota Padang</p>
                     </div>
                 </div>
 
@@ -317,7 +350,7 @@
         <section class="my-5">
             <div class="container text-center">
                 <h3 style="color:#212e60;">Program Unggulan</h3>
-                <p>Pilihan Layanan Unggulan <b>PERKIM</b> Kota Padang</p>
+                <p>Pilihan Layanan Unggulan <b>DISPORA</b> Kota Padang</p>
                 <hr class="line">
 
                 <div class="row justify-content-center mt-4">
@@ -349,7 +382,7 @@
         <div class="container">
             <div class="text-center mt-5">
                 <h3 class="red" style="color: #212e60;">Berita Terbaru</h3>
-                <p>Berita dan Artikel <b>PERKIM</b> Kota Padang</p>
+                <p>Berita dan Artikel <b>DISPORA</b> Kota Padang</p>
                 <hr class="line">
             </div>
             <div class="row g-4">
@@ -405,7 +438,7 @@
             <div class="row align-content-center">
                 <div class="col-12 mt-4 text-center"><br>
                     <h3 class="red" style="color: #212e60;">Instagram</h3>
-                    <p>Post Instagram Terbaru <b>PERKIM</b> Kota Padang</p>
+                    <p>Post Instagram Terbaru <b>DISPORA</b> Kota Padang</p>
                     <hr class="line">
                 </div>
 
@@ -433,7 +466,7 @@
             <div class="row align-content-center">
                 <div class="col-12 mt-4 text-center"><br>
                     <h3 class="red" style="color: #212e60;">Video Terbaru</h3>
-                    <p>Video Terbaru <b>PERKIM</b> Kota Padang </p>
+                    <p>Video Terbaru <b>DISPORA</b> Kota Padang </p>
                     <hr class="line">
                 </div>
                 @php
@@ -475,7 +508,7 @@
             <div class="row text-center">
                 <div class="col-12 mt-5">
                     <h3 class="red" style="color: #212e60;">Galeri dan Dokumentasi</h3>
-                    <p>Galeri dan Dokumentasi Kegiatan <span class="badge bg-warning text-dark">PERKIM</span> Kota
+                    <p>Galeri dan Dokumentasi Kegiatan <span class="badge bg-warning text-dark">DISPORA</span> Kota
                         Padang
                     </p>
                     <hr class="line">
@@ -501,7 +534,7 @@
                 <div class="col-12 mt-5">
                     <h3 class="red" style="color: #212e60;">Jumlah Pengunjung</h3>
                     <p>Jumlah Pengunjung Website
-                        <span class="badge bg-warning text-dark">PERKIM</span> Kota Padang
+                        <span class="badge bg-warning text-dark">DISPORA</span> Kota Padang
                     </p>
                     <hr class="line">
                 </div>
@@ -560,7 +593,7 @@
             <div class="row text-center">
                 <div class="col-12"><br>
                     <h3 style="color:#212e60;"> Kontak Kami</h3>
-                    <h6>perkim@padang.go.id</h6>
+                    <h6>dispora@padang.go.id</h6>
                     <hr class="line">
                 </div>
             </div>
@@ -574,13 +607,14 @@
                 <div class="col-12">
                     <div class="container">
                         <div class="w-auto mb-2">
-                            <div class="row justify-content-center">
-                                <div class="container-iframe">
-
-
-                                    <iframe class="iframe-maps"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1232.5863090840842!2d100.36281818197402!3d-0.9294804460660874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b92708346ea9%3A0xa676f8ae7633e2d5!2sDinas%20Perumahan%20Rakyat%2C%20Kawasan%20Permukiman%20Dan%20Pertanahan%20Prov.%20Sumbar!5e0!3m2!1sid!2sid!4v1758242998956!5m2!1sid!2sid"
-                                        allowfullscreen="" loading="lazy"></iframe>
+                            <div class="row justify-content-center mt-4 mb-5">
+                                <div class="map-container">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2924143682485!2d100.35506569678957!3d-0.9302933000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b9fc64bb2319%3A0xb15951765177e7a9!2sKantor%20Dinas%20Pemuda%20Dan%20Olahraga%20Kota%20Padang!5e0!3m2!1sen!2sid!4v1760935522338!5m2!1sen!2sid"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
                                 </div>
                             </div>
                         </div>

@@ -24,10 +24,10 @@
 
     <div class="container d-flex justify-content-between align-items-center">
 
-        <a class="navbar-brand mb-0" href="{{ route('landing') }}"> 
-            <img src="{{ asset('assets/img/logo-head-PERKIM.png') }}"
+        <!-- <a class="navbar-brand mb-0" href="{{ route('landing') }}">  -->
+            <img src="{{ asset('assets/img/logo-head-DISPORA.png') }}"
                 class="w-50 animate__animated animate__backInLeft" alt="logo" />
-        </a>
+        <!-- </a> -->
         <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,10 +38,10 @@
     <div class="container d-flex justify-content-between align-items-center">
 
         <!-- Logo -->
-        <a class="navbar-brand mb-0" href="{{ route('landing') }}">
-            <img src="{{ asset('assets/img/logo-head-PERKIM.png') }}"
+        <!-- <a class="navbar-brand mb-0" href="{{ route('landing') }}"> -->
+            <img src="{{ asset('assets/img/logo-head-DISPORA.png') }}"
                  class="animate__animated animate__backInLeft" alt="logo" style="max-height:50px;" />
-        </a>
+        <!-- </a> -->
 
         <!-- Tombol Hamburger (di kanan logo) -->
         <button class="navbar-toggler border-0" type="button" data-toggle="collapse"

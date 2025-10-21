@@ -7,7 +7,7 @@
 
     <div class="preloader" style="background-color: rgb(199, 192, 192)">
         <div class="loading">
-            <img src="assets/img/logo-head-PERKIM.png" width="600px">
+            <img src="assets/img/logo-head-DISPORA.png" width="600px">
         </div>
     </div>
     <!-- NAVBAR -->

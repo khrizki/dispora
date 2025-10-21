@@ -7,7 +7,7 @@
     <div class="app-sidebar-logo px-6 py-4 d-flex align-items-center justify-content-between" id="kt_app_sidebar_logo">
         <a href="{{ route('dashboard') }}" class="d-flex align-items-center gap-2">
             <img src="{{ asset('assets/media/logos/logo.png') }}" alt="Logo" class="h-35px" />
-            <span class="fw-bold fs-5 text-uppercase">PERKIM PADANG</span>
+            <span class="fw-bold fs-5 text-uppercase">DISPORA PADANG</span>
         </a>
     </div>
 

@@ -35,8 +35,8 @@ use App\Http\Controllers\VisiMisiController;
 |
 */
 
-Route::get('/', [LandingController::class, 'landing'])->name('landing');
-Route::get('/beranda', [LandingController::class, 'index'])->name('beranda');
+Route::get('/', [LandingController::class, 'index'])->name('beranda');
+Route::get('/beranda', [LandingController::class, 'landing'])->name('landing');
 Route::prefix('profil')->group(function () {
     Route::get('/visi-misi', [ProfilController::class, 'visiMisi'])->name('profil.visi-misi');
     Route::get('/sejarah', [ProfilController::class, 'sejarah'])->name('profil.sejarah');
