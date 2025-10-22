@@ -11,7 +11,7 @@
                     <p class="text-left text-white"><i class="bi bi-telephone-forward-fill"></i>
                         (0751)890757
                     </p>
-                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> disprkpp@padang.go.id
+                    <p class="text-left text-white"><i class="bi bi-envelope-at-fill"></i> dispora@padang.go.id
                     </p>
                     <h6 class="text-uppercase fw-bold mb-2 text-left">media sosial: </h6>
                     <h5 class="text-left">
@@ -28,7 +28,7 @@
                     <!-- Links -->
                     <h6 class="text-uppercase text-left fw-bold mb-4">Useful Links</h6>
                     <a href="https://perkim.padang.go.id" target="_blank" rel="noopener noreferrer" class="">
-                        <p class="text-left text-white">Website Dinas PERKIM Padang
+                        <p class="text-left text-white">Website Dinas DISPORA Padang
                         </p>
                     </a>
                     <a href="https://sirumahkita.padang.go.id/geoportal/" target="_blank" rel="noopener noreferrer" class="">

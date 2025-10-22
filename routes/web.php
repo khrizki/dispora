@@ -23,6 +23,8 @@ use App\Http\Controllers\RtlhContentController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\TupoksiController;
 use App\Http\Controllers\VisiMisiController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NavbarItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +46,7 @@ Route::prefix('profil')->group(function () {
     Route::get('/pejabat-struktural', [ProfilController::class, 'pejabatStruktural'])->name('profil.pejabat');
     Route::get('/lowongan', [ProfilController::class, 'lowongan'])->name('profil.lowongan');
     Route::get('/rtlh', [ProfilController::class, 'rtlh'])->name('profil.rtlh'); 
-    Route::get('/psu', [ProfilController::class, 'psu'])->name('profil.psu'); 
+    Route::get('/psu', [ProfilController::class, 'psu'])->name('profil.psu');
 });
 
 Route::get('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'showDetail'])->name('rusunawa.detail');
@@ -60,6 +62,14 @@ Route::get('/carirusunawa', [RusunawaController::class, 'show'])->name('profil.r
 Route::get('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'showDetail'])->name('rusunawa.detail');
 
 Auth::routes(['register' => false]);
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('navbar', NavbarItemController::class);
+});
 
 Route::middleware(['auth'])->group(function () {
 

@@ -1,13 +1,18 @@
-<div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true"
-    data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}"
-    data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start"
+<div id="kt_app_sidebar" 
+    class="app-sidebar flex-column sporty-sidebar"
+    data-kt-drawer="true"
+    data-kt-drawer-name="app-sidebar"
+    data-kt-drawer-activate="{default: true, lg: false}"
+    data-kt-drawer-overlay="true"
+    data-kt-drawer-width="250px"
+    data-kt-drawer-direction="start"
     data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
 
     <!-- Logo -->
-    <div class="app-sidebar-logo px-6 py-4 d-flex align-items-center justify-content-between" id="kt_app_sidebar_logo">
+    <div class="app-sidebar-logo px-6 py-4 d-flex align-items-center justify-content-between">
         <a href="{{ route('dashboard') }}" class="d-flex align-items-center gap-2">
             <img src="{{ asset('assets/media/logos/logo.png') }}" alt="Logo" class="h-35px" />
-            <span class="fw-bold fs-5 text-uppercase">DISPORA PADANG</span>
+            <span class="fw-bold fs-5 text-uppercase sporty-title">DISPORA PADANG</span>
         </a>
     </div>
 
@@ -24,7 +29,7 @@
                 <!-- Dashboard -->
                 <div class="menu-item mb-2">
                     <a class="menu-link {{ Route::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
-                        <span class="menu-icon"><i class="bi bi-speedometer2 fs-4"></i></span>
+                        <span class="menu-icon sporty-icon"><i class="bi bi-speedometer2 fs-4"></i></span>
                         <span class="menu-title fw-semibold">Dashboard</span>
                     </a>
                 </div>
@@ -34,8 +39,8 @@
                     {{ Route::is('pages.rusunawa.*') || Route::is('pages.areas.*') || Route::is('pages.rtlh.*') || Route::is('pages.psu.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
-                        <span class="menu-icon"><i class="bi bi-building fs-4"></i></span>
-                        <span class="menu-title fw-semibold">Progul</span>
+                        <span class="menu-icon sporty-icon"><i class="bi bi-building fs-4"></i></span>
+                        <span class="menu-title fw-semibold">Organisasi</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion">
@@ -43,14 +48,14 @@
                             <a class="menu-link {{ Route::is('pages.rusunawa.*') ? 'active' : '' }}"
                                 href="{{ route('pages.rusunawa.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-house-door"></i></span>
-                                <span class="menu-title">Rusunawa</span>
+                                <span class="menu-title">Komi</span>
                             </a>
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.areas.*') ? 'active' : '' }}"
                                 href="{{ route('pages.areas.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-geo-alt"></i></span>
-                                <span class="menu-title">Area</span>
+                                <span class="menu-title">Korni</span>
                             </a>
                         </div>
                     </div>
@@ -58,10 +63,10 @@
 
                 <!-- Produk -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.rtlh-contents.*') || Route::is('pages.sanitasi.*') || Route::is('pages.kumuh.*') || Route::is('pages.airminum.*') || Route::is('pages.psu-contents.*') ? 'here show' : '' }}"
+                    {{ Route::is('pages.rtlh-contents.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
-                        <span class="menu-icon"><i class="bi bi-briefcase-fill"></i></span>
+                        <span class="menu-icon sporty-icon"><i class="bi bi-briefcase-fill"></i></span>
                         <span class="menu-title fw-semibold">Produk</span>
                         <span class="menu-arrow"></span>
                     </span>
@@ -69,86 +74,8 @@
                         <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.rtlh-contents.*') ? 'active' : '' }}"
                                 href="{{ route('pages.rtlh-contents.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-house"></i></span>
-                                <span class="menu-title">Perbaikan RTLH</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.psu-contents.*') ? 'active' : '' }}"
-                                href="{{ route('pages.psu-contents.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-signpost"></i></span>
-                                <span class="menu-title">Peningkatan PSU</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.kumuh.*') ? 'active' : '' }}"
-                                href="#">
-                                <span class="menu-bullet"><i class="bi bi-funnel"></i></span>
-                                <span class="menu-title">Peningkatan Kualitas Pemukiman Rumah Kumuh</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.sanitasi.*') ? 'active' : '' }}"
-                                href="#">
-                                <span class="menu-bullet"><i class="bi bi-badge-wc"></i></span>
-                                <span class="menu-title">Sanitasi Rumah</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.airminum.*') ? 'active' : '' }}"
-                                href="#">
-                                <span class="menu-bullet"><i class="bi bi-droplet"></i></span>
-                                <span class="menu-title">Air Minum Perumahan</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                    
-
-                <!-- Profil -->
-                <div class="menu-item menu-accordion mb-2 
-                {{ Route::is('pages.visimisi.*') || Route::is('pages.struktural.*') || Route::is('pages.info.*') || Route::is('pages.sejarah.*') || Route::is('pages.tupoksi.*') ? 'here show' : '' }}"
-                data-kt-menu-trigger="click">
-                    <span class="menu-link">
-                        <span class="menu-icon"><i class="bi bi-person-badge fs-4"></i></span>
-                        <span class="menu-title fw-semibold">Profil</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.visimisi.*') ? 'active' : '' }}"
-                                href="{{ route('pages.visimisi.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-lightbulb"></i></span>
-                                <span class="menu-title">Visi Misi</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.sejarah.*') ? 'active' : '' }}"
-                                href="{{ route('pages.sejarah.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-journal-text"></i></span>
-                                <span class="menu-title">Sejarah</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.struktural.*') ? 'active' : '' }}"
-                                href="{{ route('pages.struktural.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-people"></i></span>
-                                <span class="menu-title">Pejabat Struktural</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.tupoksi.*') ? 'active' : '' }}"
-                                href="{{ route('pages.tupoksi.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-folder2-open"></i></span>
-                                <span class="menu-title">Tugas & Fungsi</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.info.*') ? 'active' : '' }}"
-                                href="{{ route('pages.info.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-info-circle"></i></span>
-                                <span class="menu-title">Info Bergambar</span>
+                                <span class="menu-bullet"><i class="bi bi-water"></i></span>
+                                <span class="menu-title">Kolam Renang Teratai</span>
                             </a>
                         </div>
                     </div>
@@ -156,10 +83,10 @@
 
                 <!-- Informasi Publik -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.pengumuman.*') || Route::is('pages.lowongan.*') || Route::is('pages.berita.*') ? 'here show' : '' }}"
+                    {{ Route::is('pages.pengumuman.*') || Route::is('pages.berita.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
-                        <span class="menu-icon"><i class="bi bi-megaphone fs-4"></i></span>
+                        <span class="menu-icon sporty-icon"><i class="bi bi-megaphone fs-4"></i></span>
                         <span class="menu-title fw-semibold">Informasi Publik</span>
                         <span class="menu-arrow"></span>
                     </span>
@@ -178,22 +105,15 @@
                                 <span class="menu-title">Berita</span>
                             </a>
                         </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.lowongan.*') ? 'active' : '' }}"
-                                href="{{ route('pages.lowongan.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-briefcase"></i></span>
-                                <span class="menu-title">Lowongan</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Galeri -->
                 <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.galeri.*') || Route::is('pages.video.*') ? 'here show' : '' }}"
+                    {{ Route::is('pages.galeri.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
-                        <span class="menu-icon"><i class="bi bi-images fs-4"></i></span>
+                        <span class="menu-icon sporty-icon"><i class="bi bi-images fs-4"></i></span>
                         <span class="menu-title fw-semibold">Galeri</span>
                         <span class="menu-arrow"></span>
                     </span>
@@ -216,29 +136,13 @@
                 </div>
 
                 <!-- Settings -->
-                <div class="menu-item menu-accordion 
-                    {{ Route::is('pages.navbar.*') || Route::is('pages.footer.*') || Route::is('pages.herosection.*') ? 'here show' : '' }}"
-                    data-kt-menu-trigger="click">
+                <div class="menu-item menu-accordion" data-kt-menu-trigger="click">
                     <span class="menu-link">
-                        <span class="menu-icon"><i class="bi bi-gear fs-4"></i></span>
+                        <span class="menu-icon sporty-icon"><i class="bi bi-gear fs-4"></i></span>
                         <span class="menu-title fw-semibold">Settings</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion">
-                        {{-- <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.navbar.*') ? 'active' : '' }}"
-                                href="#">
-                                <span class="menu-bullet"><i class="bi bi-menu-button-wide"></i></span>
-                                <span class="menu-title">Navbar</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.footer.*') ? 'active' : '' }}"
-                                href="#">
-                                <span class="menu-bullet"><i class="bi bi-window"></i></span>
-                                <span class="menu-title">Footer</span>
-                            </a>
-                        </div> --}}
                         <div class="menu-item">
                             <a class="menu-link {{ Route::is('pages.herosection.*') ? 'active' : '' }}"
                                 href="{{ route('pages.herosection.index') }}">

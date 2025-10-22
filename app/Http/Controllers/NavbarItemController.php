@@ -57,6 +57,8 @@ class NavbarItemController extends Controller
     public function destroy(NavbarItem $navbar)
     {
         $navbar->delete();
-        return redirect()->back()->with('success', 'Menu berhasil dihapus.');
+
+        return redirect('/')
+            ->with('success', 'Menu berhasil dihapus dan Anda telah dialihkan ke halaman utama.');
     }
 }
