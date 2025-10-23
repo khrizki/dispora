@@ -8,7 +8,7 @@
             <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Data
-                        Video PERKIM
+                        Video DISPORA
                     </h1>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                                 <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
                                     Actions
                                     <span class="svg-icon fs-5 m-0">
-                                       
+
                                     </span>
                                 </a>
                                 <!--begin::Menu-->

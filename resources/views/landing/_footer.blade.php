@@ -18,7 +18,8 @@
                         <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-facebook"></i> </a>
                         <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-twitter"></i> </a>
                         <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-google"></i></a>
-                        <a href="https://www.instagram.com/dinas_perkim_kotapadang/" class="me-4 pl-1 text-white"> <i class="bi bi-instagram"></i> </a>
+                        <a href="https://www.instagram.com/dinas_DISPORA_kotapadang/" class="me-4 pl-1 text-white"> <i
+                                class="bi bi-instagram"></i> </a>
                         <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-linkedin"></i> </a>
                         <a href="#" class="me-4 pl-1 text-white"> <i class="bi bi-whatsapp"></i> </a>
                     </h5>
@@ -27,15 +28,17 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase text-left fw-bold mb-4">Useful Links</h6>
-                    <a href="https://perkim.padang.go.id" target="_blank" rel="noopener noreferrer" class="">
+                    <a href="https://DISPORA.padang.go.id" target="_blank" rel="noopener noreferrer" class="">
                         <p class="text-left text-white">Website Dinas DISPORA Padang
                         </p>
                     </a>
-                    <a href="https://sirumahkita.padang.go.id/geoportal/" target="_blank" rel="noopener noreferrer" class="">
+                    <a href="https://sirumahkita.padang.go.id/geoportal/" target="_blank" rel="noopener noreferrer"
+                        class="">
                         <p class="text-left text-white">Geoportal
                         </p>
                     </a>
-                    <a href="https://sirumahkita.padang.go.id/pelaporan/buatlaporan/" target="_blank" rel="noopener noreferrer" class="">
+                    <a href="https://sirumahkita.padang.go.id/pelaporan/buatlaporan/" target="_blank"
+                        rel="noopener noreferrer" class="">
                         <p class="text-left text-white">Pelaporan
                         </p>
                     </a>

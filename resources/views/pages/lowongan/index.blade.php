@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Lowongan Kerja PERKIM Kota Padang')
+@section('title', 'Lowongan Kerja DISPORA Kota Padang')
 
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
@@ -8,7 +8,7 @@
             <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        Data Lowongan Kerja PERKIM Kota Padang
+                        Data Lowongan Kerja DISPORA Kota Padang
                     </h1>
                 </div>
             </div>
@@ -67,43 +67,67 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-<script>
-    const LowonganTable = function() {
-        let table;
+    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+    <script>
+        const LowonganTable = function() {
+            let table;
 
-        const initDatatable = function() {
-            table = new DataTable('#dataTableLowongan', {
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('pages.lowongan.index') }}",
-                columns: [
-                    { data: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'judul', name: 'judul' },
-                    { data: 'posisi', name: 'posisi' },
-                    { data: 'tipe', name: 'tipe' },
-                    { data: 'lokasi', name: 'lokasi' },
-                    { data: 'status_badge', name: 'status', orderable: false, searchable: false },
-                    { data: null }
-                ],
-                columnDefs: [{
-                    targets: -1,
-                    data: null,
-                    orderable: false,
-                    className: 'text-end',
-                    render: function(data, type, row) {
-                        let editRoute = "{{ route('pages.lowongan.edit', ':id') }}".replace(':id', row.id);
-                        let deleteUrl = "{{ route('pages.lowongan.destroy', ':id') }}".replace(':id', row.id);
+            const initDatatable = function() {
+                table = new DataTable('#dataTableLowongan', {
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('pages.lowongan.index') }}",
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            orderable: false,
+                            searchable: false
+                        },
+                        {
+                            data: 'judul',
+                            name: 'judul'
+                        },
+                        {
+                            data: 'posisi',
+                            name: 'posisi'
+                        },
+                        {
+                            data: 'tipe',
+                            name: 'tipe'
+                        },
+                        {
+                            data: 'lokasi',
+                            name: 'lokasi'
+                        },
+                        {
+                            data: 'status_badge',
+                            name: 'status',
+                            orderable: false,
+                            searchable: false
+                        },
+                        {
+                            data: null
+                        }
+                    ],
+                    columnDefs: [{
+                        targets: -1,
+                        data: null,
+                        orderable: false,
+                        className: 'text-end',
+                        render: function(data, type, row) {
+                            let editRoute = "{{ route('pages.lowongan.edit', ':id') }}".replace(
+                                ':id', row.id);
+                            let deleteUrl = "{{ route('pages.lowongan.destroy', ':id') }}"
+                                .replace(':id', row.id);
 
-                        return `
-                            <a href="#" 
-                            class="btn btn-light btn-active-light-primary btn-sm" 
-                            data-kt-menu-trigger="click" 
-                            data-kt-menu-placement="bottom-end" 
+                            return `
+                            <a href="#"
+                            class="btn btn-light btn-active-light-primary btn-sm"
+                            data-kt-menu-trigger="click"
+                            data-kt-menu-placement="bottom-end"
                             data-kt-menu-flip="top-end">
                                 Actions
                             </a>
-                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600
                                         menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
 
                                 <div class="menu-item px-3">
@@ -114,52 +138,54 @@
                                 </div>
                             </div>
                         `;
-                    },
+                        },
 
-                }]
-            });
+                    }]
+                });
 
-            table.on("draw", function() {
-                KTMenu.createInstances();
-            });
-        }
-
-        const handleSearch = function() {
-            const searchInput = document.querySelector('[data-kt-table-filter="search"]');
-            searchInput.addEventListener('keyup', function(e) {
-                table.search(e.target.value).draw();
-            });
-        }
-
-        return {
-            init: function() {
-                initDatatable();
-                handleSearch();
+                table.on("draw", function() {
+                    KTMenu.createInstances();
+                });
             }
-        }
-    }();
 
-    KTUtil.onDOMContentLoaded(function() {
-        LowonganTable.init();
-    });
+            const handleSearch = function() {
+                const searchInput = document.querySelector('[data-kt-table-filter="search"]');
+                searchInput.addEventListener('keyup', function(e) {
+                    table.search(e.target.value).draw();
+                });
+            }
 
-    $(document).on('click', '[data-delete-row]', function(e) {
-        e.preventDefault();
-        const url = $(this).attr('href');
-        if (confirm('Yakin ingin menghapus data ini?')) {
-            $.ajax({
-                url: url,
-                type: 'DELETE',
-                data: { _token: '{{ csrf_token() }}' },
-                success: function() {
-                    alert("Data berhasil dihapus");
-                    $('#dataTableLowongan').DataTable().ajax.reload();
-                },
-                error: function() {
-                    alert("Gagal menghapus data");
+            return {
+                init: function() {
+                    initDatatable();
+                    handleSearch();
                 }
-            });
-        }
-    });
-</script>
+            }
+        }();
+
+        KTUtil.onDOMContentLoaded(function() {
+            LowonganTable.init();
+        });
+
+        $(document).on('click', '[data-delete-row]', function(e) {
+            e.preventDefault();
+            const url = $(this).attr('href');
+            if (confirm('Yakin ingin menghapus data ini?')) {
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    data: {
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function() {
+                        alert("Data berhasil dihapus");
+                        $('#dataTableLowongan').DataTable().ajax.reload();
+                    },
+                    error: function() {
+                        alert("Gagal menghapus data");
+                    }
+                });
+            }
+        });
+    </script>
 @endpush

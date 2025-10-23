@@ -7,12 +7,12 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         height: 100%;
     }
-    
+
     .job-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.12) !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
     }
-    
+
     .job-badge {
         position: absolute;
         top: 15px;
@@ -24,17 +24,17 @@
         text-transform: uppercase;
         z-index: 2;
     }
-    
+
     .job-badge.magang {
         background-color: #28a745;
         color: white;
     }
-    
+
     .job-badge.fulltime {
         background-color: #1a2b6f;
         color: white;
     }
-    
+
     .job-card-body {
         padding-top: 45px;
     }
@@ -56,7 +56,7 @@
                     box-shadow:0px 4px 6px rgba(0,0,0,0.1);
                     margin:20px auto;
                 ">
-                Lowongan Kerja PERKIM Kota Padang
+                Lowongan Kerja DISPORA Kota Padang
             </h3>
         </div>
 
@@ -72,8 +72,10 @@
 
                         <div class="card-body job-card-body d-flex flex-column">
                             <h5 class="card-title">{{ $item->judul }}</h5>
-                            <p class="text-muted mb-1"><i class="fas fa-briefcase me-1"></i> {{ $item->posisi ?? '-' }}</p>
-                            <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i> {{ $item->lokasi ?? '-' }}</p>
+                            <p class="text-muted mb-1"><i class="fas fa-briefcase me-1"></i> {{ $item->posisi ?? '-' }}
+                            </p>
+                            <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i>
+                                {{ $item->lokasi ?? '-' }}</p>
 
                             <p class="card-text mt-2">
                                 {!! Str::limit(strip_tags($item->deskripsi), 100) !!}
@@ -107,7 +109,8 @@
                                 {!! $item->deskripsi !!}
                             </div>
                             <div class="modal-footer">
-                                <a href="mailto:perkim@padang.go.id?subject=Lamaran {{ $item->judul }}" class="btn btn-success">Kirim Lamaran via Email</a>
+                                <a href="mailto:DISPORA@padang.go.id?subject=Lamaran {{ $item->judul }}"
+                                    class="btn btn-success">Kirim Lamaran via Email</a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                             </div>
                         </div>

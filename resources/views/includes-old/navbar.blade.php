@@ -6,8 +6,8 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="{{ route('dashboard') }}">
-                <img src="{{ asset('assets/img/logo-head-PERKIM.png') }}" width="110" height="32"
-                    alt="PERKIM Kota Padang" class="navbar-brand-image">
+                <img src="{{ asset('assets/img/logo-head-DISPORA.png') }}" width="110" height="32"
+                    alt="DISPORA Kota Padang" class="navbar-brand-image">
             </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
@@ -161,13 +161,13 @@
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
                     @php
-                    $nama = str_replace(' ', '+', auth()->user()->DetailPegawai->nama ?? '-');
+                        $nama = str_replace(' ', '+', auth()->user()->DetailPegawai->nama ?? '-');
                     @endphp
                     <span title="{{ auth()->user()->label ?? '-' }}" class="avatar avatar-sm"
                         style="background-image: url(https://ui-avatars.com/api/?name={{ $nama }})"></span>
                     <div class="d-none d-md-block ps-2">
                         <div title="{{ auth()->user()->nip_or_username ?? '-' }}">
-                            {{auth()->user()->DetailPegawai->nama}}
+                            {{ auth()->user()->DetailPegawai->nama }}
                         </div>
 
                         <div class="mt-1 small text-yellow"
@@ -215,176 +215,176 @@
                     </li>
 
                     @role('admin')
-                    <li
-                        class="nav-item dropdown {{ Route::is(['artikel.*', 'galeri.*', 'download.*']) ? 'active' : '' }}">
-                        <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span
-                                class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                                    <path d="M12 12l8 -4.5" />
-                                    <path d="M12 12l0 9" />
-                                    <path d="M12 12l-8 -4.5" />
-                                    <path d="M16 5.25l-8 4.5" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Konten
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item {{ Route::is('artikel.index') ? 'active' : '' }}"
-                                        href="{{ route('artikel.index') }}">
-                                        Artikel
-                                    </a>
-                                    <a class="dropdown-item {{ Route::is('galeri.index') ? 'active' : '' }}"
-                                        href="{{ route('galeri.index') }}">
-                                        Galeri
-                                    </a>
-                                    <a class="dropdown-item {{ Route::is('download.index') ? 'active' : '' }}"
-                                        href="{{ route('download.index') }}">
-                                        Download
-                                    </a>
+                        <li
+                            class="nav-item dropdown {{ Route::is(['artikel.*', 'galeri.*', 'download.*']) ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                <span
+                                    class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                                        <path d="M12 12l8 -4.5" />
+                                        <path d="M12 12l0 9" />
+                                        <path d="M12 12l-8 -4.5" />
+                                        <path d="M16 5.25l-8 4.5" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Konten
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item {{ Route::is('artikel.index') ? 'active' : '' }}"
+                                            href="{{ route('artikel.index') }}">
+                                            Artikel
+                                        </a>
+                                        <a class="dropdown-item {{ Route::is('galeri.index') ? 'active' : '' }}"
+                                            href="{{ route('galeri.index') }}">
+                                            Galeri
+                                        </a>
+                                        <a class="dropdown-item {{ Route::is('download.index') ? 'active' : '' }}"
+                                            href="{{ route('download.index') }}">
+                                            Download
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
                     @endrole
 
-                    @role(['admin', 'sekretaris', 'inspektur','irban','pegawai'])
-                    <li class="nav-item dropdown {{ Route::is(['wbs.*']) ? 'active' : '' }}">
-                        <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span
-                                class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                                    <path d="M12 12l8 -4.5" />
-                                    <path d="M12 12l0 9" />
-                                    <path d="M12 12l-8 -4.5" />
-                                    <path d="M16 5.25l-8 4.5" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                WBS
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item {{ Route::is('wbs.index') ? 'active' : '' }}"
-                                        href="{{ route('wbs.index') }}">
-                                        Whistleblower System
-                                    </a>
-                                    <a class="dropdown-item {{ Route::is(['wbs.tindak-lanjut', 'wbs.tracking']) ? 'active' : '' }}"
-                                        href="{{ route('wbs.tindak-lanjut') }}">
-                                        Tindak Lanjut
-                                    </a>
-                                    @if (session('role') != null && session('role')['nama'] != 'user')
-                                    <a class="dropdown-item {{ Route::is('pengaduan.statistik') ? 'active' : '' }}"
-                                        href="{{ route('pengaduan.statistik') }}">
-                                        Statistik
-                                    </a>
-                                    @endif
+                    @role(['admin', 'sekretaris', 'inspektur', 'irban', 'pegawai'])
+                        <li class="nav-item dropdown {{ Route::is(['wbs.*']) ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                <span
+                                    class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                                        <path d="M12 12l8 -4.5" />
+                                        <path d="M12 12l0 9" />
+                                        <path d="M12 12l-8 -4.5" />
+                                        <path d="M16 5.25l-8 4.5" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    WBS
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item {{ Route::is('wbs.index') ? 'active' : '' }}"
+                                            href="{{ route('wbs.index') }}">
+                                            Whistleblower System
+                                        </a>
+                                        <a class="dropdown-item {{ Route::is(['wbs.tindak-lanjut', 'wbs.tracking']) ? 'active' : '' }}"
+                                            href="{{ route('wbs.tindak-lanjut') }}">
+                                            Tindak Lanjut
+                                        </a>
+                                        @if (session('role') != null && session('role')['nama'] != 'user')
+                                            <a class="dropdown-item {{ Route::is('pengaduan.statistik') ? 'active' : '' }}"
+                                                href="{{ route('pengaduan.statistik') }}">
+                                                Statistik
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <li class="nav-item dropdown {{ Route::is(['konsultasi.*']) ? 'active' : '' }}">
-                        <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span
-                                class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                                    <path d="M12 12l8 -4.5" />
-                                    <path d="M12 12l0 9" />
-                                    <path d="M12 12l-8 -4.5" />
-                                    <path d="M16 5.25l-8 4.5" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Konsultasi
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item {{ Route::is('konsultasi.index') ? 'active' : '' }}"
-                                        href="{{ route('konsultasi.index') }}">
-                                        Konsultasi
-                                    </a>
-                                    <a class="dropdown-item {{ Route::is(['konsultasi.tindak-lanjut', 'konsultasi.tracking']) ? 'active' : '' }}"
-                                        href="{{ route('konsultasi.tindak-lanjut') }}">
-                                        Tindak Lanjut
-                                    </a>
-                                    @if (session('role') != null && session('role')['nama'] != 'user')
-                                    <a class="dropdown-item {{ Route::is('konsultasi.statistik') ? 'active' : '' }}"
-                                        href="{{ route('konsultasi.statistik') }}">
-                                        Statistik
-                                    </a>
-                                    @endif
+                        <li class="nav-item dropdown {{ Route::is(['konsultasi.*']) ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                <span
+                                    class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                                        <path d="M12 12l8 -4.5" />
+                                        <path d="M12 12l0 9" />
+                                        <path d="M12 12l-8 -4.5" />
+                                        <path d="M16 5.25l-8 4.5" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Konsultasi
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item {{ Route::is('konsultasi.index') ? 'active' : '' }}"
+                                            href="{{ route('konsultasi.index') }}">
+                                            Konsultasi
+                                        </a>
+                                        <a class="dropdown-item {{ Route::is(['konsultasi.tindak-lanjut', 'konsultasi.tracking']) ? 'active' : '' }}"
+                                            href="{{ route('konsultasi.tindak-lanjut') }}">
+                                            Tindak Lanjut
+                                        </a>
+                                        @if (session('role') != null && session('role')['nama'] != 'user')
+                                            <a class="dropdown-item {{ Route::is('konsultasi.statistik') ? 'active' : '' }}"
+                                                href="{{ route('konsultasi.statistik') }}">
+                                                Statistik
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
                     @endrole
 
-                    @role(['admin', 'sekretaris', 'inspektur','irban','masyarakat'])
-                    <li class="nav-item dropdown {{ Route::is(['masyarakat.*']) ? 'active' : '' }}">
-                        <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span
-                                class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                                    <path d="M12 12l8 -4.5" />
-                                    <path d="M12 12l0 9" />
-                                    <path d="M12 12l-8 -4.5" />
-                                    <path d="M16 5.25l-8 4.5" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Pengaduan Masyarakat
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item {{ Route::is('masyarakat.index') ? 'active' : '' }}"
-                                        href="{{ route('masyarakat.index') }}">
-                                        Pengaduan
-                                    </a>
-                                    <a class="dropdown-item {{ Route::is(['masyarakat.tindak-lanjut', 'masyarakat.tracking']) ? 'active' : '' }}"
-                                        href="{{ route('masyarakat.tindak-lanjut') }}">
-                                        Tindak Lanjut
-                                    </a>
-                                    @if (session('role') != null && session('role')['nama'] != 'user')
-                                    <a class="dropdown-item {{ Route::is('masyarakat.statistik') ? 'active' : '' }}"
-                                        href="{{ route('masyarakat.statistik') }}">
-                                        Statistik
-                                    </a>
-                                    @endif
+                    @role(['admin', 'sekretaris', 'inspektur', 'irban', 'masyarakat'])
+                        <li class="nav-item dropdown {{ Route::is(['masyarakat.*']) ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                <span
+                                    class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                                        <path d="M12 12l8 -4.5" />
+                                        <path d="M12 12l0 9" />
+                                        <path d="M12 12l-8 -4.5" />
+                                        <path d="M16 5.25l-8 4.5" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Pengaduan Masyarakat
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item {{ Route::is('masyarakat.index') ? 'active' : '' }}"
+                                            href="{{ route('masyarakat.index') }}">
+                                            Pengaduan
+                                        </a>
+                                        <a class="dropdown-item {{ Route::is(['masyarakat.tindak-lanjut', 'masyarakat.tracking']) ? 'active' : '' }}"
+                                            href="{{ route('masyarakat.tindak-lanjut') }}">
+                                            Tindak Lanjut
+                                        </a>
+                                        @if (session('role') != null && session('role')['nama'] != 'user')
+                                            <a class="dropdown-item {{ Route::is('masyarakat.statistik') ? 'active' : '' }}"
+                                                href="{{ route('masyarakat.statistik') }}">
+                                                Statistik
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
                     @endrole
 
 
@@ -422,10 +422,10 @@
                                     </a>
 
                                     @if (session('role') != null && session('role')['nama'] == 'admin')
-                                    <a class="dropdown-item {{ Route::is('survey.pertanyaan') ? 'active' : '' }}"
-                                        href="{{ route('survey.pertanyaan') }}">
-                                        Pertanyaan
-                                    </a>
+                                        <a class="dropdown-item {{ Route::is('survey.pertanyaan') ? 'active' : '' }}"
+                                            href="{{ route('survey.pertanyaan') }}">
+                                            Pertanyaan
+                                        </a>
                                     @endif
                                 </div>
                             </div>
@@ -457,10 +457,10 @@
                             <div class="dropdown-menu-columns">
                                 <div class="dropdown-menu-column">
                                     @if (session('role') != null && session('role')['nama'] == 'admin')
-                                    <a class="dropdown-item {{ Route::is('skbtfile.*') ? 'active' : '' }}"
-                                        href="{{ route('skbtfile.index') }}">
-                                        Berkas
-                                    </a>
+                                        <a class="dropdown-item {{ Route::is('skbtfile.*') ? 'active' : '' }}"
+                                            href="{{ route('skbtfile.index') }}">
+                                            Berkas
+                                        </a>
                                     @endif
 
                                     <a class="dropdown-item {{ Route::is(['skbt.index']) ? 'active' : '' }}"
@@ -468,11 +468,11 @@
                                         SKBT
                                     </a>
                                     @if (session('role') != null && session('role')['nama'] == 'admin')
-                                    <a class="dropdown-item {{ Route::is('skbtverifikasi.index') ? 'active' : '' }}"
-                                        href="{{ route('skbtverifikasi.index') }}">
-                                        Verifikasi <span
-                                            class="badge bg-red ms-1 {{ $skbtVerifikasi > 0 ? 'd-inline' : 'd-none' }}"></span>
-                                    </a>
+                                        <a class="dropdown-item {{ Route::is('skbtverifikasi.index') ? 'active' : '' }}"
+                                            href="{{ route('skbtverifikasi.index') }}">
+                                            Verifikasi <span
+                                                class="badge bg-red ms-1 {{ $skbtVerifikasi > 0 ? 'd-inline' : 'd-none' }}"></span>
+                                        </a>
                                     @endif
                                 </div>
                             </div>
@@ -480,43 +480,43 @@
                     </li>
 
                     @role('admin')
-                    <li class="nav-item {{ Route::is('setting.*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('setting.index') }}">
-                            <span
-                                class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-                                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                                    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Setting
-                            </span>
-                        </a>
-                    </li>
+                        <li class="nav-item {{ Route::is('setting.*') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('setting.index') }}">
+                                <span
+                                    class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Setting
+                                </span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item {{ Route::is('user.index') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('user.index') }}">
-                            <span
-                                class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-                                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                                    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                User
-                            </span>
-                        </a>
-                    </li>
+                        <li class="nav-item {{ Route::is('user.index') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('user.index') }}">
+                                <span
+                                    class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    User
+                                </span>
+                            </a>
+                        </li>
                     @endrole
 
                 </ul>
