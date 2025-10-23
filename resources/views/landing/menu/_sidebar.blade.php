@@ -1,4 +1,4 @@
-<div id="kt_app_sidebar" 
+<div id="kt_app_sidebar"
     class="app-sidebar flex-column sporty-sidebar"
     data-kt-drawer="true"
     data-kt-drawer-name="app-sidebar"
@@ -35,124 +35,24 @@
                 </div>
 
                 <!-- Progul -->
-                <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.rusunawa.*') || Route::is('pages.areas.*') || Route::is('pages.rtlh.*') || Route::is('pages.psu.*') ? 'here show' : '' }}"
+                <div class="menu-item menu-accordion mb-2
+                    {{ Route::is('admin.kerja-sama.*') || Route::is('pages.areas.*') || Route::is('pages.rtlh.*') || Route::is('pages.psu.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
-                        <span class="menu-icon sporty-icon"><i class="bi bi-building fs-4"></i></span>
-                        <span class="menu-title fw-semibold">Organisasi</span>
+                        <span class="menu-icon sporty-icon"><i class="fa-solid fa-water"></i></span>
+                        <span class="menu-title fw-semibold">Pengelolaan Kerjasama</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.rusunawa.*') ? 'active' : '' }}"
-                                href="{{ route('pages.rusunawa.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-house-door"></i></span>
-                                <span class="menu-title">Komi</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.areas.*') ? 'active' : '' }}"
-                                href="{{ route('pages.areas.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-geo-alt"></i></span>
-                                <span class="menu-title">Korni</span>
+                            <a class="menu-link {{ Route::is('admin.kerja-sama.*') ? 'active' : '' }}"
+                                href="{{ route('admin.kerja-sama.index') }}">
+                                <span class="menu-bullet"><i class="fa-solid fa-calendar-xmark"></i></span>
+                                <span class="menu-title">Kerja Sama</span>
                             </a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Produk -->
-                <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.rtlh-contents.*') ? 'here show' : '' }}"
-                    data-kt-menu-trigger="click">
-                    <span class="menu-link">
-                        <span class="menu-icon sporty-icon"><i class="bi bi-briefcase-fill"></i></span>
-                        <span class="menu-title fw-semibold">Produk</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.rtlh-contents.*') ? 'active' : '' }}"
-                                href="{{ route('pages.rtlh-contents.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-water"></i></span>
-                                <span class="menu-title">Kolam Renang Teratai</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Informasi Publik -->
-                <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.pengumuman.*') || Route::is('pages.berita.*') ? 'here show' : '' }}"
-                    data-kt-menu-trigger="click">
-                    <span class="menu-link">
-                        <span class="menu-icon sporty-icon"><i class="bi bi-megaphone fs-4"></i></span>
-                        <span class="menu-title fw-semibold">Informasi Publik</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.pengumuman.*') ? 'active' : '' }}"
-                                href="{{ route('pages.pengumuman.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-bell"></i></span>
-                                <span class="menu-title">Pengumuman</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.berita.*') ? 'active' : '' }}"
-                                href="{{ route('pages.berita.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-newspaper"></i></span>
-                                <span class="menu-title">Berita</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Galeri -->
-                <div class="menu-item menu-accordion mb-2 
-                    {{ Route::is('pages.galeri.*') ? 'here show' : '' }}"
-                    data-kt-menu-trigger="click">
-                    <span class="menu-link">
-                        <span class="menu-icon sporty-icon"><i class="bi bi-images fs-4"></i></span>
-                        <span class="menu-title fw-semibold">Galeri</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.galeri.*') ? 'active' : '' }}"
-                                href="{{ route('pages.galeri.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-image"></i></span>
-                                <span class="menu-title">Galeri Foto</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.video.*') ? 'active' : '' }}"
-                                href="{{ route('pages.video.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-camera-reels"></i></span>
-                                <span class="menu-title">Galeri Video</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Settings -->
-                <div class="menu-item menu-accordion" data-kt-menu-trigger="click">
-                    <span class="menu-link">
-                        <span class="menu-icon sporty-icon"><i class="bi bi-gear fs-4"></i></span>
-                        <span class="menu-title fw-semibold">Settings</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
-                            <a class="menu-link {{ Route::is('pages.herosection.*') ? 'active' : '' }}"
-                                href="{{ route('pages.herosection.index') }}">
-                                <span class="menu-bullet"><i class="bi bi-layout-text-window-reverse"></i></span>
-                                <span class="menu-title">Background Landing</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

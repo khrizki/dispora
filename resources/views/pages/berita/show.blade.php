@@ -5,7 +5,7 @@
     nav.navbar,
     .navbar {
         background: #0e3761 !important;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
     }
 
     /* Hero Image Section */
@@ -14,7 +14,7 @@
         height: 400px;
         object-fit: cover;
         border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     /* Article Header */
@@ -62,7 +62,7 @@
         height: auto;
         border-radius: 8px;
         margin: 1.5rem 0;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .article-content h2,
@@ -133,14 +133,25 @@
 
     .share-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         color: white;
     }
 
-    .share-btn.facebook { background: #1877f2; }
-    .share-btn.twitter { background: #1da1f2; }
-    .share-btn.whatsapp { background: #25d366; }
-    .share-btn.copy { background: #6c757d; }
+    .share-btn.facebook {
+        background: #1877f2;
+    }
+
+    .share-btn.twitter {
+        background: #1da1f2;
+    }
+
+    .share-btn.whatsapp {
+        background: #25d366;
+    }
+
+    .share-btn.copy {
+        background: #6c757d;
+    }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -218,25 +229,23 @@
                         </span>
                         <span>
                             <i class="bi bi-person"></i>
-                            Admin Dinas Perkim
+                            Admin Dinas DISPORA
                         </span>
-                        @if($berita->kategori ?? false)
-                        <span>
-                            <i class="bi bi-tag"></i>
-                            {{ $berita->kategori }}
-                        </span>
+                        @if ($berita->kategori ?? false)
+                            <span>
+                                <i class="bi bi-tag"></i>
+                                {{ $berita->kategori }}
+                            </span>
                         @endif
                     </div>
                 </div>
 
                 <!-- Hero Image -->
-                @if($berita->foto)
-                <div class="mb-4">
-                    <img src="{{ asset('storage/' . $berita->foto) }}" 
-                         alt="{{ $berita->judul_berita }}" 
-                         class="berita-hero-img"
-                         loading="lazy">
-                </div>
+                @if ($berita->foto)
+                    <div class="mb-4">
+                        <img src="{{ asset('storage/' . $berita->foto) }}" alt="{{ $berita->judul_berita }}"
+                            class="berita-hero-img" loading="lazy">
+                    </div>
                 @endif
 
                 <!-- Article Content -->
@@ -248,21 +257,18 @@
                 <div class="share-section">
                     <h6 class="fw-semibold mb-3">Bagikan Berita Ini:</h6>
                     <div class="share-buttons">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" 
-                           target="_blank" 
-                           class="share-btn facebook">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}"
+                            target="_blank" class="share-btn facebook">
                             <i class="bi bi-facebook"></i>
                             <span>Facebook</span>
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($berita->judul_berita) }}" 
-                           target="_blank" 
-                           class="share-btn twitter">
+                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($berita->judul_berita) }}"
+                            target="_blank" class="share-btn twitter">
                             <i class="bi bi-twitter"></i>
                             <span>Twitter</span>
                         </a>
-                        <a href="https://wa.me/?text={{ urlencode($berita->judul_berita . ' - ' . url()->current()) }}" 
-                           target="_blank" 
-                           class="share-btn whatsapp">
+                        <a href="https://wa.me/?text={{ urlencode($berita->judul_berita . ' - ' . url()->current()) }}"
+                            target="_blank" class="share-btn whatsapp">
                             <i class="bi bi-whatsapp"></i>
                             <span>WhatsApp</span>
                         </a>
@@ -278,14 +284,14 @@
 </section>
 
 <script>
-function copyLink() {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-        alert('Link berhasil disalin!');
-    }).catch(err => {
-        console.error('Gagal menyalin link:', err);
-    });
-}
+    function copyLink() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('Link berhasil disalin!');
+        }).catch(err => {
+            console.error('Gagal menyalin link:', err);
+        });
+    }
 </script>
 
 @include('landing._footer')

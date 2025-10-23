@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('judul');              // Judul lowongan
             $table->string('posisi')->nullable(); // Nama posisi yang dicari (optional)
             $table->text('deskripsi');            // Konten pakai Summernote (HTML)
-            $table->string('lokasi')->nullable(); // Contoh: "Padang" atau "Dinas PERKIM Kota Padang"
+            $table->string('lokasi')->nullable(); // Contoh: "Padang" atau "Dinas DISPORA Kota Padang"
             $table->string('tipe')->nullable();   // Contoh: "Kontrak", "Magang", "Honorer"
             $table->string('status')->default('aktif'); // aktif / ditutup
             $table->timestamps();

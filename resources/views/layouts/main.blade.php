@@ -31,23 +31,23 @@
     data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
 
     <script>
-    var defaultThemeMode = "light";
-    var themeMode;
-    if (document.documentElement) {
-        if (document.documentElement.hasAttribute("data-theme-mode")) {
-            themeMode = document.documentElement.getAttribute("data-theme-mode");
-        } else {
-            if (localStorage.getItem("data-theme") !== null) {
-                themeMode = localStorage.getItem("data-theme");
+        var defaultThemeMode = "light";
+        var themeMode;
+        if (document.documentElement) {
+            if (document.documentElement.hasAttribute("data-theme-mode")) {
+                themeMode = document.documentElement.getAttribute("data-theme-mode");
             } else {
-                themeMode = defaultThemeMode;
+                if (localStorage.getItem("data-theme") !== null) {
+                    themeMode = localStorage.getItem("data-theme");
+                } else {
+                    themeMode = defaultThemeMode;
+                }
             }
+            if (themeMode === "system") {
+                themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.setAttribute("data-theme", themeMode);
         }
-        if (themeMode === "system") {
-            themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.setAttribute("data-theme", themeMode);
-    }
     </script>
 
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
@@ -76,8 +76,8 @@
                                 xmlns="http://www.w3.org/2000/svg">
                                 <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
                                     transform="rotate(-45 6 17.3137)" fill="currentColor" />
-                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
-                                    fill="currentColor" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                    transform="rotate(45 7.41422 6)" fill="currentColor" />
                             </svg>
                         </span>
                     </div>
@@ -101,11 +101,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.js"></script>
 
     <script>
-    function setModalForm(title, element) {
-        $('#modal-form').find('#modal-title').html(title);
-        $('#modal-form').find('.modal-body').html(element);
-        $('#modal-form').modal('show');
-    }
+        function setModalForm(title, element) {
+            $('#modal-form').find('#modal-title').html(title);
+            $('#modal-form').find('.modal-body').html(element);
+            $('#modal-form').modal('show');
+        }
     </script>
     @stack('script')
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
-    <title>PERKIM Kota Padang</title>
+    <title>DISPORA Kota Padang</title>
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- WAJIB UNTUK RESPONSIVE -->
     <style>
@@ -19,7 +19,8 @@
             align-items: center;
             overflow: hidden;
             background-color: #f5f5f5;
-            text-align: center; /* Agar teks di tengah */
+            text-align: center;
+            /* Agar teks di tengah */
         }
 
         .header {
@@ -65,7 +66,8 @@
             font-size: 14px;
             animation: slideFromBottom 1.5s ease-out forwards;
             opacity: 0;
-            margin-bottom: 20px; /* Tambahan biar tidak mepet bawah */
+            margin-bottom: 20px;
+            /* Tambahan biar tidak mepet bawah */
         }
 
         .btn-hal-utama:hover {
@@ -103,13 +105,27 @@
         }
 
         @keyframes slideFromTop {
-            0% { transform: translateY(-100vh); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         @keyframes slideFromBottom {
-            0% { transform: translateY(100vh); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>

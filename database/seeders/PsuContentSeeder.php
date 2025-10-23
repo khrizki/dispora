@@ -75,19 +75,19 @@ class PsuContentSeeder extends Seeder
                 'content_type' => 'info',
                 'content' => '<h5>1. Jalan Lingkungan</h5>
                 <p>Pembangunan dan perbaikan jalan di kawasan perumahan untuk meningkatkan aksesibilitas dan mobilitas warga.</p>
-                
+
                 <h5>2. Sistem Drainase</h5>
                 <p>Pembangunan saluran drainase untuk mencegah genangan air dan banjir di kawasan permukiman.</p>
-                
+
                 <h5>3. Jaringan Air Bersih</h5>
                 <p>Penyediaan akses air bersih yang layak dan aman untuk kebutuhan sehari-hari masyarakat.</p>
-                
+
                 <h5>4. Jaringan Listrik</h5>
                 <p>Peningkatan infrastruktur kelistrikan termasuk penerangan jalan umum (PJU) di kawasan perumahan.</p>
-                
+
                 <h5>5. Ruang Terbuka Hijau (RTH)</h5>
                 <p>Pembangunan taman, area hijau, dan tempat rekreasi untuk meningkatkan kualitas lingkungan dan kesehatan masyarakat.</p>
-                
+
                 <h5>6. Tempat Pengelolaan Sampah (TPS)</h5>
                 <p>Penyediaan fasilitas pengelolaan sampah yang memadai untuk menjaga kebersihan lingkungan.</p>',
                 'order' => 4,
@@ -291,7 +291,7 @@ class PsuContentSeeder extends Seeder
                         </ul>
                     </li>
                     <li><strong>Verifikasi Kecamatan:</strong> Kecamatan melakukan verifikasi dan kompilasi usulan dari seluruh kelurahan</li>
-                    <li><strong>Penilaian Dinas Perkim:</strong> Tim teknis Dinas Perkim melakukan survei dan penilaian kelayakan</li>
+                    <li><strong>Penilaian Dinas DISPORA:</strong> Tim teknis Dinas DISPORA melakukan survei dan penilaian kelayakan</li>
                     <li><strong>Penetapan Program:</strong> Usulan yang lolos seleksi ditetapkan dalam program tahun berikutnya</li>
                 </ol>
                 <p><strong>Kriteria Penilaian Usulan:</strong></p>
@@ -437,7 +437,7 @@ class PsuContentSeeder extends Seeder
                         </h2>
                         <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Kerusakan dapat dilaporkan ke RT/RW, Kelurahan, atau langsung ke Dinas Perkim melalui telepon, email, atau datang langsung ke kantor. Pelaporan juga bisa melalui aplikasi pengaduan online jika tersedia.
+                                Kerusakan dapat dilaporkan ke RT/RW, Kelurahan, atau langsung ke Dinas DISPORA melalui telepon, email, atau datang langsung ke kantor. Pelaporan juga bisa melalui aplikasi pengaduan online jika tersedia.
                             </div>
                         </div>
                     </div>
@@ -474,32 +474,32 @@ class PsuContentSeeder extends Seeder
                                 <p><strong><i class="fas fa-map-marker-alt me-2 text-danger"></i>Alamat:</strong><br>
                                 Jl. Bagindo Aziz Chan No. 1<br>
                                 Padang, Sumatera Barat 25000</p>
-                                
+
                                 <p><strong><i class="fas fa-phone me-2 text-success"></i>Telepon:</strong><br>
                                 (0751) 123456 / 789012</p>
-                                
+
                                 <p><strong><i class="fas fa-fax me-2"></i>Fax:</strong><br>
                                 (0751) 345678</p>
                             </div>
                             <div class="col-md-6">
                                 <p><strong><i class="fas fa-envelope me-2 text-primary"></i>Email:</strong><br>
-                                perkim@padang.go.id<br>
+                                DISPORA@padang.go.id<br>
                                 psu@padang.go.id</p>
-                                
+
                                 <p><strong><i class="fas fa-clock me-2 text-warning"></i>Jam Pelayanan:</strong><br>
                                 Senin - Kamis: 08.00 - 16.00 WIB<br>
                                 Jumat: 08.00 - 16.30 WIB</p>
-                                
+
                                 <p><strong><i class="fas fa-globe me-2 text-info"></i>Website:</strong><br>
-                                <a href="https://perkim.padang.go.id" target="_blank">perkim.padang.go.id</a></p>
+                                <a href="https://DISPORA.padang.go.id" target="_blank">DISPORA.padang.go.id</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="alert alert-info">
                     <i class="fas fa-info-circle me-2"></i>
-                    <strong>Catatan:</strong> Untuk informasi lebih lanjut mengenai program PSU atau konsultasi teknis, 
+                    <strong>Catatan:</strong> Untuk informasi lebih lanjut mengenai program PSU atau konsultasi teknis,
                     silakan hubungi contact person di atas atau kunjungi langsung kantor kami pada jam kerja.
                 </div>',
                 'order' => 16,

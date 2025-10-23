@@ -124,7 +124,7 @@ class RtlhContentSeeder extends Seeder
                 <ol>
                     <li><strong>Pendaftaran:</strong> Masyarakat mendaftar melalui RT/RW setempat atau langsung ke Kelurahan</li>
                     <li><strong>Verifikasi Data:</strong> Tim dari Kelurahan melakukan verifikasi dokumen dan kondisi rumah</li>
-                    <li><strong>Survei Lapangan:</strong> Tim teknis dari Dinas Perkim melakukan survei dan penilaian kondisi rumah</li>
+                    <li><strong>Survei Lapangan:</strong> Tim teknis dari Dinas DISPORA melakukan survei dan penilaian kondisi rumah</li>
                     <li><strong>Penetapan Penerima:</strong> Hasil survei dibahas dalam musyawarah untuk penetapan penerima bantuan</li>
                     <li><strong>Pelaksanaan Perbaikan:</strong> Penerima bantuan melakukan perbaikan dengan pendampingan teknis</li>
                     <li><strong>Monitoring:</strong> Tim teknis melakukan monitoring pelaksanaan pekerjaan</li>
@@ -144,11 +144,11 @@ class RtlhContentSeeder extends Seeder
                         <h5>Dinas Perumahan, Kawasan Permukiman dan Pertanahan Kota Padang</h5>
                         <p><strong>Alamat:</strong><br>Jl. Bagindo Aziz Chan No. 1, Padang, Sumatera Barat</p>
                         <p><strong>Telepon:</strong> (0751) 123456</p>
-                        <p><strong>Email:</strong> perkim@padang.go.id</p>
+                        <p><strong>Email:</strong> DISPORA@padang.go.id</p>
                         <p><strong>Jam Pelayanan:</strong><br>Senin - Jumat: 08.00 - 16.00 WIB</p>
                     </div>
                 </div>
-                <p class="mt-3"><em>Untuk informasi lebih lanjut, silakan hubungi contact person di atas atau datang langsung ke kantor Dinas Perkim Kota Padang.</em></p>',
+                <p class="mt-3"><em>Untuk informasi lebih lanjut, silakan hubungi contact person di atas atau datang langsung ke kantor Dinas DISPORA Kota Padang.</em></p>',
                 'order' => 8,
                 'is_active' => true,
             ],
@@ -200,7 +200,7 @@ class RtlhContentSeeder extends Seeder
                         'tahun' => '2024',
                         'foto_sebelum' => 'galeri/before_1.jpg',
                         'foto_sesudah' => 'galeri/after_1.jpg',
-                        'testimoni' => 'Alhamdulillah, rumah sekarang sudah layak dan aman untuk keluarga. Terima kasih Dinas Perkim Kota Padang.'
+                        'testimoni' => 'Alhamdulillah, rumah sekarang sudah layak dan aman untuk keluarga. Terima kasih Dinas DISPORA Kota Padang.'
                     ],
                     [
                         'nama' => 'Ibu Siti Nurhaliza',
