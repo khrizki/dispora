@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>PERKIM KOTA PADANG</title>
+    <title>DISPORA KOTA PADANG</title>
     <meta charset="utf-8" />
     <meta name="description" content="Bantuan Sosial Tidak Terencana" />
     <meta name="keywords" content="boiler, plate, boilerplate" />
@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="BSTT | Kota Padang" />
     <link rel="shortcut icon" href="{{ asset('assets/media/logos/logo.png') }}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <!-- begin::Vendor Stylesheets(used for this page only) -->
     @stack('css')
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
