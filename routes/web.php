@@ -19,6 +19,14 @@ Route::prefix('profil')->group(function () {
     Route::get('/rtlh', [ProfilController::class, 'rtlh'])->name('profil.rtlh');
     Route::get('/psu', [ProfilController::class, 'psu'])->name('profil.psu');
 });
+// Route::get('/rusunawa/{rusunawa_id}/detail', [RusunawaController::class, 'showDetail'])->name('rusunawa.detail');
+Route::get('/transparansi-index', [ProfilController::class, 'transparansi'])->name('profil.transparansi');
+Route::get('/dokumen-index', [ProfilController::class, 'dokumen'])->name('profil.dokumen');
+// Route::get('/caripengumuman', [PengumumanController::class, 'show'])->name('profil.pengumuman');
+
+// Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+Route::get('/berita-list', [LandingController::class, 'list'])->name('profil.list');
+Route::get('/galeri-list', [LandingController::class, 'listGaleri'])->name('profil.galeriList');
 
 Auth::routes(['register' => false]);
 

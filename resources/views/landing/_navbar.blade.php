@@ -77,7 +77,7 @@
                     </a>
 
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('profil.rusunawa') }}">Kolam renang Teratai</a>
+                        {{-- <a class="dropdown-item" href="{{ route('profil.rusunawa') }}">Kolam renang Teratai</a> --}}
                         <!-- <a class="dropdown-item" href="#">RUSUS (Rumah Khusus)</a>
                         <a class="dropdown-item" href="{{ route('profil.rtlh') }}">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
                         <a class="dropdown-item" href="https://sikasper.padang.go.id/">SIKASPER</a>
@@ -97,8 +97,8 @@
                     </a>
 
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('profil.pengumuman') }}">Pengumuman</a>
-                        <a class="dropdown-item" href="{{ route('profil.list') }}">Berita & Artikel</a>
+                        {{-- <a class="dropdown-item" href="{{ route('profil.pengumuman') }}">Pengumuman</a> --}}
+                        {{-- <a class="dropdown-item" href="{{ route('profil.list') }}">Berita & Artikel</a> --}}
                         {{-- <a class="dropdown-item" href="{{ route('profil.dokumen') }}">Regulasi / Peraturan</a>
                         HAPUS OOP DOKUMEN --}}
                         <a class="dropdown-item" href="{{ route('profil.lowongan') }}">Lowongan</a>
@@ -112,7 +112,7 @@
                         Galeri
                     </a>
                     <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('profil.galeriList') }}">Galeri Foto & Video</a>
+                        {{-- <a class="dropdown-item" href="{{ route('profil.galeriList') }}">Galeri Foto & Video</a> --}}
                     </div>
 
                 </li>

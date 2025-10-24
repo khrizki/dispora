@@ -53,6 +53,12 @@ class KerjasamaController extends Controller
                 'status' => 'success',
                 'message' => 'Data Kerja Sama Berhasil Ditambahkan!'
             ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // 🧠 Jika validasi gagal
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->errors(), // Semua pesan dari messages()
+            ], 422);
         } catch (\Exception $error) {
             return response()->json([
                 'status' => 'error',
@@ -64,9 +70,9 @@ class KerjasamaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): View
+    public function show(string $slug): View
     {
-        $kerjasama = Kerjasama::findOrFail($id);
+        $kerjasama = Kerjasama::findOrFail($slug);
 
         return view('backend.kerja-sama.show', [
             'kerjasama' => $kerjasama
@@ -76,24 +82,21 @@ class KerjasamaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): View
+    public function edit(Kerjasama $kerjasama)
     {
-        $kerjasama = Kerjasama::findOrFail($id);
-
-        return view('backend.kerja-sama.edit', [
-            'kerjasama' => $kerjasama
-        ]);
+        return view('backend.kerja-sama.edit', compact('kerjasama'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(KerjasamaRequest $request, string $id): JsonResponse
+    public function update(KerjasamaRequest $request, string $slug): JsonResponse
     {
         $data = $request->validated();
 
         try {
-            $this->kerjasamaService->update($data, $id);
+            $this->kerjasamaService->update($data, $slug);
 
             return response()->json([
                 'status' => 'success',
@@ -110,10 +113,10 @@ class KerjasamaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): JsonResponse
+    public function destroy(string $slug): JsonResponse
     {
         try {
-            $this->kerjasamaService->delete($id);
+            $this->kerjasamaService->delete($slug);
 
             return response()->json([
                 'status' => 'success',
@@ -130,10 +133,10 @@ class KerjasamaController extends Controller
     /**
      * Restore soft deleted record.
      */
-    // public function restore(string $id): JsonResponse
+    // public function restore(string $slug): JsonResponse
     // {
     //     try {
-    //         $this->kerjasamaService->restore($id);
+    //         $this->kerjasamaService->restore($slug);
 
     //         return response()->json([
     //             'status' => 'success',
@@ -150,10 +153,10 @@ class KerjasamaController extends Controller
     // /**
     //  * Force delete a record permanently.
     //  */
-    // public function forceDelete(string $id): JsonResponse
+    // public function forceDelete(string $slug): JsonResponse
     // {
     //     try {
-    //         $this->kerjasamaService->forceDelete($id);
+    //         $this->kerjasamaService->forceDelete($slug);
 
     //         return response()->json([
     //             'status' => 'success',

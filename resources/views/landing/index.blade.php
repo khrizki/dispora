@@ -205,9 +205,7 @@
                                     serta Masyarakat yang Gemar Berolahraga <br>
                                     menuju Kota Padang yang Sehat dan Berprestasi
                                 </p>
-                                <!-- <a href="{{ route('profil.rusunawa') }}" class="btn btn-success px-3 py-1">
-                                    Cari Rusunawa
-                                </a> -->
+
                             </div>
                         </div>
                     </div>
@@ -216,7 +214,7 @@
 
                 <div class="landing-page-container">
                     <div id="particles-js"></div>
-                    
+
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div class="about mb-2">
@@ -546,7 +544,7 @@
                     <div class="card shadow-sm border-0">
                         <div class="card-body text-center">
                             <h5 class="card-title text-muted">Hari Ini</h5>
-                            <h2 class="fw-bold text-success">{{ $todayVisitors }}</h2>
+                            {{-- <h2 class="fw-bold text-success">{{ $todayVisitors }}</h2> --}}
                         </div>
                     </div>
                 </div>
@@ -556,7 +554,7 @@
                     <div class="card shadow-sm border-0">
                         <div class="card-body text-center">
                             <h5 class="card-title text-muted">Bulan Ini</h5>
-                            <h2 class="fw-bold text-primary">{{ $monthVisitors }}</h2>
+                            {{-- <h2 class="fw-bold text-primary">{{ $monthVisitors }}</h2> --}}
                         </div>
                     </div>
                 </div>
@@ -566,7 +564,7 @@
                     <div class="card shadow-sm border-0">
                         <div class="card-body text-center">
                             <h5 class="card-title text-muted">Bulan Lalu</h5>
-                            <h2 class="fw-bold text-secondary">{{ $lastMonthVisitors }}</h2>
+                            {{-- <h2 class="fw-bold text-secondary">{{ $lastMonthVisitors }}</h2> --}}
                         </div>
                     </div>
                 </div>
@@ -576,7 +574,7 @@
                     <div class="card shadow-sm border-0">
                         <div class="card-body text-center">
                             <h5 class="card-title text-muted">Total Pengunjung</h5>
-                            <h2 class="fw-bold text-danger">{{ $totalVisitors }}</h2>
+                            {{-- <h2 class="fw-bold text-danger">{{ $totalVisitors }}</h2> --}}
                         </div>
                     </div>
                 </div>
@@ -609,7 +607,7 @@
                         <div class="w-auto mb-2">
                             <div class="row justify-content-center mt-4 mb-5">
                                 <div class="map-container">
-                                    <iframe 
+                                    <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2924143682485!2d100.35506569678957!3d-0.9302933000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b9fc64bb2319%3A0xb15951765177e7a9!2sKantor%20Dinas%20Pemuda%20Dan%20Olahraga%20Kota%20Padang!5e0!3m2!1sen!2sid!4v1760935522338!5m2!1sen!2sid"
                                         allowfullscreen=""
                                         loading="lazy"

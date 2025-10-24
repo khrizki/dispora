@@ -24,6 +24,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        parent::boot();
+
+        Route::bind('kerja_sama', function ($value) {
+            return \App\Models\Kerjasama::where('slug', $value)->firstOrFail();
+        });
         $this->configureRateLimiting();
 
         $this->routes(function () {

@@ -13,9 +13,10 @@ class KerjasamaService
      */
     public function dataTable($request)
     {
-        $query = Kerjasama::select([
+        $query = Kerjasama::latest()->select([
             'id',
             'nama_mitra',
+            'slug',
             'jenis_kerjasama',
             'tanggal_mulai',
             'tanggal_selesai'
@@ -70,6 +71,7 @@ class KerjasamaService
     {
         return Kerjasama::latest('tanggal_mulai')->get([
             'id',
+            'slug',
             'nama_mitra',
             'jenis_kerjasama',
             'tanggal_mulai',
@@ -82,16 +84,16 @@ class KerjasamaService
      */
     public function create(array $data)
     {
-        $data['id'] = (string) Str::uuid();
+        $data['slug'] = Str::slug($data['nama_mitra']);
         return Kerjasama::create($data);
     }
 
     /**
      * Update data kerjasama berdasarkan UUID
      */
-    public function update(array $data, string $id)
+    public function update(array $data, string $slug)
     {
-        $kerjasama = Kerjasama::where('id', $id)->firstOrFail();
+        $kerjasama = Kerjasama::where('slug', $slug)->firstOrFail();
         $kerjasama->update($data);
         return $kerjasama;
     }
@@ -99,9 +101,9 @@ class KerjasamaService
     /**
      * Hapus data (soft delete opsional)
      */
-    public function delete(string $id)
+    public function delete(string $slug)
     {
-        $kerjasama = Kerjasama::where('id', $id)->firstOrFail();
+        $kerjasama = Kerjasama::where('slug', $slug)->firstOrFail();
         $kerjasama->delete();
         return $kerjasama;
     }

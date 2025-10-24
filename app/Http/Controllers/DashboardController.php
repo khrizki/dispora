@@ -25,12 +25,12 @@ class DashboardController extends Controller
         $berita = Berita::count();
         $pengumumanDashboard = Pengumuman::count();
         $dokumenDashboard = Dokumen::count();
-        $transparansiDashboard = Transparansi::count();
+        // $transparansiDashboard = Transparansi::count();
         $galeriDashboard = Galeri::count();
         $videoDashboard = Video::count();
-        $rusunawa = Rusunawa::count();
+        // $rusunawa = Rusunawa::count();
         $area = Area::count();
 
-        return view('pages.dashboard', compact('berita', 'pengumumanDashboard', 'dokumenDashboard', 'transparansiDashboard', 'galeriDashboard', 'videoDashboard', 'rusunawa','area'));
+        return view('pages.dashboard', compact('berita', 'pengumumanDashboard', 'dokumenDashboard', 'galeriDashboard', 'videoDashboard','area'));
     }
 }

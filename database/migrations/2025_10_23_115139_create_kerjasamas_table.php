@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('kerjasamas', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('slug');
             $table->string('nama_mitra');
             $table->string('jenis_kerjasama');
             $table->date('tanggal_mulai');
