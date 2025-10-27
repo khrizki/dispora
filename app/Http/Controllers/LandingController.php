@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use App\Models\Visitor;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use App\Models\HeroSection; 
+use App\Models\HeroSection;
 
 class LandingController extends Controller
 {
@@ -25,20 +25,6 @@ class LandingController extends Controller
         $video = Video::orderBy('created_at', 'desc')->take(3)->get();
         $galeri = Galeri::orderBy('created_at', 'desc')->take(5)->get();
         $instagram = Sosmed::orderBy('id', 'desc')->take(3)->get();
-
-        $todayVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
-
-        $monthVisitors = Visitor::whereMonth('created_at', Carbon::now()->month)
-            ->whereYear('created_at', Carbon::now()->year)
-            ->count();
-
-        $lastMonth = Carbon::now()->subMonth();
-
-        $lastMonthVisitors = Visitor::whereMonth('created_at', $lastMonth->month)
-            ->whereYear('created_at', $lastMonth->year)
-            ->count();
-
-        $totalVisitors = Visitor::count();
 
         $infoBergambar = DB::table('info_bergambar')->orderBy('created_at', 'desc')->get();
 
@@ -52,10 +38,6 @@ class LandingController extends Controller
             'video',
             'galeri',
             'instagram',
-            'todayVisitors',
-            'monthVisitors',
-            'lastMonthVisitors',
-            'totalVisitors',
             'infoBergambar',
             'pejabat',
             'hero'
@@ -75,7 +57,7 @@ class LandingController extends Controller
     public function listGaleri()
     {
         $galeriList = Galeri::orderBy('id', 'desc')->paginate(10);
-        $videoList = Video::orderBy('id', 'desc')->paginate(10); 
+        $videoList = Video::orderBy('id', 'desc')->paginate(10);
 
         return view('profil.galeri-list', compact('galeriList', 'videoList'));
     }

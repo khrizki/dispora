@@ -26,7 +26,7 @@
         </div>
 
         <!-- Main Statistics -->
-        <div class="row g-4 mb-4">
+        {{-- <div class="row g-4 mb-4">
             <!-- Berita -->
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="stat-card stat-card-primary">
@@ -90,11 +90,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="row g-4 mb-4">
             <!-- Content Statistics -->
-            <div class="col-xl-8">
+            {{-- <div class="col-xl-8">
                 <div class="dashboard-card">
                     <div class="card-header-custom">
                         <h5 class="mb-0 fw-bold">
@@ -170,10 +170,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Quick Info -->
-            <div class="col-xl-4">
+            {{-- <div class="col-xl-4"> --}}
                 <div class="dashboard-card">
                     <div class="card-header-custom">
                         <h5 class="mb-0 fw-bold">
@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="system-status mt-4">
                             <div class="d-flex align-items-center justify-content-between">
                                 <span><i class="bi bi-circle-fill text-success me-2"></i>Status Sistem</span>
@@ -232,7 +232,7 @@
         </div>
 
         <!-- Profil Organisasi -->
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12">
                 <div class="dashboard-card">
                     <div class="card-header-custom">
@@ -274,7 +274,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     <style>

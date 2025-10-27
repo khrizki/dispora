@@ -107,7 +107,27 @@
             $('#modal-form').modal('show');
         }
     </script>
-    @stack('script')
+    @stack('js')
+
+    <style>
+        /* ✅ Fix dropdown DataTables ukuran select "Show entries" */
+        .dataTables_length select {
+            padding: 6px 28px 6px 10px !important;
+            min-width: 65px;
+            height: 35px;
+            line-height: 1.5;
+            background-position: right 8px center !important;
+            background-repeat: no-repeat !important;
+            border-radius: 6px;
+        }
+
+        /* ✅ Fix posisi panah agar tidak ketimpa Metronic */
+        .dataTables_length select.form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C2.028 5.164 2.478 4.5 3.204 4.5h9.592c.726 0 1.176.664.753 1.158L8.753 11.14a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+            appearance: none !important;
+        }
+    </style>
+
 
 </body>
 

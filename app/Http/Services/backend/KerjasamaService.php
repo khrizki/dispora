@@ -13,10 +13,11 @@ class KerjasamaService
      */
     public function dataTable($request)
     {
-        $query = Kerjasama::select([
+        $query = Kerjasama::latest()->select([
             'id',
             'nama_mitra',
-            'jenis_kerjasama',
+            'slug',
+            'jenis_kerjasama_id',
             'tanggal_mulai',
             'tanggal_selesai'
         ]);
@@ -26,7 +27,7 @@ class KerjasamaService
             $search = $request->search['value'];
             $query->where(function ($q) use ($search) {
                 $q->where('nama_mitra', 'like', "%{$search}%")
-                    ->orWhere('jenis_kerjasama', 'like', "%{$search}%");
+                    ->orWhere('jenis_kerjasama_id', 'like', "%{$search}%");
             });
         }
 
@@ -70,8 +71,9 @@ class KerjasamaService
     {
         return Kerjasama::latest('tanggal_mulai')->get([
             'id',
+            'slug',
             'nama_mitra',
-            'jenis_kerjasama',
+            'jenis_kerjasama_id',
             'tanggal_mulai',
             'tanggal_selesai'
         ]);
@@ -82,16 +84,32 @@ class KerjasamaService
      */
     public function create(array $data)
     {
-        $data['id'] = (string) Str::uuid();
-        return Kerjasama::create($data);
+        // Pastikan slug dibuat dari nama mitra
+        $data['slug'] = Str::slug($data['nama_mitra']);
+
+        // Pastikan jenis_kerjasama_id ada
+        if (empty($data['jenis_kerjasama_id'])) {
+            throw new \Exception('Jenis Kerja Sama harus dipilih.');
+        }
+
+        // Simpan data
+        return Kerjasama::create([
+            'id' => Str::uuid(),
+            'slug' => $data['slug'],
+            'nama_mitra' => $data['nama_mitra'],
+            'jenis_kerjasama_id' => $data['jenis_kerjasama_id'],
+            'tanggal_mulai' => $data['tanggal_mulai'],
+            'tanggal_selesai' => $data['tanggal_selesai'],
+        ]);
     }
+
 
     /**
      * Update data kerjasama berdasarkan UUID
      */
-    public function update(array $data, string $id)
+    public function update(array $data, string $slug)
     {
-        $kerjasama = Kerjasama::where('id', $id)->firstOrFail();
+        $kerjasama = Kerjasama::where('slug', $slug)->firstOrFail();
         $kerjasama->update($data);
         return $kerjasama;
     }
@@ -99,9 +117,9 @@ class KerjasamaService
     /**
      * Hapus data (soft delete opsional)
      */
-    public function delete(string $id)
+    public function delete(string $slug)
     {
-        $kerjasama = Kerjasama::where('id', $id)->firstOrFail();
+        $kerjasama = Kerjasama::where('slug', $slug)->firstOrFail();
         $kerjasama->delete();
         return $kerjasama;
     }
