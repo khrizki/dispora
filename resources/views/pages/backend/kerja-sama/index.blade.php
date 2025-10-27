@@ -89,8 +89,8 @@
                             name: 'nama_mitra'
                         },
                         {
-                            data: 'jenis_kerjasama',
-                            name: 'jenis_kerjasama'
+                            data: 'jenis_kerjasama_id',
+                            name: 'jenis_kerjasama_id'
                         },
                         {
                             data: 'tanggal_mulai',
@@ -114,6 +114,7 @@
                                 .replace(':slug', row.slug);
                             let deleteUrl = "{{ route('admin.kerja-sama.destroy', ':slug') }}"
                                 .replace(':slug', row.slug);
+
 
                             return `
                                 <a href="#" class="btn btn-light btn-active-light-primary btn-sm"

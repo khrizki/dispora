@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\KerjasamaRequest;
 use App\Http\Services\backend\KerjasamaService;
+use App\Models\JenisKerjaSama;
 
 class KerjasamaController extends Controller
 {
@@ -24,11 +25,11 @@ class KerjasamaController extends Controller
     public function index(Request $request)
     {
         // ✅ Bisa deteksi semua jenis AJAX DataTables
-        if ($request->ajax() || $request->wantsJson() || $request->has('draw')) {
-            return $this->kerjasamaService->dataTable($request);
+        if ($request->ajax()) {
+            return app(\App\Http\Services\backend\KerjasamaService::class)->dataTable($request);
         }
 
-        return view('backend.kerja-sama.index');
+        return view('pages.backend.kerja-sama.index');
     }
 
     /**
@@ -36,7 +37,8 @@ class KerjasamaController extends Controller
      */
     public function create(): View
     {
-        return view('backend.kerja-sama.create');
+        $jenisKerjasamas = JenisKerjaSama::where('status', 'aktif')->get();
+        return view('pages.backend.kerja-sama.create', compact('jenisKerjasamas'));
     }
 
     /**
@@ -74,7 +76,7 @@ class KerjasamaController extends Controller
     {
         $kerjasama = Kerjasama::findOrFail($slug);
 
-        return view('backend.kerja-sama.show', [
+        return view('pages.backend.kerja-sama.show', [
             'kerjasama' => $kerjasama
         ]);
     }
@@ -82,10 +84,14 @@ class KerjasamaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kerjasama $kerjasama)
+    public function edit(string $slug)
     {
-        return view('backend.kerja-sama.edit', compact('kerjasama'));
+        $kerjasama = Kerjasama::where('slug', $slug)->firstOrFail();
+        $jenisKerjasamas = JenisKerjaSama::all(['id', 'nama_jenis']);
+        return view('pages.backend.kerja-sama.edit', compact('kerjasama', 'jenisKerjasamas'));
     }
+
+
 
 
     /**

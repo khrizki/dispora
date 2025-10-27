@@ -30,10 +30,16 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="jenis_kerjasama" class="form-label">Jenis Kerja Sama</label>
-                                <input type="text" name="jenis_kerjasama" id="jenis_kerjasama" class="form-control"
-                                    placeholder="Contoh: Sponsorship, Pelatihan, dsb"
-                                    value="{{ old('jenis_kerjasama', $kerjasama->jenis_kerjasama ?? '') }}">
+                                <label for="jenis_kerjasama_id" class="form-label">Jenis Kerja Sama</label>
+                                <select name="jenis_kerjasama_id" id="jenis_kerjasama_id" class="form-select">
+                                    <option value="">-- Pilih Jenis Kerja Sama --</option>
+                                    @foreach($jenisKerjasamas as $jenis)
+                                        <option value="{{ $jenis->id }}"
+                                            {{ old('jenis_kerjasama_id', $kerjasama->jenis_kerjasama_id ?? '') == $jenis->id ? 'selected' : '' }}>
+                                            {{ $jenis->nama_jenis }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="row">
@@ -71,7 +77,6 @@
 
     <script>
         $(document).ready(function() {
-            // ✅ Tentukan mode (create / edit)
             let submit_method = "{{ isset($kerjasama) ? 'edit' : 'create' }}";
             let url = "{{ isset($kerjasama) ? route('admin.kerja-sama.update', $kerjasama->id ?? 0) : route('admin.kerja-sama.store') }}";
             let method = submit_method === 'edit' ? 'PUT' : 'POST';
@@ -82,7 +87,6 @@
 
                 let formData = new FormData(this);
                 let btn = $('.btnSubmit');
-
                 btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Menyimpan...');
 
                 if (submit_method === 'edit') {
@@ -123,15 +127,12 @@
             });
         });
 
-        // ✅ Fungsi loading global
         function startLoading() {
             Swal.fire({
                 title: 'Menyimpan data...',
                 text: 'Mohon tunggu sebentar',
                 allowOutsideClick: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                }
+                didOpen: () => Swal.showLoading()
             });
         }
 

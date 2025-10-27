@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Edit Kerja Sama')
+@section('title', 'Edit Jenis Kerja Sama')
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
@@ -12,41 +12,39 @@
             <div class="col-md-8">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white">
-                        Edit Data Kerja Sama
+                        Edit Data Jenis Kerja Sama
                     </div>
                     <div class="card-body">
-                        <form id="formKerjasama" enctype="multipart/form-data">
+                        <form id="formJenisKerjaSama" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" id="id" name="id" value="{{ $jenisKerjaSama->id }}">
 
-                            <input type="hidden" id="slug" name="slug" value="{{ $kerjasama->slug }}">
-
+                            <!-- Nama Jenis -->
                             <div class="mb-3">
-                                <label for="nama_mitra" class="form-label">Nama Mitra</label>
-                                <input type="text" name="nama_mitra" id="nama_mitra" class="form-control"
-                                    value="{{ old('nama_mitra', $kerjasama->nama_mitra) }}">
+                                <label for="nama_jenis" class="form-label">Nama Jenis Kerja Sama</label>
+                                <input type="text" name="nama_jenis" id="nama_jenis" class="form-control"
+                                    value="{{ old('nama_jenis', $jenisKerjaSama->nama_jenis) }}" required>
                             </div>
 
+                            <!-- Deskripsi -->
                             <div class="mb-3">
-                                <label for="jenis_kerjasama" class="form-label">Jenis Kerja Sama</label>
-                                <input type="text" name="jenis_kerjasama" id="jenis_kerjasama" class="form-control"
-                                    value="{{ old('jenis_kerjasama', $kerjasama->jenis_kerjasama) }}">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <textarea name="deskripsi" id="deskripsi" rows="4" class="form-control"
+                                    placeholder="Masukkan deskripsi (opsional)">{{ old('deskripsi', $jenisKerjaSama->deskripsi) }}</textarea>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
-                                    <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control"
-                                        value="{{ old('tanggal_mulai', $kerjasama->tanggal_mulai) }}">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
-                                    <input type="date" name="tanggal_selesai" id="tanggal_selesai" class="form-control"
-                                        value="{{ old('tanggal_selesai', $kerjasama->tanggal_selesai) }}">
-                                </div>
+                            <!-- Status -->
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select name="status" id="status" class="form-select" required>
+                                    <option value="aktif" {{ $jenisKerjaSama->status === 'aktif' ? 'selected' : '' }}>Aktif</option>
+                                    <option value="nonaktif" {{ $jenisKerjaSama->status === 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
+                                </select>
                             </div>
 
+                            <!-- Tombol -->
                             <div class="d-flex justify-content-end">
-                                <a href="{{ route('admin.kerja-sama.index') }}" class="btn btn-secondary me-2">Kembali</a>
+                                <a href="{{ route('admin.jenis-kerja-sama.index') }}" class="btn btn-secondary me-2">Kembali</a>
                                 <button type="submit" class="btn btn-primary btnSubmit">Update</button>
                             </div>
                         </form>
@@ -64,11 +62,11 @@
 
     <script>
         $(document).ready(function() {
-            let slug = $('#slug').val();
-            let url = `/kerja-sama/${slug}`;
+            let id = $('#id').val();
+            let url = `/jenis-kerja-sama/${id}`;
             let btn = $('.btnSubmit');
 
-            $('#formKerjasama').on('submit', function(e) {
+            $('#formJenisKerjaSama').on('submit', function(e) {
                 e.preventDefault();
                 startLoading();
 
@@ -91,11 +89,11 @@
                         Swal.fire({
                             icon: 'success',
                             title: 'Berhasil!',
-                            text: response.message ?? 'Data kerja sama berhasil diperbarui!',
+                            text: response.message ?? 'Data jenis kerja sama berhasil diperbarui!',
                             timer: 2000,
                             showConfirmButton: false
                         }).then(() => {
-                            window.location.href = "{{ route('admin.kerja-sama.index') }}";
+                            window.location.href = "{{ route('admin.jenis-kerja-sama.index') }}";
                         });
                     },
                     error: function(xhr) {
@@ -113,7 +111,7 @@
             });
         });
 
-        // ✅ Fungsi loading global
+        // ✅ Loader Helper
         function startLoading() {
             Swal.fire({
                 title: 'Menyimpan data...',

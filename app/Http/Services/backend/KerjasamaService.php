@@ -17,7 +17,7 @@ class KerjasamaService
             'id',
             'nama_mitra',
             'slug',
-            'jenis_kerjasama',
+            'jenis_kerjasama_id',
             'tanggal_mulai',
             'tanggal_selesai'
         ]);
@@ -27,7 +27,7 @@ class KerjasamaService
             $search = $request->search['value'];
             $query->where(function ($q) use ($search) {
                 $q->where('nama_mitra', 'like', "%{$search}%")
-                    ->orWhere('jenis_kerjasama', 'like', "%{$search}%");
+                    ->orWhere('jenis_kerjasama_id', 'like', "%{$search}%");
             });
         }
 
@@ -73,7 +73,7 @@ class KerjasamaService
             'id',
             'slug',
             'nama_mitra',
-            'jenis_kerjasama',
+            'jenis_kerjasama_id',
             'tanggal_mulai',
             'tanggal_selesai'
         ]);
@@ -84,9 +84,25 @@ class KerjasamaService
      */
     public function create(array $data)
     {
+        // Pastikan slug dibuat dari nama mitra
         $data['slug'] = Str::slug($data['nama_mitra']);
-        return Kerjasama::create($data);
+
+        // Pastikan jenis_kerjasama_id ada
+        if (empty($data['jenis_kerjasama_id'])) {
+            throw new \Exception('Jenis Kerja Sama harus dipilih.');
+        }
+
+        // Simpan data
+        return Kerjasama::create([
+            'id' => Str::uuid(),
+            'slug' => $data['slug'],
+            'nama_mitra' => $data['nama_mitra'],
+            'jenis_kerjasama_id' => $data['jenis_kerjasama_id'],
+            'tanggal_mulai' => $data['tanggal_mulai'],
+            'tanggal_selesai' => $data['tanggal_selesai'],
+        ]);
     }
+
 
     /**
      * Update data kerjasama berdasarkan UUID

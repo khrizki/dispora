@@ -29,8 +29,8 @@ class DashboardController extends Controller
         $galeriDashboard = Galeri::count();
         $videoDashboard = Video::count();
         // $rusunawa = Rusunawa::count();
-        $area = Area::count();
+        // $area = Area::count();
 
-        return view('pages.dashboard', compact('berita', 'pengumumanDashboard', 'dokumenDashboard', 'galeriDashboard', 'videoDashboard','area'));
+        return view('pages.dashboard', compact('berita', 'pengumumanDashboard', 'dokumenDashboard', 'galeriDashboard', 'videoDashboard'));
     }
 }

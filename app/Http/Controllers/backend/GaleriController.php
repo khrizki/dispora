@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
 use App\Models\Galeri;
-use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Validator;
 
 class GaleriController extends Controller

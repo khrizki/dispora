@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\VisiMisi;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class VisiMisiController extends Controller
 {
     public function index()
     {
-        $visimisi = VisiMisi::first(); 
+        $visimisi = VisiMisi::first();
         return view('pages.visimisi.index', compact('visimisi'));
     }
 

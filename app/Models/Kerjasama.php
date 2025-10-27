@@ -8,36 +8,35 @@ use Illuminate\Support\Str;
 class Kerjasama extends Model
 {
     protected $table = 'kerjasamas';
-    protected $primaryKey = 'id';
-    public $incrementing = false;
     protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $fillable = [
         'id',
         'slug',
         'nama_mitra',
-        'jenis_kerjasama',
+        'jenis_kerjasama_id',
         'tanggal_mulai',
         'tanggal_selesai',
     ];
 
-    // ✅ Gunakan slug sebagai route key
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
-    // ✅ Auto-generate ID (UUID) dan slug saat creating
     protected static function booted()
     {
         static::creating(function ($model) {
-            if (!$model->getKey()) {
-                $model->{$model->getKeyName()} = (string) Str::uuid();
-            }
-
+            $model->id = $model->id ?? Str::uuid();
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->nama_mitra . '-' . Str::random(5));
             }
         });
+    }
+
+    public function jenis()
+    {
+        return $this->belongsTo(JenisKerjaSama::class, 'jenis_kerjasama_id');
     }
 }

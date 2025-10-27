@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Sejarah;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class SejarahController extends Controller
 {
     public function index()
     {
-        $sejarah = Sejarah::first(); 
+        $sejarah = Sejarah::first();
         return view('pages.sejarah.index', compact('sejarah'));
     }
 
