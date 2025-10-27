@@ -47,7 +47,7 @@
                     </div>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('admin.jenis-kerja-sama.*') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('admin.kerja-sama.*') ? 'active' : '' }}"
                                 href="{{ route('admin.jenis-kerja-sama.index') }}">
                                 <span class="menu-bullet"><i class="bi bi-building"></i></span>
                                 <span class="menu-title">Jenis Kerja Sama</span>
@@ -129,7 +129,7 @@
                 </div>
 
                 <!-- Galeri -->
-                <div class="menu-item menu-accordion mb-2
+                {{-- <div class="menu-item menu-accordion mb-2
                     {{ Route::is('pages.galeri.*') || Route::is('pages.video.*') ? 'here show' : '' }}"
                     data-kt-menu-trigger="click">
                     <span class="menu-link">
@@ -153,7 +153,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Pengelolaan Kegiatan -->
                 <div class="menu-item menu-accordion mb-2" data-kt-menu-trigger="click">
