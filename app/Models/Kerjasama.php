@@ -35,7 +35,7 @@ class Kerjasama extends Model
         });
     }
 
-    public function jenis()
+    public function jenisKerjaSama()
     {
         return $this->belongsTo(JenisKerjaSama::class, 'jenis_kerjasama_id');
     }

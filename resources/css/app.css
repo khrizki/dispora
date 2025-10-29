@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer components {
+  #sidebar, #main-content {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  #sidebar.w-20 span {
+    @apply hidden;
+  }
+
+  #sidebar.w-20 a {
+    @apply justify-center;
+  }
+
+  #sidebar.w-20 i {
+    @apply text-2xl;
+  }
+
+  #sidebar.w-64 i {
+    @apply text-base;
+  }
+}

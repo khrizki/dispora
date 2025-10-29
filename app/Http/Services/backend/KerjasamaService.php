@@ -13,49 +13,56 @@ class KerjasamaService
      */
     public function dataTable($request)
     {
-        $query = Kerjasama::latest()->select([
-            'id',
-            'nama_mitra',
-            'slug',
-            'jenis_kerjasama_id',
-            'tanggal_mulai',
-            'tanggal_selesai'
-        ]);
+        // Ambil data dengan relasi jenisKerjaSama
+        $query = Kerjasama::with('jenisKerjaSama:id,nama_jenis')
+            ->latest('tanggal_mulai')
+            ->select([
+                'id',
+                'nama_mitra',
+                'slug',
+                'jenis_kerjasama_id', // foreign key
+                'tanggal_mulai',
+                'tanggal_selesai',
+            ]);
 
         // ✅ Filter pencarian
         if (!empty($request->search['value'])) {
             $search = $request->search['value'];
             $query->where(function ($q) use ($search) {
-                $q->where('nama_mitra', 'like', "%{$search}%")
-                    ->orWhere('jenis_kerjasama_id', 'like', "%{$search}%");
+                $q->where('nama_mitra', 'like', "%{$search}%");
             });
         }
 
-        // ✅ Gunakan DataTables langsung
+        // ✅ Gunakan DataTables
         return DataTables::of($query)
             ->addIndexColumn()
+            ->addColumn('nama_jenis', function ($row) {
+                // ambil nama jenis dari relasi
+                return $row->jenisKerjaSama ? $row->jenisKerjaSama->nama_jenis : '-';
+            })
             ->editColumn('tanggal_mulai', fn($row) => date('d M Y', strtotime($row->tanggal_mulai)))
             ->editColumn('tanggal_selesai', fn($row) => date('d M Y', strtotime($row->tanggal_selesai)))
             ->addColumn('action', function ($row) {
                 return '
-                    <div class="text-center">
-                        <div class="btn-group">
-                            <a href="' . route('admin.kerja-sama.show', $row->id) . '" class="btn btn-sm btn-secondary">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="' . route('admin.kerja-sama.edit', $row->id) . '" class="btn btn-sm btn-success">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button type="button" class="btn btn-sm btn-danger" onclick="deleteData(this)" data-id="' . $row->id . '">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
+                <div class="text-center">
+                    <div class="btn-group">
+                        <a href="' . route('admin.kerja-sama.show', $row->id) . '" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a href="' . route('admin.kerja-sama.edit', $row->id) . '" class="btn btn-sm btn-success">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button type="button" class="btn btn-sm btn-danger" onclick="deleteData(this)" data-id="' . $row->id . '">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                     </div>
-                ';
+                </div>
+            ';
             })
             ->rawColumns(['action'])
             ->make(true);
     }
+
     /**
      * Ambil satu data berdasarkan kolom
      */
@@ -69,14 +76,16 @@ class KerjasamaService
      */
     public function all()
     {
-        return Kerjasama::latest('tanggal_mulai')->get([
-            'id',
-            'slug',
-            'nama_mitra',
-            'jenis_kerjasama_id',
-            'tanggal_mulai',
-            'tanggal_selesai'
-        ]);
+        return Kerjasama::with('jenisKerjasama:id,nama_jenis')
+            ->latest('tanggal_mulai')
+            ->get([
+                'id',
+                'slug',
+                'nama_mitra',
+                'jenis_kerjasama_id',
+                'tanggal_mulai',
+                'tanggal_selesai'
+            ]);
     }
 
     /**

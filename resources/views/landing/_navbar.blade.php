@@ -9,6 +9,7 @@
         'profil.*',
     ];
 @endphp
+
 <div class="info-banner">
     @if (isset($pengumuman))
         <marquee behavior="scroll" direction="left" scrollamount="5">
@@ -19,108 +20,144 @@
         </marquee>
     @endif
 </div>
-{{-- <nav
-    class="navbar navbar-expand-lg navbar-light {{ Route::is($route) ? 'navbar-store-download' : 'navbar-store' }} fixed-top navbar-fixed-top ">
 
-    <div class="container d-flex justify-content-between align-items-center">
-
-        <!-- <a class="navbar-brand mb-0" href="{{ route('landing') }}">  -->
-            <img src="{{ asset('assets/img/logo-head-DISPORA.png') }}"
-                class="w-50 animate__animated animate__backInLeft" alt="logo" />
-        <!-- </a> -->
-        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> --}}
-
-<nav class="navbar navbar-expand-lg navbar-light {{ Route::is($route) ? 'navbar-store-download' : 'navbar-store' }} fixed-top navbar-fixed-top">
-
+<nav class="navbar navbar-expand-lg navbar-light {{ Route::is($route) ? 'navbar-store-download' : 'navbar-store' }} fixed-top">
     <div class="container d-flex justify-content-between align-items-center">
 
         <!-- Logo -->
-        <!-- <a class="navbar-brand mb-0" href="{{ route('landing') }}"> -->
-            <img src="{{ asset('assets/img/logo-head-DISPORA.png') }}"
-                 class="animate__animated animate__backInLeft" alt="logo" style="max-height:50px;" />
-        <!-- </a> -->
+        <a class="navbar-brand" href="{{ route('beranda') }}">
+            <img src="{{ asset('assets/img/logo-head-DISPORA.png') }}" alt="DISPORA Kota Padang"
+                 class="animate__animated animate__backInLeft" style="max-height:50px;">
+        </a>
 
-        <!-- Tombol Hamburger (di kanan logo) -->
+        <!-- Hamburger -->
         <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Menu -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
+
+                <!-- BERANDA -->
                 <li class="nav-item {{ Route::is('beranda') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('beranda') }}">Home</a>
+                    <a class="nav-link" href="{{ route('beranda') }}">Beranda</a>
                 </li>
 
-                <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- PROFIL -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                         Profil
                     </a>
-
-                    <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('profil.visi-misi') }}">Visi & Misi</a>
-                        <a class="dropdown-item" href="{{ route('profil.sejarah') }}">Sejarah</a>
-                        <a class="dropdown-item" href="{{ route('profil.pejabat') }}">Pejabat Struktural </a>
-                        <a class="dropdown-item" href="{{ route('profil.tupoksi') }}">Tugas & Fungsi</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Struktur Organisasi</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header text-muted">ORMAS</h6>
+                        <a class="dropdown-item" href="#">KONI</a>
+                        <a class="dropdown-item" href="#">KORMI</a>
+                        <a class="dropdown-item" href="#">KNPI</a>
+                        <a class="dropdown-item" href="#">Pramuka</a>
                     </div>
-
                 </li>
-                <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Produk
+
+                <!-- PAD -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="padDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        PAD (Teratai)
                     </a>
-
-                    <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        {{-- <a class="dropdown-item" href="{{ route('profil.rusunawa') }}">Kolam renang Teratai</a> --}}
-                        <!-- <a class="dropdown-item" href="#">RUSUS (Rumah Khusus)</a>
-                        <a class="dropdown-item" href="{{ route('profil.rtlh') }}">Perbaikan RTLH (Rumah Tidak Layah Huni)</a>
-                        <a class="dropdown-item" href="https://sikasper.padang.go.id/">SIKASPER</a>
-                        <a class="dropdown-item" href="https://sirumahkita.padang.go.id/">SI RUMAH KITA</a>
-                        <a class="dropdown-item" href="{{ route('profil.psu') }}">Peningkatan Prasarana, Sarana, dan Utilitas Umum</a>
-                        <a class="dropdown-item" href="https://sirumahkita.padang.go.id/catalogue/#/map/90">Peningkatan Kualitas Perumahan Kumuh dan Pemukiman Kumuh</a>
-                        <a class="dropdown-item" href="https://sikasper.padang.go.id/map/sanitasi/7/62/">Sanitasi Rumah</a>
-                        <a class="dropdown-item" href="#">Air Minum Perumahan</a> -->
-
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Jadwal Sewa</a>
+                        <a class="dropdown-item" href="#">Kalender Sewa</a>
+                        <a class="dropdown-item" href="#">Booking</a>
                     </div>
-
                 </li>
-                <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Informasi Publik
+
+                <!-- KEGIATAN -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="kegiatanDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Kegiatan
                     </a>
-
-                    <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        {{-- <a class="dropdown-item" href="{{ route('profil.pengumuman') }}">Pengumuman</a> --}}
-                        {{-- <a class="dropdown-item" href="{{ route('profil.list') }}">Berita & Artikel</a> --}}
-                        {{-- <a class="dropdown-item" href="{{ route('profil.dokumen') }}">Regulasi / Peraturan</a>
-                        HAPUS OOP DOKUMEN --}}
-                        <a class="dropdown-item" href="{{ route('profil.lowongan') }}">Lowongan</a>
-
+                    <div class="dropdown-menu">
+                        <h6 class="dropdown-header text-muted">Event</h6>
+                        <a class="dropdown-item" href="#">Event Tahunan</a>
+                        <a class="dropdown-item" href="#">Kalender Olahraga</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header text-muted">Lomba</h6>
+                        <a class="dropdown-item" href="#">POPDA</a>
+                        <a class="dropdown-item" href="#">Peparpeda</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header text-muted">Pemuda</h6>
+                        <a class="dropdown-item" href="#">Pemuda Pelopor</a>
+                        <a class="dropdown-item" href="#">Kewirausahaan Pemuda</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Atlet Binaan</a>
                     </div>
-
                 </li>
-                <li class="nav-item dropdown {{ Route::is('landing.download') ? 'active' : '' }}">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Galeri
+
+                <!-- BERITA -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="beritaDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Berita
                     </a>
-                    <div class="dropdown-content dropdown-menu" aria-labelledby="navbarDropdown">
-                        {{-- <a class="dropdown-item" href="{{ route('profil.galeriList') }}">Galeri Foto & Video</a> --}}
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('profil.list') }}">Artikel</a>
+                        <a class="dropdown-item" href="#">Facebook</a>
+                        <a class="dropdown-item" href="#">Instagram</a>
                     </div>
-
                 </li>
+
+                <!-- KERJA SAMA -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    <a class="nav-link" href="#">Kerja Sama</a>
                 </li>
-            </ul>
 
+                <!-- SPORT CENTER -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="sportDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Sport Center
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Komunitas</a>
+                        <a class="dropdown-item" href="#">Club Sport</a>
+                    </div>
+                </li>
+
+                <!-- CONTACT -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Center</a>
+                </li>
+
+                <!-- LOGIN -->
+                <li class="nav-item">
+                    <a class="nav-link btn btn-sm btn-primary text-white px-3" href="{{ route('login') }}">
+                        <i class="fa fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
+
+            </ul>
         </div>
     </div>
 </nav>
+
+<style>
+    .navbar-nav .dropdown-menu {
+        border-radius: 0.5rem;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .navbar-nav .dropdown-header {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #6c757d;
+    }
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+        color: #6c757d !important;
+    }
+    .navbar-store {
+        background-color: white;
+        transition: 0.3s;
+    }
+</style>

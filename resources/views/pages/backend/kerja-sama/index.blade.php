@@ -7,59 +7,48 @@
 @endpush
 
 @section('content')
-    <div class="d-flex flex-column flex-column-fluid">
-        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
-            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
-                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        Data Kerja Sama DISPORA Kota Padang
-                    </h1>
+    <div class="flex flex-col min-h-screen min-w-sc text-gray-800">
+        {{-- 🧭 Header --}}
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 border-b border-gray-200 pb-4">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">Data Kerja Sama</h1>
+                <p class="text-gray-500 text-sm mt-1">Menampilkan seluruh data kerja sama antara DISPORA dan mitra terkait.</p>
+            </div>
+
+            <div class="mt-3 md:mt-0 flex gap-3">
+                <div class="relative">
+                    <input type="text" data-kt-table-filter="search" id="search"
+                        placeholder="Cari kerja sama..."
+                        class="block w-64 rounded-md border border-gray-300 pl-10 pr-3 py-2 text-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                        <i class="fa fa-search text-sm"></i>
+                    </span>
                 </div>
+
+                <a href="{{ route('admin.kerja-sama.create') }}"
+                   class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-all duration-200">
+                    <i class="bi bi-plus-circle"></i> Tambah Data
+                </a>
             </div>
         </div>
 
-        <div id="kt_app_content" class="app-content flex-column-fluid">
-            <div id="kt_app_content_container" class="app-container container-xxl">
-                <div class="card">
-                    <div class="card-header pt-2">
-                        <div class="card-title">
-                            <!-- Search -->
-                            <div class="d-flex align-items-center position-relative my-1">
-                                <span class="svg-icon svg-icon-1 position-absolute ms-6">
-                                    <i class="fa fa-search"></i>
-                                </span>
-                                <input type="text" data-kt-table-filter="search"
-                                    class="form-control form-control-solid w-250px ps-14 filter"
-                                    placeholder="Cari Kerja Sama" id="search" />
-                            </div>
-                        </div>
-
-                        <div class="card-toolbar">
-                            <div class="d-flex align-items-center gap-2 gap-lg-3">
-                                <a href="{{ route('admin.kerja-sama.create') }}" class="btn fw-bold btn-primary">
-                                    Tambah Data
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body py-4">
-                        <!--begin::Datatable-->
-                        <table id="dataTableKerjasama" class="table align-middle table-row-dashed fs-6 gy-5">
-                            <thead>
-                                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                    <th>#</th>
-                                    <th>Nama Mitra</th>
-                                    <th>Jenis Kerja Sama</th>
-                                    <th>Tanggal Mulai</th>
-                                    <th>Tanggal Selesai</th>
-                                    <th class="text-end min-w-100px">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-600 fw-semibold"></tbody>
-                        </table>
-                        <!--end::Datatable-->
-                    </div>
+        {{-- 📊 Card Data Table --}}
+        <div class="bg-white rounded-xl shadow-md border border-gray-100">
+            <div class="p-6">
+                <div class="overflow-x-auto">
+                    <table id="dataTableKerjasama" class="min-w-full text-sm text-left text-gray-700">
+                        <thead class="border-b bg-gray-50 text-gray-600 uppercase text-xs font-semibold">
+                            <tr>
+                                <th class="py-3 px-4">#</th>
+                                <th class="py-3 px-4">Nama Mitra</th>
+                                <th class="py-3 px-4">Jenis Kerja Sama</th>
+                                <th class="py-3 px-4">Tanggal Mulai</th>
+                                <th class="py-3 px-4">Tanggal Selesai</th>
+                                <th class="py-3 px-4 text-right">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-gray-800 fw-semibold"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -67,7 +56,6 @@
 @endsection
 
 @push('js')
-    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
     <script>
         const KTDatatablesKerjasama = function() {
             let table;
@@ -77,68 +65,41 @@
                     searchDelay: 500,
                     processing: true,
                     serverSide: true,
+                    responsive: true,
                     ajax: "{{ route('admin.kerja-sama.index') }}",
-                    columns: [{
-                            data: 'DT_RowIndex',
-                            name: 'DT_RowIndex',
-                            orderable: false,
-                            searchable: false
-                        },
-                        {
-                            data: 'nama_mitra',
-                            name: 'nama_mitra'
-                        },
-                        {
-                            data: 'jenis_kerjasama_id',
-                            name: 'jenis_kerjasama_id'
-                        },
-                        {
-                            data: 'tanggal_mulai',
-                            name: 'tanggal_mulai'
-                        },
-                        {
-                            data: 'tanggal_selesai',
-                            name: 'tanggal_selesai'
-                        },
-                        {
-                            data: null
-                        }
+                    columns: [
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                        { data: 'nama_mitra', name: 'nama_mitra' },
+                        { data: 'nama_jenis', name: 'nama_jenis' },
+                        { data: 'tanggal_mulai', name: 'tanggal_mulai' },
+                        { data: 'tanggal_selesai', name: 'tanggal_selesai' },
+                        { data: null }
                     ],
                     columnDefs: [{
                         targets: -1,
                         data: null,
                         orderable: false,
-                        className: 'text-end',
+                        className: 'text-right',
                         render: function(data, type, row) {
-                            let editRoute = "{{ route('admin.kerja-sama.edit', ':slug') }}"
-                                .replace(':slug', row.slug);
-                            let deleteUrl = "{{ route('admin.kerja-sama.destroy', ':slug') }}"
-                                .replace(':slug', row.slug);
-
+                            let editRoute = "{{ route('admin.kerja-sama.edit', ':slug') }}".replace(':slug', row.slug);
+                            let deleteUrl = "{{ route('admin.kerja-sama.destroy', ':slug') }}".replace(':slug', row.slug);
 
                             return `
-                                <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
-                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                :
-                                </a>
-
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded
-                                            menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-                                    <div class="menu-item px-3">
-                                        <a href="${editRoute}" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <div class="menu-item px-3">
-                                        <a href="${deleteUrl}" class="menu-link px-3 text-danger"
-                                        data-kt-docs-table-filter="delete_row">Delete</a>
-                                    </div>
+                                <div class="flex justify-end gap-2">
+                                    <a href="${editRoute}" class="text-blue-600 hover:text-blue-800" title="Edit">
+                                        <i class="bi bi-pencil-square text-lg"></i>
+                                    </a>
+                                    <a href="${deleteUrl}" class="text-red-600 hover:text-red-800" title="Hapus"
+                                        data-kt-docs-table-filter="delete_row">
+                                        <i class="bi bi-trash text-lg"></i>
+                                    </a>
                                 </div>
                             `;
                         },
                     }]
                 });
 
-                // Refresh dropdown menu
+                // Refresh after redraw
                 table.on("draw", function() {
                     KTMenu.createInstances();
                 });
@@ -182,16 +143,13 @@
                     $.ajax({
                         url: url,
                         type: 'DELETE',
-                        data: {
-                            _token: '{{ csrf_token() }}'
-                        },
+                        data: { _token: '{{ csrf_token() }}' },
                         success: function(response) {
                             Swal.fire('Berhasil!', response.message, 'success');
                             $('#dataTableKerjasama').DataTable().ajax.reload();
                         },
                         error: function(xhr) {
-                            Swal.fire('Gagal!', xhr.responseJSON?.message ||
-                                'Terjadi kesalahan.', 'error');
+                            Swal.fire('Gagal!', xhr.responseJSON?.message || 'Terjadi kesalahan.', 'error');
                         }
                     });
                 }
